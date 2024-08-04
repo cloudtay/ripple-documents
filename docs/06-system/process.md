@@ -1,5 +1,7 @@
 ---
 title: 进程 - Process
+description: PRipple中的Process库提供了一个基础的进程管理器, 用于在PRipple中启动一个新的进程, 并且可以通过管道进行通信。
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '进程', '管道', 'Process']
 ---
 
 ### Parallel 模块

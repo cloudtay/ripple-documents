@@ -1,5 +1,7 @@
 ---
 title: 递延 - \P\defer
+description: PRipple中支持通过\P\defer方法延迟执行一个闭包函数, 用于处理异步操作。
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '递延', '异步']
 ---
 
 ### API

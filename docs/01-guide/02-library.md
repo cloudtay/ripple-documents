@@ -1,5 +1,7 @@
 ---
 title: 模块 - Library
+description: PRipple所有的支持库都处于`P`命名空间下,并根据它所属的模块进行了划分,目前支持库有以下几个模块
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发']
 ---
 
 ## 介绍

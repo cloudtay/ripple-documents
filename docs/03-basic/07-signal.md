@@ -1,5 +1,7 @@
 ---
 title: 信号 - \P\signal
+description: PRipple中Signal (信号) 是PRipple框架中的一个核心概念，用于处理系统信号。Signal对象代表一个系统信号的触发，以及其处理器。
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '信号', 'Signal']
 ---
 
 ### API

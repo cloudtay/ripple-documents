@@ -1,5 +1,7 @@
 ---
 title: 频道 - Channel
+description: PRipple中的Channel (频道) 是PRipple框架中的一个核心概念，用于多个进程之间之间的通信。Channel对象代表一个数据通道, 用于多个进程之间之间的通信。
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '频道', 'Channel']
 ---
 
 ### 访问组件

@@ -1,5 +1,7 @@
 ---
 title: 引言 - Introduction
+description: PRipple是一个高性能的原生PHP协程框架，旨在处理高并发、复杂的网络通信和数据操作。
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发']
 ---
 
 ### 环境说明

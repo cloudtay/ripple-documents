@@ -1,5 +1,7 @@
 ---
 title: 重做 - \P\repeat
+description: PRipple中支持通过\P\repeat方法重复执行一个闭包函数, 用于处理定时任务等场景。PRipple会为你提交的闭包函数提供一个`cancel`回调函数, 通过调用`cancel`函数可以取消当前的重复任务。
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '重做', '定时任务']
 ---
 
 ### API

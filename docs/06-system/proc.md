@@ -1,5 +1,7 @@
 ---
 title: 启动器 - Proc
+description: PRipple中的Proc库提供了一个基础的进程管理器, 用于在PRipple中启动一个新的进程, 并且可以通过管道进行通信。
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '进程', '管道', 'Proc']
 ---
 
 ### PRipple中的Proc

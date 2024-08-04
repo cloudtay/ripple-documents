@@ -1,5 +1,7 @@
 ---
 title: 文件 - File
+description: PRipple中支持通过\P\IO::File()方法操作文件, 用于处理文件读写操作。
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '文件', 'IO']
 ---
 
 ### 访问组件

@@ -1,5 +1,7 @@
 ---
 title: 流 - Stream
+description: PRipple中支持通过\P\IO::Stream()方法操作流, 用于处理流读写操作。
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '流', 'IO']
 ---
 
 ### 概述

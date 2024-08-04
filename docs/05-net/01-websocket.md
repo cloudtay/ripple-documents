@@ -1,5 +1,7 @@
 ---
 title: websocket
+description: PRipple中支持通过\P\Net::WebSocket()方法操作WebSocket, 用于处理WebSocket服务。
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', 'WebSocket', 'Net']
 ---
 
 ### 概述

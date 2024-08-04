@@ -1,5 +1,7 @@
 ---
 title: 期约 - \P\promise
+description: Promise (承诺/期约机制) 是PRipple框架中的一个核心概念，用于处理异步操作。Promise对象代表一个异步操作的最终完成或失败，以及其结果值。相对于Future, Promise提供了更直观的API, 更容易理解和使用。
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '期约机制', 'Promise','承诺机制']
 ---
 
 ### API

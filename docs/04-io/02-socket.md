@@ -1,5 +1,7 @@
 ---
 title: 套接字 - Socket
+description: PRipple中的套接字库, 用于实现异步网络通信, 包括创建套接字连接, SSL连接等。
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '套接字', 'Socket', 'SSL']
 ---
 
 ### 访问组件

@@ -1,5 +1,6 @@
 ---
 title: 触发器 - \P\tick
+description: \P\tick函数用于触发所有事件, PRipple会开始执行所有事件, 直到空闲为止。
 ---
 
 ### API

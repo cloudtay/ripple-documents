@@ -15,7 +15,9 @@ function HomepageHeader() {
                 <Heading as="h1" className="hero__title">
                     {siteConfig.title}
                 </Heading>
-                <p className="hero__subtitle">{siteConfig.tagline}</p>
+                <p className="hero__subtitle">
+                    现代化PHP原生协程引擎
+                </p>
                 <div className={styles.buttons}>
                     <Link
                         className="button button--secondary button--lg"
@@ -31,7 +33,7 @@ function HomepageHeader() {
 export default function Home(): JSX.Element {
     const {siteConfig} = useDocusaurusContext();
     return (
-        <Layout title="现代化PHP原生协程支持库">
+        <Layout title="PHP协程引擎">
             <HomepageHeader/>
             <main>
                 <HomepageFeatures/>

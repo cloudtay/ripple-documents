@@ -1,5 +1,8 @@
 ---
 title: 异步 - \P\async
+description: PRipple中Async (异步) 是PRipple框架中的一个核心概念，用于处理异步操作。Async对象代表一个异步操作的最终完成或失败，以及其结果值。
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '异步', 'Async']
+tags: ['异步', 'Async']
 ---
 
 ### API

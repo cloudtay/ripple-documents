@@ -1,5 +1,7 @@
 ---
 title: http
+description: PRipple中的Http服务组件, 用于构建一个Http服务
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', 'Http', 'Server','异步Http','GuzzleHttp异步','Guzzle异步']
 ---
 
 ### Http服务 模块

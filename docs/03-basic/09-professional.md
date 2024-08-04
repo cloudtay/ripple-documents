@@ -1,5 +1,7 @@
 ---
 title: 高级用法 - Professional
+description: PRipple框架中的高级用法, 包括异步操作, 信号处理, 睡眠, 期约机制等。
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '异步', '信号', '睡眠', '期约']
 ---
 
 ### API

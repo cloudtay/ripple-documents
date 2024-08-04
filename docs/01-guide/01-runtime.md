@@ -1,5 +1,7 @@
 ---
 title: 运行机制 - Runtime
+description: 在PRipple中,所有define的异步闭包都由EventLoop驱动, PRipple对任何一个闭包的发生运行时都会特别声明与严格把控, 所有对于插件/组件的开发者也应该关心这点,防止闭包发生进程/纤程逃逸,运行黑洞的情况
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发']
 ---
 
 ### 介绍
@@ -35,10 +37,6 @@ require __DIR__.'/../vendor/autoload.php';
 # 启动PRipple
 \P\tick();
 ```
-
-#### 约束
-
-无法使用`\P\await`
 
 ---
 

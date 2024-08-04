@@ -1,5 +1,7 @@
 ---
 title: 延迟 - \P\delay
+description: PRipple中支持通过\P\delay方法延迟执行一个闭包函数, 用于处理异步操作。
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '延迟', '异步']
 ---
 
 ### API

@@ -1,5 +1,7 @@
 ---
 title: 撤销 - \P\cancel
+description: Cancel (撤销) , 用于撤销一个事件, 通常用于取消异步任务, 支持撤销所有定义的运行上下文为独立纤程的事件。如`delay`, `repeat`, `onSignal`, `defer`等
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '撤销', '取消', '异步任务']
 ---
 
 ### API

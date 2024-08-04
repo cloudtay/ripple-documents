@@ -1,5 +1,7 @@
 ---
 title: 服务模式 - Server
+description: PRipple提供了常驻内存的服务模式运行，可以将你的程序作为一个服务运行，相对于传统CGI的模式工作流程, 服务模式运行能够有效的提高程序的性能，减少加载文件的无必要消耗, 在广泛的实践中，服务模式的性能要远远高于传统CGI模式。
+keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '服务模式', '服务端', '服务运行']
 ---
 
 ### 概述
@@ -21,7 +23,7 @@ PRipple提供了常驻内存的服务模式运行，可以将你的程序作为�
 
 目前，该项目已经支持 ThinkPHP 和 Laravel。以Laravel为例
 
-### 安装过程
+### 安装方法
 
 > 通过 Composer 安装
 
@@ -29,7 +31,9 @@ PRipple提供了常驻内存的服务模式运行，可以将你的程序作为�
 composer require cclilshy/p-ripple-drive
 ```
 
-#### WorkerMan
+### 部署参考
+
+#### Workerman
 
 ```php
 Worker::$eventLoopClass = Workerman::class;
@@ -38,7 +42,7 @@ Worker::runAll();
 
 ---
 
-#### WebMan
+#### Webman
 
 > 修改配置文件config/server.php服务配置文件
 
@@ -58,10 +62,13 @@ return [
 composer require cclilshy/p-ripple-drive
 
 #运行
-php artisan p:run
+php artisan p:server {action} {--listen=} {--threads=} {--daemon}
+
+# action: start|stop|status, 默认为start
 
 # -l | --listen     服务监听地址,默认为 http://127.0.0.1:8008
 # -t | --threads    服务线程数,默认为4
+# -d | --daemon     是否以守护进程运行,默认为false
 ```
 
 访问连接
@@ -167,7 +174,7 @@ if (PHP_SAPI === 'cli') {
 composer require cclilshy/p-ripple-drive
 
 #运行
-php think p:run
+php think p:server
 
 # -l | --listen     服务监听地址,默认为 http://127.0.0.1:8008
 # -t | --threads    服务线程数,默认为4
