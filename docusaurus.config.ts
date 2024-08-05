@@ -25,8 +25,20 @@ const config: Config = {
     // useful metadata like html lang. For example, if your site is Chinese, you
     // may want to replace "en" with "zh-Hans".
     i18n: {
-        defaultLocale: 'en',
-        locales: ['en'],
+        defaultLocale: 'zh',
+        locales: ['zh', 'en'],
+        localeConfigs: {
+            zh: {
+                label: '中文',
+                htmlLang: 'zh-CN',
+                path: 'zh',
+            },
+            en: {
+                label: 'English',
+                htmlLang: 'en-us',
+                path: 'en',
+            },
+        }
     },
 
     presets: [
@@ -64,7 +76,11 @@ const config: Config = {
                 src: 'img/logo.svg',
             },
             items: [
-                { to: '/docs/intro', label: 'Docs', position: 'left' },
+                {to: '/docs/intro', label: 'Docs', position: 'left'},
+                {
+                    type: 'localeDropdown',
+                    position: 'right',
+                },
                 {
                     href: 'https://github.com/cloudtay/p-ripple-core',
                     label: 'Source Code',
