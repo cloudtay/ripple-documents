@@ -6,24 +6,12 @@ keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '服务模式',
 
 ### 概述
 
-PRipple提供了常驻内存的服务模式运行，可以将你的程序作为一个服务运行，相对于传统CGI的模式工作流程:
+PRipple提供了常驻内存的服务模式运行，可以将你的程序作为一个服务运行，相对于传统CGI的模式工作流程,
+服务模式的工作流程能够有效的提高程序的性能，减少加载文件的无必要消耗, 在广泛的实践中，服务模式的性能要远远高于传统CGI模式。
 
-> - 请求1: 加载文件->处理请求并响应
-> - 请求2: 加载文件->处理请求并响应
-> - 请求3: 加载文件->处理请求并响应
+目前该项目已经支持 ThinkPHP / Laravel / Workerman / Webman
 
-服务模式的工作流程:
-
-> - 启动:           加载文件->启动服务
-> - 请求1:          服务->处理请求并响应
-> - 请求2:          服务->处理请求并响应
-> - 请求3:          服务->处理请求并响应
-
-能够有效的提高程序的性能，减少加载文件的无必要消耗, 在广泛的实践中，服务模式的性能要远远高于传统CGI模式。
-
-目前，该项目已经支持 ThinkPHP 和 Laravel。以Laravel为例
-
-### 安装方法
+## 安装方法
 
 > 通过 Composer 安装
 
@@ -31,71 +19,63 @@ PRipple提供了常驻内存的服务模式运行，可以将你的程序作为�
 composer require cclilshy/p-ripple-drive
 ```
 
-### 部署参考
+## 部署参考
 
-#### Workerman
+### Workerman
 
 ```php
-Worker::$eventLoopClass = Workerman::class;
+Worker::$eventLoopClass = \Psc\Drive\Workerman\PDrive::class;
 Worker::runAll();
 ```
 
 ---
 
-#### Webman
+### Webman
 
 > 修改配置文件config/server.php服务配置文件
 
 ```php
 return [
     //...
-    'event_loop' => \Psc\Drive\Workerman::class,
+    'event_loop' => \Psc\Drive\Workerman\PDrive::class,
 ];
 ```
 
 --- 
 
-#### Laravel
+### Laravel
+
+#### 环境配置支持(ENV)
+
+| 配置项               | 说明                                                                 | 默认值                     |
+|-------------------|--------------------------------------------------------------------|-------------------------|
+| `PRP_HTTP_LISTEN` | HTTP服务,监听地址格式如`http://127.0.0.1:8008`                              | `http://127.0.0.1:8008` |
+| `PRP_HTTP_COUNT`  | HTTP服务,工作进程数                                                       | `4`                     |
+| `PRP_ISOLATION`   | 控制器隔离模式,开启后每次请求都会重新实例化Controller,适用于有状态的Controller隔离$this->request | `0`                     |
 
 ```bash
-#安装
-composer require cclilshy/p-ripple-drive
+php artisan p:server {action} {--daemon}
 
-#运行
-php artisan p:server {action} {--listen=} {--threads=} {--daemon}
-
-# action: start|stop|status, 默认为start
-
-# -l | --listen     服务监听地址,默认为 http://127.0.0.1:8008
-# -t | --threads    服务线程数,默认为4
+# action: start|stop|reload|status, 默认为start
 # -d | --daemon     是否以守护进程运行,默认为false
 ```
 
-访问连接
+> open `http://127.0.0.1:8008/`
+--- 
 
-> 访问 `http://127.0.0.1:8008/
+### ThinkPHP
 
-运行效果
+```bash
+php think p:server  {action} {--daemon}
 
-![display](https://raw.githubusercontent.com/cloudtay/p-ripple-drive/main/assets/display.jpg)
-
-#### Laravel 异步文件下载使用方法
-
-```php
-Route::get('/download', function (Request $request) {
-    return new BinaryFileResponse(__FILE__);
-});
+# action: start|stop|reload|status, 默认为start
+# -d | --daemon     是否以守护进程运行,默认为false
 ```
 
-- 静态文件配置
+> open `http://127.0.0.1:8008/`
+---
 
-> 传统的FPM项目在CLI运行模式下一般请求无法直接访问public路径下的文件
-> 你可以通过Nginx路由方式配置代理到public路径或自行创建路由解决这一需求
-> 以下是两种参考解决方案(Laravel)
-
-* 静态文件访问解决方案(Nginx代理)
-
-> 配置Nginx伪静态
+### Nginx参考
 
 ```nginx
 location / {
@@ -108,97 +88,122 @@ location @backend {
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Forwarded-Port $server_port;
 }
 ```
-
-- 静态文件访问解决方案(独立运行)
-
-> 添加Laravel路由项
-
-```php
-if (PHP_SAPI === 'cli') {
-    Route::where(['path' => '.*'])->get('/{path}', function (Request $request, \Illuminate\Http\Response $response, string $path) {
-        $fullPath = public_path($path);
-        if (file_exists($fullPath)) {
-            $ext = pathinfo($fullPath, PATHINFO_EXTENSION);
-
-            if (strtolower($ext) === 'php') {
-                $response->setStatusCode(403);
-
-            } elseif (str_contains(urldecode($fullPath), '..')) {
-                $response->setStatusCode(403);
-
-            } else {
-                $mimeType = match ($ext) {
-                    'css' => 'text/css',
-                    'js' => 'application/javascript',
-                    'json' => 'application/json',
-                    'png' => 'image/png',
-                    'jpg', 'jpeg' => 'image/jpeg',
-                    'gif' => 'image/gif',
-                    'svg' => 'image/svg+xml',
-                    'ico' => 'image/x-icon',
-                    'mp4' => 'video/mp4',
-                    'webm' => 'video/webm',
-                    'mp3' => 'audio/mpeg',
-                    'wav' => 'audio/wav',
-                    'webp' => 'image/webp',
-                    'pdf' => 'application/pdf',
-                    'zip' => 'application/zip',
-                    'rar' => 'application/x-rar-compressed',
-                    'tar' => 'application/x-tar',
-                    'gz' => 'application/gzip',
-                    'bz2' => 'application/x-bzip2',
-                    'txt' => 'text/plain',
-                    'html', 'htm' => 'text/html',
-                    default => 'application/octet-stream',
-                };
-                $response->headers->set('Content-Type', $mimeType);
-                $response->setContent(
-                    P\await(P\IO::File()->getContents($fullPath))
-                );
-            }
-            return $response;
-        }
-        return $response->setStatusCode(404);
-    });
-}
-```
-
---- 
-
-### ThinkPHP
-
-```bash
-#安装
-composer require cclilshy/p-ripple-drive
-
-#运行
-php think p:server
-
-# -l | --listen     服务监听地址,默认为 http://127.0.0.1:8008
-# -t | --threads    服务线程数,默认为4
-```
-
-> open `http://127.0.0.1:8008/`
----
 
 ### 注意事项
 
-> 在`Laravel`,`ThinkPHP下`的CLI模式, 整个运行过程的 `Controller` `Service`
-> 等 `Container` 构建的单例,默认只会在运行时被构造一次(全局唯一控制器对象), 且在整个运行过程中不会被销毁
-> 在开发过程应特别关心这一点与CLI模式在这点上与FPM截然不同, 但这也是它能够拥有火箭般速度的原因之一
-
-> PRipple不会干涉框架的运行机制, 因此我们为上述场景提供了解决方案以Laravel例,可以创建中间件以在每次请求时重新构建控制器以保证线程安全
-
-```php
-//中间件handle部分的代码
-$route = $request->route();
-if ($route instanceof Route) {
-    $route->controller     = app($route->getControllerClass());
-}
-return $next($request);
-```
-
 > 你需要有一定了解CLI运行模式的机制,并知悉下列函数在运行过程中会发生什么以决定如何使用它们?如
 > `dd` `var_dump` `echo` `exit` `die`
+
+## 自定义服务
+
+Laravel/ThinkPHP的Http服务也是基于Worker实现的,内置于Drive中并注入了Laravel的依赖注入
+你可以通过继承Worker类来实现自定义服务,并使用HttpWorker于其相互调用,如
+
+### Ws.php
+
+```php
+<?php declare(strict_types=1);
+
+namespace App\Server;
+
+use P\Net;
+use Psc\Core\WebSocket\Server\Connection;
+use Psc\Core\WebSocket\Server\Server;
+use Psc\Worker\Command;
+use Psc\Worker\Manager;
+use Psc\Worker\Worker;
+
+class WsWorker extends Worker
+{
+    private Server $wsServer;
+
+    private array $connections = [];
+
+    public function register(Manager $manager): void
+    {
+        $this->wsServer = Net::WebSocket()->server('ws://127.0.0.1:8001', []);
+    }
+
+    public function boot(): void
+    {
+        $this->wsServer->onMessage(function (string $content, Connection $connection) {
+            $connection->send("response > {$content}");
+        });
+
+        $this->wsServer->onConnect(function (Connection $connection) {
+            $this->connections[$connection->getId()] = $connection;
+        });
+
+        $this->wsServer->onClose(function (Connection $connection) {
+            unset($this->connections[$connection->getId()]);
+        });
+
+        $this->wsServer->listen();
+    }
+
+    public function onCommand(Command $workerCommand): void
+    {
+        if ($workerCommand->name === 'sendMessageToAll') {
+            foreach ($this->connections as $connection) {
+                $connection->send($workerCommand->arguments['message']);
+            }
+        }
+    }
+
+    public function getName(): string
+    {
+        return 'ws-server';
+    }
+
+    public function getCount(): int
+    {
+        return 1;
+    }
+
+    public function onReload(): void
+    {
+        // TODO: Implement onReload() method.
+    }
+}
+```
+
+### AppServiceProvider.php
+
+```php
+<?php declare(strict_types=1);
+
+namespace App\Providers;
+
+use App\Server\WsWorker;
+use Illuminate\Support\ServiceProvider;
+use Psc\Worker\Manager;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot(Manager $manager): void
+    {
+        $manager->addWorker(new WsWorker());
+    }
+}
+```
+
+### 访问服务
+
+```php
+class IndexController extends Controller
+{
+    public function notice(Request $request,\Psc\Drive\Laravel\Worker $httpWorker) : JsonResponse
+    {
+        $command = Command::make('sendMessageToAll', [
+            'message' => 'post message ' . $request->post('message')
+        ]);
+        $httpWorker->commandToWorker($command, 'ws-server');
+        return Response::json(['message' => 'success']);
+    }
+}
+```
+

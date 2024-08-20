@@ -13,7 +13,7 @@ PRipple所有的支持库都处于`P`命名空间下,并根据它所属的模块
 - `P\System` 系统操作模块
 - `P\Util` 工具模块
 - `P\Plugin` 插件模块
-- `P\Coroutine` 协程模块
+- `P\Parallel` 多线程模块
 
 你可以通过以下方式访问支持库并使用,如
 
@@ -21,10 +21,10 @@ PRipple所有的支持库都处于`P`命名空间下,并根据它所属的模块
 use \P\IO;
 
 $fileUtil = IO::File();
-$fileUtil->getContent('file.txt');
+$content = $fileUtil->getContent('file.txt')->await();
 ```
 
-> 也支持链式调用如
+也支持链式调用如
 
 ```php
 $channel = \P\IO::Channel()->open('master');

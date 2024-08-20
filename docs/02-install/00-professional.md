@@ -43,6 +43,7 @@ require __DIR__.'/../vendor/autoload.php';
 \P\tick();
 ```
 
-> 上述例子中我们将Laravel的启动过程包含在了PRipple的协程上下文中,并在最后调用了`\P\tick()`函数来处理Laravel运行过程中触发的所有异步事件
-> 通过该方法即可为Laravel添加PRipple的异步支持,并能够完美在FPM/CGI模式下运行,
-> 在此环境下开发的应用,可以在需要时兼容性地以PRipple服务模式运行达到性能质的飞跃
+上述例子中我们将Laravel的启动过程包含在了PRipple的协程上下文中,
+并在最后调用了`\P\tick()`函数来创建另一个协程空间以处理Laravel中用到的异步事件,
+通过该方法即可为Laravel添加PRipple的异步支持,并能够完美在FPM/CGI模式下运行,
+在此环境下开发的应用,可以在需要时兼容性地以PRipple服务模式运行达到性能质的飞跃.

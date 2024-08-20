@@ -4,31 +4,17 @@ description: PRipple provides a memory-resident service mode operation, which ca
 keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'service mode', 'server', 'service running']
 ---
 
-> ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/p-ripple-documents)
-
 ### Overview
 
-PRipple provides a memory-resident service mode operation, which can run your program as a service, compared to the
-traditional CGI mode workflow:
+PRipple provides a memory-resident service mode operation, which can run your program as a service. Compared with the
+traditional CGI mode workflow,
+The workflow of the service mode can effectively improve the performance of the program and reduce the unnecessary
+consumption of loading files. In extensive practice, the performance of the service mode is much higher than the
+traditional CGI mode.
 
-> - Request 1: Load file -> Process request and respond
-> - Request 2: Load file -> Process request and respond
-> - Request 3: Load file -> Process request and respond
+Currently the project supports ThinkPHP / Laravel / Workerman / Webman
 
-Service mode workflow:
-
-> - Start: Load file->Start service
-> - Request 1: Service->Process the request and respond
-> - Request 2: Service->Process the request and respond
-> - Request 3: Service->Process the request and respond
-
-It can effectively improve the performance of the program and reduce unnecessary consumption of loading files. In
-widespread practice, the performance of the service mode is much higher than the traditional CGI mode.
-
-Currently, the project already supports ThinkPHP and Laravel. Take Laravel as an example
-
-### installation method
+## Installation method
 
 > Install via Composer
 
@@ -36,71 +22,64 @@ Currently, the project already supports ThinkPHP and Laravel. Take Laravel as an
 composer require cclilshy/p-ripple-drive
 ```
 
-### Deployment Reference
+## Deployment reference
 
-#### Workerman
+### Workerman
 
 ```php
-Worker::$eventLoopClass = Workerman::class;
+Worker::$eventLoopClass = \Psc\Drive\Workerman\PDrive::class;
 Worker::runAll();
 ```
 
 ---
 
-#### Webman
+### Webman
 
 > Modify the configuration file config/server.php service configuration file
 
 ```php
 return [
     //...
-    'event_loop' => \Psc\Drive\Workerman::class,
+    'event_loop' => \Psc\Drive\Workerman\PDrive::class,
 ];
 ```
 
 ---
 
-#### Laravel
+### Laravel
+
+#### Environment configuration support (ENV)
+
+| Configuration items | Description | Default value |
+|-------------------|----------------------------- ---------------------------------------|---------- ---------------|
+| `PRP_HTTP_LISTEN` | HTTP service, listening address format such as `http://127.0.0.1:8008` | `http://127.0.0.1:8008` |
+| `PRP_HTTP_COUNT` | HTTP service, number of worker processes | `4` |
+| `PRP_ISOLATION` | Controller isolation mode, after turning on, the Controller will be re-instantiated for each
+request, suitable for stateful Controller isolation $this->request | `0` |
 
 ```bash
-#Install
-composer require cclilshy/p-ripple-drive
+php artisan p:server {action} {--daemon}
 
-#run
-php artisan p:server {action} {--listen=} {--threads=} {--daemon}
-
-# action: start|stop|status, default is start
-
-# -l | --listen Service listening address, the default is http://127.0.0.1:8008
-# -t | --threads Number of service threads, default is 4
+# action: start|stop|reload|status, default is start
 # -d | --daemon Whether to run as a daemon process, the default is false
 ```
 
-access connection
+> open `http://127.0.0.1:8008/`
+---
 
-> Visit `http://127.0.0.1:8008/
+### ThinkPHP
 
-running result
+```bash
+php think p:server {action} {--daemon}
 
-![display](https://raw.githubusercontent.com/cloudtay/p-ripple-drive/main/assets/display.jpg)
-
-#### How to use Laravel asynchronous file download
-
-```php
-Route::get('/download', function (Request $request) {
-    return new BinaryFileResponse(__FILE__);
-});
+# action: start|stop|reload|status, default is start
+# -d | --daemon Whether to run as a daemon process, the default is false
 ```
 
-- Static file configuration
+> open `http://127.0.0.1:8008/`
+---
 
-> Traditional FPM projects cannot directly access files under the public path in CLI running mode.
-> You can configure the proxy to the public path through Nginx routing or create your own route to solve this need
-> The following are two reference solutions (Laravel)
-
-* Static file access solution (Nginx proxy)
-
-> Configure Nginx pseudo-static
+### Nginx Reference
 
 ```nginx
 location/{
@@ -113,102 +92,123 @@ location @backend {
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Forwarded-Port $server_port;
 }
 ```
 
-- Static file access solution (standalone operation)
+### Notes
 
-> Add Laravel routing items
-
-```php
-if (PHP_SAPI === 'cli') {
-    Route::where(['path' => '.*'])->get('/{path}', function (Request $request, \Illuminate\Http\Response $response, string $path) {
-        $fullPath = public_path($path);
-        if (file_exists($fullPath)) {
-            $ext = pathinfo($fullPath, PATHINFO_EXTENSION);
-
-            if (strtolower($ext) === 'php') {
-                $response->setStatusCode(403);
-
-            } elseif (str_contains(urldecode($fullPath), '..')) {
-                $response->setStatusCode(403);
-
-            } else {
-                $mimeType = match ($ext) {
-                    'css' => 'text/css',
-                    'js' => 'application/javascript',
-                    'json' => 'application/json',
-                    'png' => 'image/png',
-                    'jpg', 'jpeg' => 'image/jpeg',
-                    'gif' => 'image/gif',
-                    'svg' => 'image/svg+xml',
-                    'ico' => 'image/x-icon',
-                    'mp4' => 'video/mp4',
-                    'webm' => 'video/webm',
-                    'mp3' => 'audio/mpeg',
-                    'wav' => 'audio/wav',
-                    'webp' => 'image/webp',
-                    'pdf' => 'application/pdf',
-                    'zip' => 'application/zip',
-                    'rar' => 'application/x-rar-compressed',
-                    'tar' => 'application/x-tar',
-                    'gz' => 'application/gzip',
-                    'bz2' => 'application/x-bzip2',
-                    'txt' => 'text/plain',
-                    'html', 'htm' => 'text/html',
-                    default => 'application/octet-stream',
-                };
-                $response->headers->set('Content-Type', $mimeType);
-                $response->setContent(
-                    P\await(P\IO::File()->getContents($fullPath))
-                );
-            }
-            return $response;
-        }
-        return $response->setStatusCode(404);
-    });
-}
-```
-
----
-
-### ThinkPHP
-
-```bash
-#Install
-composer require cclilshy/p-ripple-drive
-
-#run
-php think p:server
-
-# -l | --listen Service listening address, the default is http://127.0.0.1:8008
-# -t | --threads Number of service threads, default is 4
-```
-
-> open `http://127.0.0.1:8008/`
----
-
-### Precautions
-
-> In the CLI mode of `Laravel`, `ThinkPHP`, the `Controller` `Service` of the entire running process
-> The singleton constructed by `Container` will only be constructed once at runtime by default (a globally unique
-> controller object), and will not be destroyed during the entire running process.
-> This should be of particular concern during the development process and the CLI mode is completely different from FPM
-> in this regard, but this is one of the reasons why it can be as fast as rockets
-
-> PRipple will not interfere with the operating mechanism of the framework, so we provide a solution for the above
-> scenario. Taking Laravel as an example, middleware can be created to rebuild the controller on each request to ensure
-> thread safety.
-
-```php
-//The code of the middleware handle part
-$route = $request->route();
-if ($route instanceof Route) {
-    $route->controller = app($route->getControllerClass());
-}
-return $next($request);
-```
-
-> You need to have a certain understanding of the mechanism of CLI running mode, and know what will happen during the
-> running process of the following functions to decide how to use them? For example
+> You need to have a certain understanding of the mechanism of the CLI running mode, and know what will happen during
+> the running of the following functions to decide how to use them? For example
 > `dd` `var_dump` `echo` `exit` `die`
+
+## Custom service
+
+Laravel/ThinkPHP's Http service is also implemented based on Worker, built into Drive and injected with Laravel's
+dependency injection.
+You can implement custom services by inheriting the Worker class and use HttpWorker to call each other, such as
+
+### Ws.php
+
+```php
+<?php declare(strict_types=1);
+
+namespace App\Server;
+
+use P\Net;
+use Psc\Core\WebSocket\Server\Connection;
+use Psc\Core\WebSocket\Server\Server;
+use Psc\Worker\Command;
+use Psc\Worker\Manager;
+use Psc\Worker\Worker;
+
+class WsWorker extends Worker
+{
+    private Server $wsServer;
+
+    private array $connections = [];
+
+    public function register(Manager $manager): void
+    {
+        $this->wsServer = Net::WebSocket()->server('ws://127.0.0.1:8001', []);
+    }
+
+    public function boot(): void
+    {
+        $this->wsServer->onMessage(function (string $content, Connection $connection) {
+            $connection->send("response > {$content}");
+        });
+
+        $this->wsServer->onConnect(function (Connection $connection) {
+            $this->connections[$connection->getId()] = $connection;
+        });
+
+        $this->wsServer->onClose(function (Connection $connection) {
+            unset($this->connections[$connection->getId()]);
+        });
+
+        $this->wsServer->listen();
+    }
+
+    public function onCommand(Command $workerCommand): void
+    {
+        if ($workerCommand->name === 'sendMessageToAll') {
+            foreach ($this->connections as $connection) {
+                $connection->send($workerCommand->arguments['message']);
+            }
+        }
+    }
+
+    public function getName(): string
+    {
+        return 'ws-server';
+    }
+
+    public function getCount(): int
+    {
+        return 1;
+    }
+
+    public function onReload(): void
+    {
+        // TODO: Implement onReload() method.
+    }
+}
+```
+
+### AppServiceProvider.php
+
+```php
+<?php declare(strict_types=1);
+
+namespace App\Providers;
+
+use App\Server\WsWorker;
+use Illuminate\Support\ServiceProvider;
+use Psc\Worker\Manager;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot(Manager $manager): void
+    {
+        $manager->addWorker(new WsWorker());
+    }
+}
+```
+
+### Access Services
+
+```php
+class IndexController extends Controller
+{
+    public function notice(Request $request,\Psc\Drive\Laravel\Worker $httpWorker) : JsonResponse
+    {
+        $command = Command::make('sendMessageToAll', [
+            'message' => 'post message ' . $request->post('message')
+        ]);
+        $httpWorker->commandToWorker($command, 'ws-server');
+        return Response::json(['message' => 'success']);
+    }
+}
+```

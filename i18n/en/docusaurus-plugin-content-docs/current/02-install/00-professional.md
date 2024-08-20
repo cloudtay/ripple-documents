@@ -4,9 +4,6 @@ description: PRipple is a high-performance native PHP coroutine framework design
 keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency']
 ---
 
-> ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/p-ripple-documents)
-
 ### Overview
 
 If you are already familiar with the basic concepts and usage of PRipple, then you may want to know more details about
@@ -48,8 +45,9 @@ require __DIR__.'/../vendor/autoload.php';
 \P\tick();
 ```
 
-> In the above example, we included Laravel's startup process in PRipple's coroutine context, and finally called
-> the `\P\tick()` function to handle all asynchronous events triggered during Laravel's running process.
-> Through this method, you can add PRipple asynchronous support to Laravel, and it can run perfectly in FPM/CGI mode.
-> Applications developed in this environment can run in PRipple service mode with compatibility when needed to achieve a
-> leap in performance.
+In the above example, we included Laravel's startup process in PRipple's coroutine context.
+And at the end, the `\P\tick()` function is called to create another coroutine space to handle asynchronous events used
+in Laravel.
+Through this method, you can add PRipple asynchronous support to Laravel, and it can run perfectly in FPM/CGI mode.
+Applications developed in this environment can run in PRipple service mode with compatibility when needed to achieve a
+leap in performance.
