@@ -24,7 +24,7 @@ public function make(string $name): Channel;
 
 ### 概述
 
-> Channel (频道) , 是PRipple中的一个数据通道，用于多个进程之间之间的通信。值得注意的是, PRipple的Channel作用域为本机全局,
+> Channel (频道) , 是PRipple中的一个数据通道，用于多个进程之间的通信。值得注意的是, PRipple的Channel作用域为本机全局,
 > 你可以像以下方式使用Channel
 
 
