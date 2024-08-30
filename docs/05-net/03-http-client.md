@@ -6,7 +6,7 @@ keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', 'HttpClient', '
 
 ### 概述
 
-PRipple提供了一个易用的WebSocketClient组件,可以用于创建WebSocket客户端连接。
+PRipple提供了一个易用的HttpClient组件,可以用于创建Http客户端连接。
 
 ### 使用例子
 
