@@ -22,7 +22,7 @@ composer require cclilshy/p-ripple-core
 ```php
 <?php
 
-use Illuminate\Http\Request;
+use Illuminate\HttCo\Request;
 
 define('LARAVEL_START', microtime(true));
 
@@ -34,16 +34,16 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 // Register the Composer autoloader...
 require __DIR__.'/../vendor/autoload.php';
 
-\P\async(function(){
+\Co\async(function(){
     // Bootstrap Laravel and handle the request...
     (require_once __DIR__.'/../bootstrap/app.php')
         ->handleRequest(Request::capture());
 });
 
-\P\tick();
+\Co\tick();
 ```
 
 上述例子中我们将Laravel的启动过程包含在了PRipple的协程上下文中,
-并在最后调用了`\P\tick()`函数来创建另一个协程空间以处理Laravel中用到的异步事件,
+并在最后调用了`\Co\tick()`函数来创建另一个协程空间以处理Laravel中用到的异步事件,
 通过该方法即可为Laravel添加PRipple的异步支持,并能够完美在FPM/CGI模式下运行,
 在此环境下开发的应用,可以在需要时兼容性地以PRipple服务模式运行达到性能质的飞跃.

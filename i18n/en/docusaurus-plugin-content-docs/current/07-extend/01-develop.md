@@ -24,27 +24,27 @@ according to the characteristics of PRipple to support asynchronous operations.
 
 ```php
 <?php declare(strict_types=1);
-namespace Psc\Library\Net\Http\Client;
+namespace Psc\Library\Net\HttCo\Client;
 
 use Closure;
-use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttCo\Psr7\MultipartStream;
 use InvalidArgumentException;
-use P\IO;
+use Co\IO;
 use Psc\Core\Coroutine\Promise;
 use Psc\Core\Stream\SocketStream;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use Psr\HttCo\Message\RequestInterface;
+use Psr\HttCo\Message\ResponseInterface;
 use Throwable;
 
 use function fclose;
 use function fopen;
 use function implode;
 use function in_array;
-use function P\async;
-use function P\await;
-use function P\cancel;
-use function P\delay;
-use function P\repeat;
+use function Co\async;
+use function Co\await;
+use function Co\cancel;
+use function Co\delay;
+use function Co\repeat;
 use function str_contains;
 use function strtolower;
 
@@ -75,7 +75,7 @@ classHttpClient
     public function request(RequestInterface $request, array $option = []): Promise
     {
         return async(function () use ($request, $option) {
-            return \P\promise(function (Closure $r, Closure $d, Promise $promise) use ($request, $option) {
+            return \Co\promise(function (Closure $r, Closure $d, Promise $promise) use ($request, $option) {
                 $uri = $request->getUri();
 
                 $method = $request->getMethod();
@@ -208,9 +208,9 @@ classHttpClient
 > After encapsulation, you can use Guzzle like other PRipple components
 
 ```php
-\P\async(function () {
-    $response = \P\await(
-        \P\Plugin::Guzzle()->getAsync('https://www.baidu.com')
+\Co\async(function () {
+    $response = \Co\await(
+        \Co\Plugin::Guzzle()->getAsync('https://www.baidu.com')
     );
 
     \var_dump($response->getStatusCode());
@@ -222,12 +222,12 @@ classHttpClient
 ```php
 <?php declare(strict_types=1);
 
-namespace Psc\Library\Net\Http\Client;
+namespace Psc\Library\Net\HttCo\Client;
 
-use GuzzleHttp\Psr7\Response;
+use GuzzleHttCo\Psr7\Response;
 use Psc\Core\Stream\SocketStream;
 use Psc\Std\Stream\Exception\RuntimeException;
-use Psr\Http\Message\ResponseInterface;
+use Psr\HttCo\Message\ResponseInterface;
 
 use function count;
 use function explode;
@@ -393,20 +393,20 @@ class Connection
 ```php
 <?php declare(strict_types=1);
 
-namespace Psc\Library\Net\Http\Client;
+namespace Psc\Library\Net\HttCo\Client;
 
-use P\IO;
+use Co\IO;
 use Psc\Core\Coroutine\Promise;
 use Psc\Core\Stream\SocketStream;
 use Psc\Std\Stream\Exception\ConnectionException;
 use Throwable;
 
 use function array_pop;
-use function P\async;
-use function P\await;
-use function P\cancel;
-use function P\cancelForkHandler;
-use function P\registerForkHandler;
+use function Co\async;
+use function Co\await;
+use function Co\cancel;
+use function Co\cancelForkHandler;
+use function Co\registerForkHandler;
 
 class ConnectionPool
 {
@@ -574,16 +574,16 @@ class ConnectionPool
 
 namespace Psc\Plugins\Guzzle;
 
-use GuzzleHttp\Promise\Promise;
-use GuzzleHttp\Promise\PromiseInterface;
-use GuzzleHttp\Psr7\Response;
-use Psc\Library\Net\Http\Client\HttpClient;
-use Psr\Http\Message\RequestInterface;
+use GuzzleHttCo\Promise\Promise;
+use GuzzleHttCo\Promise\PromiseInterface;
+use GuzzleHttCo\Psr7\Response;
+use Psc\Library\Net\HttCo\Client\HttpClient;
+use Psr\HttCo\Message\RequestInterface;
 use Throwable;
 
-use function P\async;
-use function P\await;
-use function P\defer;
+use function Co\async;
+use function Co\await;
+use function Co\defer;
 use function strval;
 
 classPHandler
@@ -635,20 +635,20 @@ classPHandler
 > handshake/cross-process resource recycling. After that, you can use Guzzle like other PRipple components.
 
 ```php
-$handler = new \P\Plugins\Guzzle\PHandler();
-$client = new \GuzzleHttp\Client(['handler' => $handler]);
+$handler = new \Co\Plugins\Guzzle\PHandler();
+$client = new \GuzzleHttCo\Client(['handler' => $handler]);
 
 //Create 100 coroutines to make requests
 for($i = 0; $i < 100; $i++) {
-    \P\async(function () use ($client) {
-        \P\sleep(1); //Simulate coroutine blocking for 1s
+    \Co\async(function () use ($client) {
+        \Co\sleep(1); //Simulate coroutine blocking for 1s
         
         $response = $client->get('https://www.baidu.com');
         echo "request {$i} status: " . $response->getStatusCode() . PHP_EOL;
     });
 }
 
-\P\tick();
+\Co\tick();
 ```
 
 > The result of running the above code is to output the status code of 100 requests after 1s.
@@ -658,7 +658,7 @@ for($i = 0; $i < 100; $i++) {
 > PRipple encapsulates it as a plugin, you can use Guzzle like other PRipple components
 
 ```php
-\P\Plugin::Guzzle()->getAsync('https://www.baidu.com')->then(function ($response) {
+\Co\Plugin::Guzzle()->getAsync('https://www.baidu.com')->then(function ($response) {
     echo $response->getStatusCode();
 });
 ```
@@ -675,10 +675,10 @@ composer require amphp/mysql
 ```
 
 ```php
-use Amp\Mysql\MysqlConfig;
-use Amp\Mysql\MysqlConnectionPool;
-use function P\async;
-use function P\run;
+use AmCo\Mysql\MysqlConfig;
+use AmCo\Mysql\MysqlConnectionPool;
+use function Co\async;
+use function Co\run;
 
 $config = MysqlConfig::fromString(
     "host=localhost user=root password=aa123456 db=mysql"
@@ -702,7 +702,7 @@ async(function ($r) use ($pool) {
     }
 });
 
-\P\tick();
+\Co\tick();
 ```
 
 ## (3) More...

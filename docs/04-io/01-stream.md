@@ -1,6 +1,6 @@
 ---
 title: 流 - Stream
-description: PRipple中支持通过\P\IO::Stream()方法操作流, 用于处理流读写操作。
+description: PRipple中支持通过\Co\IO::Stream()方法操作流, 用于处理流读写操作。
 keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '流', 'IO']
 ---
 
@@ -23,7 +23,7 @@ Closure(Stream $stream,Closure $cancel);
 ```php
 public function onReadable(Closure $closure): string;
 
-$stream = \P\IO::File()->open('file.txt');
+$stream = \Co\IO::File()->open('file.txt');
 $stream->onReadable(function (Stream $stream,Closure $cancel) {
     $data = $stream->read(1024);
     echo $data . PHP_EOL;

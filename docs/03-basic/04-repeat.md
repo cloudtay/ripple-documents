@@ -1,13 +1,13 @@
 ---
-title: 重做 - \P\repeat
-description: PRipple中支持通过\P\repeat方法重复执行一个闭包函数, 用于处理定时任务等场景。PRipple会为你提交的闭包函数提供一个`cancel`回调函数, 通过调用`cancel`函数可以取消当前的重复任务。
+title: 重做 - \Co\repeat
+description: PRipple中支持通过\Co\repeat方法重复执行一个闭包函数, 用于处理定时任务等场景。PRipple会为你提交的闭包函数提供一个`cancel`回调函数, 通过调用`cancel`函数可以取消当前的重复任务。
 keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '重做', '定时任务']
 ---
 
 ### API
 
 ```php
-namespace P;
+namespace Co;
 
 function repeat(Closure $closure,int|float $second): string;
 ```
@@ -32,7 +32,7 @@ function repeat(Closure $closure,int|float $second): string;
 ### 基础用法
 
 ```php
-\P\repeat(function (Closure $cancel) {
+\Co\repeat(function (Closure $cancel) {
     echo 'delay task';
     
     
@@ -41,21 +41,21 @@ function repeat(Closure $closure,int|float $second): string;
     }
 }, 1);
 
-\P\tick(); // 等待所有事件执行完成
+\Co\tick(); // 等待所有事件执行完成
 ```
 
 注意: `repeat`方法会在指定的时间间隔内重复执行闭包函数, 直到`cancel`函数被调用。
 
 ```php
-\P\repeat(function (Closure $cancel) {
-    \P\sleep(10);
+\Co\repeat(function (Closure $cancel) {
+    \Co\sleep(10);
     
     echo 'delay task';
     
     $cancel();
 }, 1);
 
-\P\tick();
+\Co\tick();
 ```
 
-> 上述例子中, repeat中的代码会在1秒后执行, 并且在遇到`\P\sleep`时, 会自动挂起当前协程, 但`repeat`仍然会在1秒后再次执行。
+> 上述例子中, repeat中的代码会在1秒后执行, 并且在遇到`\Co\sleep`时, 会自动挂起当前协程, 但`repeat`仍然会在1秒后再次执行。

@@ -1,5 +1,5 @@
 ---
-title: 异步 - \P\async
+title: 异步 - \Co\async
 description: PRipple中Async (异步) 是PRipple框架中的一个核心概念，用于处理异步操作。Async对象代表一个异步操作的最终完成或失败，以及其结果值。
 keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '异步', 'Async']
 tags: ['异步', 'Async']
@@ -8,7 +8,7 @@ tags: ['异步', 'Async']
 ### API
 
 ```php
-namespace P;
+namespace Co;
 
 function async(Closure $closure): Promise;
 ```
@@ -35,7 +35,7 @@ function async(Closure $closure): Promise;
 使用该方法可以创建一个Promise对象
 
 ```php
-$promise = \P\async(Closure $callback): Promise
+$promise = \Co\async(Closure $callback): Promise
 ```
 
 > PRipple同样会为提交的闭包函数提供两个参数，一个是`resolve`回调函数，一个是`reject`回调函数。
@@ -45,26 +45,26 @@ $promise = \P\async(Closure $callback): Promise
 #### 示例
 
 ```php
-\P\async(function () {
-    \P\sleep(1);
+\Co\async(function () {
+    \Co\sleep(1);
     
     echo 'async task 1';
 });
 
-\P\async(function () {
-    \P\sleep(1);
+\Co\async(function () {
+    \Co\sleep(1);
     
     echo 'async task 2';
 });
 
-\P\async(function () {
-    \P\sleep(1);
+\Co\async(function () {
+    \Co\sleep(1);
     
     echo 'async task 3';
 });
 ```
 
-> 上述例子中, async中的代码会立即执行,并且在遇到`\P\sleep`时, 会自动挂起当前协程, 处理器会在挂起期间执行其他协程,
+> 上述例子中, async中的代码会立即执行,并且在遇到`\Co\sleep`时, 会自动挂起当前协程, 处理器会在挂起期间执行其他协程,
 > 直到挂起的协程被唤醒。而不会阻塞其他协程的执行。
 
 #### 自动解决期约
@@ -76,8 +76,8 @@ $promise = \P\async(Closure $callback): Promise
 - 当闭包正常执行完毕时, 会自动解决期约(null)
 
 ```php
-$promise = \P\async(function () {
-    \P\sleep(1);
+$promise = \Co\async(function () {
+    \Co\sleep(1);
     
     if(rand(0,1) === 1){
         throw new Exception('error');
@@ -89,8 +89,8 @@ $promise = \P\async(function () {
 > 注意:在某些情况下, 你可能需要手动解决期约
 
 ```php
-$promise = \P\async(function ($resolve, $reject) {
-    \P\sleep(1);
+$promise = \Co\async(function ($resolve, $reject) {
+    \Co\sleep(1);
     
     if(rand(0,1) === 1){
         $reject(new Exception('error'));
@@ -108,11 +108,11 @@ $promise = \P\async(function ($resolve, $reject) {
 
 ```php
 function httpGet(string $url) : Promise {
-    return \P\Net::Http()->Gullze()->getAsync($url);
+    return \Co\Net::Http()->Gullze()->getAsync($url);
 }
 
-\P\async(function(){
-    $response = \P\await(httpGet('http://example.com'));
+\Co\async(function(){
+    $response = \Co\await(httpGet('http://example.com'));
     
     echo $response->getBody()->getContent();
 });
@@ -124,7 +124,7 @@ function httpGet(string $url) : Promise {
 
 ```php
 function httpGet(string $url) : Promise {
-   return \P\Net::Http()->Gullze()->getAsync($url);
+   return \Co\Net::Http()->Gullze()->getAsync($url);
 }
 
 

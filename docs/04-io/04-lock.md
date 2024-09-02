@@ -7,7 +7,7 @@ keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '文件锁', 'L
 ### 访问组件
 
 ```php
-use \P\IO;
+use \Co\IO;
 
 IO::Lock();
 ```
@@ -27,10 +27,10 @@ public function access(string $name = 'default'): Lock;
 ### 例子
 
 ```php
-$common = \P\IO::Lock()->access('common');
+$common = \Co\IO::Lock()->access('common');
 $common->lock();
 
-$task = \P\System::Process()->task(function() use ($common){
+$task = \Co\System::Process()->task(function() use ($common){
     $common->lock();
     
     echo 'get lock success';
@@ -38,7 +38,7 @@ $task = \P\System::Process()->task(function() use ($common){
 
 $runtime = $task->run();
 
-\P\delay(fn() => $common->unlock(),5);
+\Co\delay(fn() => $common->unlock(),5);
 
 $runtime->await();
 ```

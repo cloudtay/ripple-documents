@@ -24,7 +24,7 @@ composer require cclilshy/p-ripple-core
 ```php
 <?php
 
-use Illuminate\Http\Request;
+use Illuminate\HttCo\Request;
 
 define('LARAVEL_START', microtime(true));
 
@@ -36,17 +36,17 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 // Register the Composer autoloader...
 require __DIR__.'/../vendor/autoload.php';
 
-\P\async(function(){
+\Co\async(function(){
     // Bootstrap Laravel and handle the request...
     (require_once __DIR__.'/../bootstrap/app.php')
         ->handleRequest(Request::capture());
 });
 
-\P\tick();
+\Co\tick();
 ```
 
 In the above example, we included Laravel's startup process in PRipple's coroutine context.
-And at the end, the `\P\tick()` function is called to create another coroutine space to handle asynchronous events used
+And at the end, the `\Co\tick()` function is called to create another coroutine space to handle asynchronous events used
 in Laravel.
 Through this method, you can add PRipple asynchronous support to Laravel, and it can run perfectly in FPM/CGI mode.
 Applications developed in this environment can run in PRipple service mode with compatibility when needed to achieve a

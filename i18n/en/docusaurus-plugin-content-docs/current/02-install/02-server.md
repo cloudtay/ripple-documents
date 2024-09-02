@@ -114,9 +114,9 @@ You can implement custom services by inheriting the Worker class and use HttpWor
 ```php
 <?php declare(strict_types=1);
 
-namespace App\Server;
+namespace ApCo\Server;
 
-use P\Net;
+use Co\Net;
 use Psc\Core\WebSocket\Server\Connection;
 use Psc\Core\WebSocket\Server\Server;
 use Psc\Worker\Command;
@@ -182,9 +182,9 @@ class WsWorker extends Worker
 ```php
 <?php declare(strict_types=1);
 
-namespace App\Providers;
+namespace ApCo\Providers;
 
-use App\Server\WsWorker;
+use ApCo\Server\WsWorker;
 use Illuminate\Support\ServiceProvider;
 use Psc\Worker\Manager;
 

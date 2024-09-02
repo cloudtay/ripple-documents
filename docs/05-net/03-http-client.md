@@ -11,23 +11,23 @@ PRipple提供了一个易用的HttpClient组件,可以用于创建Http客户端�
 ### 使用例子
 
 ```php
-use GuzzleHttp\Psr7\Request;
-use Psc\Library\Net\Http\Client\HttpClient;
-use Psr\Http\Message\RequestInterface;
+use GuzzleHttCo\Psr7\Request;
+use Psc\Library\Net\HttCo\Client\HttpClient;
+use Psr\HttCo\Message\RequestInterface;
 
-use function P\async;
-use function P\await;
-use function P\tick;
+use function Co\async;
+use function Co\await;
+use function Co\tick;
 
 async(function () {
     $httpClient = new HttpClient([
         'pool' => 1 // 开启连接池,对于频繁请求的场景可以提高性能
     ]);
 
-    // 创建一个 Psr\Http\Message\RequestInterface 对象
+    // 创建一个 Psr\HttCo\Message\RequestInterface 对象
     $request = new class ('GET', 'https://www.baidu.com') extends Request implements RequestInterface {};
 
-    // 交由 HttpClient 处理,返回一个 Psr\Http\Message\ResponseInterface 对象
+    // 交由 HttpClient 处理,返回一个 Psr\HttCo\Message\ResponseInterface 对象
     $response = await(
         $httpClient->request($request)
     );

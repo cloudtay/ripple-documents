@@ -10,7 +10,7 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 ### Access components
 
 ```php
-use \P\IO;
+use \Co\IO;
 
 IO::Lock();
 ```
@@ -31,10 +31,10 @@ public function access(string $name = 'default'): Lock;
 ### example
 
 ```php
-$common = \P\IO::Lock()->access('common');
+$common = \Co\IO::Lock()->access('common');
 $common->lock();
 
-$task = \P\System::Process()->task(function() use ($common){
+$task = \Co\System::Process()->task(function() use ($common){
     $common->lock();
     
     echo 'get lock success';
@@ -42,7 +42,7 @@ $task = \P\System::Process()->task(function() use ($common){
 
 $runtime = $task->run();
 
-\P\delay(fn() => $common->unlock(),5);
+\Co\delay(fn() => $common->unlock(),5);
 
 $runtime->await();
 ```

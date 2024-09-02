@@ -1,6 +1,6 @@
 ---
 title: Module - Library
-description: All PRipple support libraries are under the `P` namespace and are divided according to the modules to which they belong. Currently, the support libraries have the following modules
+description: All PRipple support libraries are under the `Co` namespace and are divided according to the modules to which they belong. Currently, the support libraries have the following modules
 keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency']
 ---
 
@@ -9,20 +9,20 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 
 ## introduce
 
-All PRipple support libraries are under the `P` namespace and are divided according to the modules to which they belong.
+All PRipple support libraries are under the `Co` namespace and are divided according to the modules to which they belong.
 Currently, the support libraries have the following modules:
 
-- `P\Net` network operation module
-- `P\IO` stream resource operation module
-- `P\System` system operation module
-- `P\Util` tool module
-- `P\Plugin` plug-in module
-- `P\Coroutine` coroutine module
+- `Co\Net` network operation module
+- `Co\IO` stream resource operation module
+- `Co\System` system operation module
+- `Co\Util` tool module
+- `Co\Plugin` plug-in module
+- `Co\Coroutine` coroutine module
 
 You can access the support library and use it in the following ways, such as
 
 ```php
-use \P\IO;
+use \Co\IO;
 
 $fileUtil = IO::File();
 $fileUtil->getContent('file.txt');
@@ -31,6 +31,6 @@ $fileUtil->getContent('file.txt');
 > Also supports chain calls such as
 
 ```php
-$channel = \P\IO::Channel()->open('master');
+$channel = \Co\IO::Channel()->open('master');
 $channel->send('hello world');
 ```

@@ -16,13 +16,13 @@ PRipple提供了一个易用的HttpServer组件,可以用于快速构建一个Ht
 ### 用例
 
 ```php
-use P\IO;
-use Psc\Store\Net\Http\Server\Request;
-use Psc\Store\Net\Http\Server\Response;
-use function P\await;
-use function P\run;
+use Co\IO;
+use Psc\Store\Net\HttCo\Server\Request;
+use Psc\Store\Net\HttCo\Server\Response;
+use function Co\await;
+use function Co\run;
 
-$server = P\Net::Http()->server('http://127.0.0.1:8008');
+$server = Co\Net::Http()->server('http://127.0.0.1:8008');
 $handler = function (Request $request, Response $response) {
     if ($request->getMethod() === 'POST') {
         $files = $request->files->get('file');
@@ -58,7 +58,7 @@ $handler = function (Request $request, Response $response) {
         }
 
         if ($request->getPathInfo() === '/qq') {
-            $qq = await(P\Net::Http()->Guzzle()->getAsync(
+            $qq = await(Co\Net::Http()->Guzzle()->getAsync(
                 'https://www.qq.com/'
             ));
 
@@ -81,7 +81,7 @@ run();
 ```php
 # 如上创建好HttpServer后,可以替代监听方式实现端口多路复用
 
-$task = P\System::Process()->task( fn() => $server->listen() );
+$task = Co\System::Process()->task( fn() => $server->listen() );
 
 $task->run();   //runtime1
 $task->run();   //runtime2
@@ -98,5 +98,5 @@ $guardRun = function($task) use (&$guardRun){
 
 $guardRun($task);
 
-P\run();
+Co\run();
 ```

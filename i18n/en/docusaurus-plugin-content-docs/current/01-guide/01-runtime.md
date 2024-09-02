@@ -28,7 +28,7 @@ PRipple driver. Take Laravel's entry file as an example.
 
 ```php
 <?php
-use Illuminate\Http\Request;
+use Illuminate\HttCo\Request;
 define('LARAVEL_START', microtime(true));
 if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
     require $maintenance;
@@ -36,14 +36,14 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 require __DIR__.'/../vendor/autoload.php';
 
 //TODO: When the main process is running
-\P\async(function(){
+\Co\async(function(){
     //TODO: When the coroutine is running, including Laravel middleware/service provider/controller and other running processes, they are all in the coroutine space.
     (require_once __DIR__.'/../bootstrap/app.php')
         ->handleRequest(Request::capture());
 });
 
 # Start PRipple
-\P\tick();
+\Co\tick();
 ```
 
 ---

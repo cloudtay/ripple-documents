@@ -1,5 +1,5 @@
 ---
-title: asynchronous - \P\async
+title: asynchronous - \Co\async
 description: Async (asynchronous) in PRipple is a core concept in the PRipple framework and is used to handle asynchronous operations. Async objects represent the final completion or failure of an asynchronous operation, as well as its result value.
 keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'asynchronous', 'Async']
 tags: ['Async', 'Async']
@@ -11,7 +11,7 @@ tags: ['Async', 'Async']
 ### API
 
 ```php
-namespace P;
+namespace Co;
 
 function async(Closure $closure): Promise;
 ```
@@ -39,7 +39,7 @@ function async(Closure $closure): Promise;
 Use this method to create a Promise object
 
 ```php
-$promise = \P\async(Closure $callback): Promise
+$promise = \Co\async(Closure $callback): Promise
 ```
 
 > PRipple will also provide two parameters for the submitted closure function, one is the `resolve` callback function
@@ -52,26 +52,26 @@ $promise = \P\async(Closure $callback): Promise
 #### Example
 
 ```php
-\P\async(function () {
-    \P\sleep(1);
+\Co\async(function () {
+    \Co\sleep(1);
     
     echo 'async task 1';
 });
 
-\P\async(function () {
-    \P\sleep(1);
+\Co\async(function () {
+    \Co\sleep(1);
     
     echo 'async task 2';
 });
 
-\P\async(function () {
-    \P\sleep(1);
+\Co\async(function () {
+    \Co\sleep(1);
     
     echo 'async task 3';
 });
 ```
 
-> In the above example, the code in async will be executed immediately, and when encountering `\P\sleep`, the current
+> In the above example, the code in async will be executed immediately, and when encountering `\Co\sleep`, the current
 > coroutine will be automatically suspended, and the processor will execute other coroutines during the suspension
 > period.
 > Until the suspended coroutine is awakened. without blocking the execution of other coroutines.
@@ -85,8 +85,8 @@ $promise = \P\async(Closure $callback): Promise
 - When the closure completes normal execution, the expiration date (null) will be automatically resolved
 
 ```php
-$promise = \P\async(function () {
-    \P\sleep(1);
+$promise = \Co\async(function () {
+    \Co\sleep(1);
     
     if(rand(0,1) === 1){
         throw new Exception('error');
@@ -98,8 +98,8 @@ $promise = \P\async(function () {
 > NOTE: In some cases, you may need to manually resolve the expiration date
 
 ```php
-$promise = \P\async(function ($resolve, $reject) {
-    \P\sleep(1);
+$promise = \Co\async(function ($resolve, $reject) {
+    \Co\sleep(1);
     
     if(rand(0,1) === 1){
         $reject(new Exception('error'));
@@ -118,11 +118,11 @@ $promise = \P\async(function ($resolve, $reject) {
 
 ```php
 function httpGet(string $url) : Promise {
-    return \P\Net::Http()->Gullze()->getAsync($url);
+    return \Co\Net::Http()->Gullze()->getAsync($url);
 }
 
-\P\async(function(){
-    $response = \P\await(httpGet('http://example.com'));
+\Co\async(function(){
+    $response = \Co\await(httpGet('http://example.com'));
     
     echo $response->getBody()->getContent();
 });
@@ -134,7 +134,7 @@ function httpGet(string $url) : Promise {
 
 ```php
 function httpGet(string $url) : Promise {
-   return \P\Net::Http()->Gullze()->getAsync($url);
+   return \Co\Net::Http()->Gullze()->getAsync($url);
 }
 
 

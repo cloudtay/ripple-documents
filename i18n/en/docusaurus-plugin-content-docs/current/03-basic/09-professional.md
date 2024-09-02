@@ -10,7 +10,7 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 ### API
 
 ```php
-namespace P;
+namespace Co;
 
 function registerForkHandler(Closure $closure): int;
 function cancelForkHandler(int $index): void;
@@ -26,13 +26,13 @@ function cancelForkHandler(int $index): void;
 ### Basic usage
 
 ```php
-\P\registerForkHandler(function () {
-    \P\repeat(function () {
+\Co\registerForkHandler(function () {
+    \Co\repeat(function () {
         echo 'repeat task';
     }, 1);
 });
 
-$task = \P\System::Process()->task(function () {
+$task = \Co\System::Process()->task(function () {
     echo 'fork task';
 });
 

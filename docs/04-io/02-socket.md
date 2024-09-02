@@ -7,7 +7,7 @@ keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '套接字', 'S
 ### 访问组件
 
 ```php
-use P\IO;
+use Co\IO;
 
 IO::Socket();
 ```
@@ -45,9 +45,9 @@ Socket库隐藏了连接握手/SSL握手等细节, 你只需要关注业务逻�
 > 一个简单的例子说明Http服务器的实现,也是基础的SocketStream应用例子
 
 ```php
-use P\IO;
-use function P\async;
-use function P\await;
+use Co\IO;
+use function Co\async;
+use function Co\await;
 
 async(function(){
     $server = await(
@@ -74,6 +74,6 @@ async(function(){
     }
 });
 
-\P\tick();
+\Co\tick();
 ```
 

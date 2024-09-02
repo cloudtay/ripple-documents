@@ -10,7 +10,7 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 ### Access components
 
 ```php
-use P\IO;
+use Co\IO;
 
 IO::Socket();
 ```
@@ -52,9 +52,9 @@ logic.
 > example.
 
 ```php
-use P\IO;
-use function P\async;
-use function P\await;
+use Co\IO;
+use function Co\async;
+use function Co\await;
 
 async(function(){
     $server = await(
@@ -81,5 +81,5 @@ async(function(){
     }
 });
 
-\P\tick();
+\Co\tick();
 ```

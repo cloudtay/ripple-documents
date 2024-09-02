@@ -1,5 +1,5 @@
 ---
-title: 信号 - \P\signal
+title: 信号 - \Co\signal
 description: PRipple中Signal (信号) 是PRipple框架中的一个核心概念，用于处理系统信号。Signal对象代表一个系统信号的触发，以及其处理器。
 keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '信号', 'Signal']
 ---
@@ -7,7 +7,7 @@ keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '信号', 'Sign
 ### API
 
 ```php
-namespace P;
+namespace Co;
 
 function onSignal(int $signalCode,Closure $closure): string;
 ```
@@ -27,7 +27,7 @@ function onSignal(int $signalCode,Closure $closure): string;
 
 #### 返回值
 
-返回事件唯一标识, 允许使用\P\cancel方法取消事件
+返回事件唯一标识, 允许使用\Co\cancel方法取消事件
 
 ### 概述
 
@@ -36,7 +36,7 @@ function onSignal(int $signalCode,Closure $closure): string;
 ### 基础用法
 
 ```php
-\P\onSignal(SIGINT, function () {
+\Co\onSignal(SIGINT, function () {
     echo 'signal received';
     exit(0);
 });
@@ -44,4 +44,4 @@ function onSignal(int $signalCode,Closure $closure): string;
 
 ### 注意事项
 
-> 注册任何信号处理器之后,如未正确取消信号处理器的情况下, \P\tick会认为有未完成的事件,并将会一直等待,直到所有事件完成。
+> 注册任何信号处理器之后,如未正确取消信号处理器的情况下, \Co\tick会认为有未完成的事件,并将会一直等待,直到所有事件完成。

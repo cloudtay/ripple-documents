@@ -1,5 +1,5 @@
 ---
-title: 期约 - \P\promise
+title: 期约 - \Co\promise
 description: Promise (承诺/期约机制) 是PRipple框架中的一个核心概念，用于处理异步操作。Promise对象代表一个异步操作的最终完成或失败，以及其结果值。相对于Future, Promise提供了更直观的API, 更容易理解和使用。
 keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '期约机制', 'Promise','承诺机制']
 ---
@@ -7,7 +7,7 @@ keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '期约机制',
 ### API
 
 ```php
-namespace P;
+namespace Co;
 
 function promise(Closure $closure): Promise;
 ```
@@ -39,14 +39,14 @@ Promise (承诺/期约机制) 是PRipple框架中的一个核心概念，用于�
 > 使用该方法可以创建一个Promise对象
 
 ```php
-$promise = \P\promise(Closure $callback): Promise
+$promise = \Co\promise(Closure $callback): Promise
 ```
 
 > PRipple会为你提交的闭包函数提供两个参数，一个是`resolve`回调函数，一个是`reject`回调函数。
 > 通过使用这两个回调函数，来对一份期约进行解决或者拒绝。
 
 ```php
-$promise = \P\promise(function ($resolve, $reject) {
+$promise = \Co\promise(function ($resolve, $reject) {
     $resolve('success'); // 解决一个期约
     
     // $reject('error'); // 拒绝一个期约
@@ -67,7 +67,7 @@ $promise = \P\promise(function ($resolve, $reject) {
 > 一旦转换为`fulfilled`或`rejected`状态，就不能再次转换为其他状态。
 
 ```php
-$promise = \P\promise(function ($resolve, $reject) {
+$promise = \Co\promise(function ($resolve, $reject) {
     //TODO: 读取文件/网络请求/数据库查询等异步操作...
 
     $resolve('success'); // 解决一个期约

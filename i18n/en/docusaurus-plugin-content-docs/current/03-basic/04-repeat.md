@@ -1,6 +1,6 @@
 ---
-title: redo - \P\repeat
-description: PRipple supports repeatedly executing a closure function through the \P\repeat method, which is used to handle scenarios such as scheduled tasks. PRipple will provide a `cancel` callback function for the closure function you submit. By calling the `cancel` function, you can cancel the current repeated task.
+title: redo - \Co\repeat
+description: PRipple supports repeatedly executing a closure function through the \Co\repeat method, which is used to handle scenarios such as scheduled tasks. PRipple will provide a `cancel` callback function for the closure function you submit. By calling the `cancel` function, you can cancel the current repeated task.
 keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'redo', 'scheduled task']
 ---
 
@@ -10,7 +10,7 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 ### API
 
 ```php
-namespace P;
+namespace Co;
 
 function repeat(Closure $closure,int|float $second): string;
 ```
@@ -37,7 +37,7 @@ function repeat(Closure $closure,int|float $second): string;
 ### Basic usage
 
 ```php
-\P\repeat(function (Closure $cancel) {
+\Co\repeat(function (Closure $cancel) {
     echo 'delay task';
     
     
@@ -46,23 +46,23 @@ function repeat(Closure $closure,int|float $second): string;
     }
 }, 1);
 
-\P\tick(); // Wait for all events to complete
+\Co\tick(); // Wait for all events to complete
 ```
 
 Note: The `repeat` method will repeatedly execute the closure function within the specified time interval until
 the `cancel` function is called.
 
 ```php
-\P\repeat(function (Closure $cancel) {
-    \P\sleep(10);
+\Co\repeat(function (Closure $cancel) {
+    \Co\sleep(10);
     
     echo 'delay task';
     
     $cancel();
 }, 1);
 
-\P\tick();
+\Co\tick();
 ```
 
-> In the above example, the code in repeat will be executed after 1 second, and when encountering `\P\sleep`, the
+> In the above example, the code in repeat will be executed after 1 second, and when encountering `\Co\sleep`, the
 > current coroutine will be automatically suspended, but `repeat` will still be executed again after 1 second.

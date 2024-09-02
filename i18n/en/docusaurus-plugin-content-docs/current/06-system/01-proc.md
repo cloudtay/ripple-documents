@@ -13,7 +13,7 @@ PRipple provides a Proc library to simplify this operation, allowing you to use 
 
 ```php
 //Open a new session, parameter 1 is the default binary file path of the session, the default is /usr/bin/php
-$session = \P\System::Proc()->open();
+$session = \Co\System::Proc()->open();
 
 //Enter commands into the session
 $session->input($command);
@@ -33,10 +33,10 @@ $session->onMessage = function ($message) {
     //TODO: The message will be output from this callback function
 };
 
-\P\run();
+\Co\run();
 ```
 
-where `$session` is a `P\Proc\ProcSession` object
+where `$session` is a `Co\Proc\ProcSession` object
 The session is executed in a separate process, and commands can be entered into the session through the `input` method,
 and the input stream can be closed through the `inputEot` method.
 You can also use more methods to control the behavior of the session, such as signal sending, session closing, etc.,

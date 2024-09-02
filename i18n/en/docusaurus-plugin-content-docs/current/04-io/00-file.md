@@ -1,6 +1,6 @@
 ---
 title: file - File
-description: PRipple supports operating files through the \P\IO::File() method, which is used to handle file read and write operations.
+description: PRipple supports operating files through the \Co\IO::File() method, which is used to handle file read and write operations.
 keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'file', 'IO']
 ---
 
@@ -10,7 +10,7 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 ### Access components
 
 ```php
-\P\IO::File() : File;
+\Co\IO::File() : File;
 ```
 
 ###API
@@ -30,15 +30,15 @@ streams through streams that do not block the process.
 You can read the file in the following way
 
 ```php
-\P\IO::File()->getContents(__FILE__)->then(function(string $value){
+\Co\IO::File()->getContents(__FILE__)->then(function(string $value){
     
 });
 ```
 
 ```php
-\P\async(function(){
-    $value = \P\await(
-        \P\IO::File()->getContents(__FILE__)
+\Co\async(function(){
+    $value = \Co\await(
+        \Co\IO::File()->getContents(__FILE__)
     );
 });
 ```
@@ -46,7 +46,7 @@ You can read the file in the following way
 You can also open a file stream in the following way
 
 ```php
-$stream = \P\IO::File()->open('file.txt','r');
+$stream = \Co\IO::File()->open('file.txt','r');
 ```
 
 Stream follows the StreamInterface development of PSR specifications. For Stream operations, please see the Stream

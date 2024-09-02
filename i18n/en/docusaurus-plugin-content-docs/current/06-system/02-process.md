@@ -24,7 +24,7 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 
 ```php
 async(function(){
-    $task = P\System::Process()->task(function(){
+    $task = Co\System::Process()->task(function(){
         // child process
     });
     $task->run();
@@ -36,7 +36,7 @@ async(function(){
 #### Usage
 
 ```php
-$task = P\System::Process()->task(function(){
+$task = Co\System::Process()->task(function(){
     sleep(10);
     
     exit(0);

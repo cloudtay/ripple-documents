@@ -1,6 +1,6 @@
 ---
-title: sleep - \P\sleep
-description: The \P\sleep function is used to suspend the current coroutine, giving up CPU resources, and other coroutines can continue to execute.
+title: sleep - \Co\sleep
+description: The \Co\sleep function is used to suspend the current coroutine, giving up CPU resources, and other coroutines can continue to execute.
 keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'sleep', 'suspend', 'CPU resources']
 ---
 
@@ -10,7 +10,7 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 ###API
 
 ```php
-namespace P;
+namespace Co;
 
 function sleep(int $second): void;
 ```
@@ -29,23 +29,23 @@ No return value
 
 > Sleep (sleep), the user suspends the execution of the current coroutine and lets the CPU handle other to-do tasks.
 
-- Using the `\P\sleep` function in `fiber space`: will suspend the current coroutine, giving up CPU resources, and other
+- Using the `\Co\sleep` function in `fiber space`: will suspend the current coroutine, giving up CPU resources, and other
   coroutines can continue to execute.
-- Using the `\P\sleep` function outside the `fiber space`: will suspend the current main process, giving up CPU
+- Using the `\Co\sleep` function outside the `fiber space`: will suspend the current main process, giving up CPU
   resources, and other coroutines can continue to execute.
 
-`\P\sleep` is different from `\sleep` in that it acts on the current coroutine, not the entire process.
+`\Co\sleep` is different from `\sleep` in that it acts on the current coroutine, not the entire process.
 
 ### Basic usage
 
 ```php
-\P\async(function () {
-    \P\sleep(1);
+\Co\async(function () {
+    \Co\sleep(1);
     
     echo 'async task';
 });
 
-\P\sleep(10); // Suspend the main process for 10 seconds so that other coroutines can complete the task
+\Co\sleep(10); // Suspend the main process for 10 seconds so that other coroutines can complete the task
 ```
 
 ### Precautions

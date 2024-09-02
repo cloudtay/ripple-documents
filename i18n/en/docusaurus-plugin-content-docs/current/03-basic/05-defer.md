@@ -1,6 +1,6 @@
 ---
-title: defer - \P\defer
-description: PRipple supports delayed execution of a closure function through the \P\defer method, which is used to handle asynchronous operations.
+title: defer - \Co\defer
+description: PRipple supports delayed execution of a closure function through the \Co\defer method, which is used to handle asynchronous operations.
 keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'deferred', 'asynchronous']
 ---
 
@@ -10,7 +10,7 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 ### API
 
 ```php
-namespace P;
+namespace Co;
 
 function defer(Closure $closure): string;
 ```
@@ -27,7 +27,7 @@ none
 
 ### return value
 
-Returns the unique identifier of the current event, allowing the event to be canceled using the `\P\cancel` method
+Returns the unique identifier of the current event, allowing the event to be canceled using the `\Co\cancel` method
 
 ### Overview
 
@@ -37,10 +37,10 @@ Returns the unique identifier of the current event, allowing the event to be can
 ### Basic usage
 
 ```php
-\P\async(function () {
+\Co\async(function () {
     $file = fopen('file.txt', 'w');
 
-    \P\defer(function () use ($file) {
+    \Co\defer(function () use ($file) {
         //TODO: The code here will not be executed immediately
         fclose($file);
     });
@@ -55,12 +55,12 @@ Returns the unique identifier of the current event, allowing the event to be can
 ```php
 public function index(Request $request) : JsonResponse
 {
-    \P\defer(function() use ($request){
-        $response = \P\await(
-            \P\Net::HTTP()->Guzzle()->getAsync('http://example.com');
+    \Co\defer(function() use ($request){
+        $response = \Co\await(
+            \Co\Net::HTTP()->Guzzle()->getAsync('http://example.com');
         );
     
-        $channel = \P\IO::Channel()->open('websocket');
+        $channel = \Co\IO::Channel()->open('websocket');
         $channel->send($response->getBody()->getContent());
         
         $channel->close();
@@ -73,4 +73,4 @@ public function index(Request $request) : JsonResponse
 #### hint
 
 > In the scaffolding provided by PRipple, most framework controller requests will occur in the async space. You can use
-> the `\P\defer` method in the controller.
+> the `\Co\defer` method in the controller.

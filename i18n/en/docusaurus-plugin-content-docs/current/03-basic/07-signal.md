@@ -1,5 +1,5 @@
 ---
-title: signal - \P\signal
+title: signal - \Co\signal
 description: Signal in PRipple is a core concept in the PRipple framework and is used to process system signals. The Signal object represents the trigger of a system signal and its handler.
 keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'signal', 'Signal']
 ---
@@ -10,7 +10,7 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 ### API
 
 ```php
-namespace P;
+namespace Co;
 
 function onSignal(int $signalCode,Closure $closure): string;
 ```
@@ -30,7 +30,7 @@ function onSignal(int $signalCode,Closure $closure): string;
 
 #### return value
 
-Returns the unique identifier of the event, allowing the event to be canceled using the \P\cancel method
+Returns the unique identifier of the event, allowing the event to be canceled using the \Co\cancel method
 
 ### Overview
 
@@ -40,7 +40,7 @@ Returns the unique identifier of the event, allowing the event to be canceled us
 ### Basic usage
 
 ```php
-\P\onSignal(SIGINT, function () {
+\Co\onSignal(SIGINT, function () {
     echo 'signal received';
     exit(0);
 });
@@ -48,5 +48,5 @@ Returns the unique identifier of the event, allowing the event to be canceled us
 
 ### Precautions
 
-> After registering any signal handler, if the signal handler is not canceled correctly, \P\tick will consider that
+> After registering any signal handler, if the signal handler is not canceled correctly, \Co\tick will consider that
 > there are unfinished events and will wait until all events are completed.

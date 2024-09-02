@@ -1,13 +1,13 @@
 ---
-title: 递延 - \P\defer
-description: PRipple中支持通过\P\defer方法延迟执行一个闭包函数, 用于处理异步操作。
+title: 递延 - \Co\defer
+description: PRipple中支持通过\Co\defer方法延迟执行一个闭包函数, 用于处理异步操作。
 keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '递延', '异步']
 ---
 
 ### API
 
 ```php
-namespace P;
+namespace Co;
 
 function defer(Closure $closure): string;
 ```
@@ -24,7 +24,7 @@ function defer(Closure $closure): string;
 
 ### 返回值
 
-返回当前事件唯一标识, 允许使用`\P\cancel`方法取消事件
+返回当前事件唯一标识, 允许使用`\Co\cancel`方法取消事件
 
 ### 概述
 
@@ -33,10 +33,10 @@ function defer(Closure $closure): string;
 ### 基础用法
 
 ```php
-\P\async(function () {
+\Co\async(function () {
     $file = fopen('file.txt', 'w');
 
-    \P\defer(function () use ($file) {
+    \Co\defer(function () use ($file) {
         //TODO: 此处的代码不会立即执行
         fclose($file);
     });
@@ -51,12 +51,12 @@ function defer(Closure $closure): string;
 ```php
 public function index(Request $request) : JsonResponse
 {
-    \P\defer(function() use ($request){
-        $response = \P\await(
-            \P\Net::HTTP()->Guzzle()->getAsync('http://example.com');
+    \Co\defer(function() use ($request){
+        $response = \Co\await(
+            \Co\Net::HTTP()->Guzzle()->getAsync('http://example.com');
         );
     
-        $channel = \P\IO::Channel()->open('websocket');
+        $channel = \Co\IO::Channel()->open('websocket');
         $channel->send($response->getBody()->getContent());
         
         $channel->close();
@@ -68,4 +68,4 @@ public function index(Request $request) : JsonResponse
 
 #### 提示
 
-> 在PRipple提供的脚手架中,绝大多数框架的控制器请求都会发生在async空间中, 你可以在控制器中使用`\P\defer`方法
+> 在PRipple提供的脚手架中,绝大多数框架的控制器请求都会发生在async空间中, 你可以在控制器中使用`\Co\defer`方法

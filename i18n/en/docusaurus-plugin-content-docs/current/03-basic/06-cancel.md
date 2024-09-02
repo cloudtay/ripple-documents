@@ -1,5 +1,5 @@
 ---
-title: Cancel - \P\cancel
+title: Cancel - \Co\cancel
 description: Cancel (cancel), used to cancel an event, usually used to cancel asynchronous tasks, supports the cancellation of all events whose running context is defined as an independent fiber. Such as `delay`, `repeat`, `onSignal`, `defer`, etc.
 keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'undo', 'cancel', 'asynchronous task']
 ---
@@ -10,7 +10,7 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 ### API
 
 ```php
-namespace P;
+namespace Co;
 
 function cancel(string $eventId): string;
 ```
@@ -34,28 +34,28 @@ none
 ### Basic usage
 
 ```php
-$repeatId = \P\repeat(function () {
+$repeatId = \Co\repeat(function () {
     echo 'delay task' .PHP_EOL;
 }, 1);
 
-$signalId = \P\onSignal(SIGINT, function () {
+$signalId = \Co\onSignal(SIGINT, function () {
     echo 'signal task' .PHP_EOL;
 });
 
 
 // Cancel the signal task after 10 seconds
-\P\delay(fn() => \P\cancel($signalId), 10);
+\Co\delay(fn() => \Co\cancel($signalId), 10);
 
 //Cancel the repeated task after 5 seconds
-\P\delay(fn() => \P\cancel($repeatId), 5);
+\Co\delay(fn() => \Co\cancel($repeatId), 5);
 
 
-$delayId = \P\delay(function () {
+$delayId = \Co\delay(function () {
     echo 'delay task' .PHP_EOL;
 }, 10);
 
 // Cancel the task in advance before it occurs
-\P\cancel($delayId);
+\Co\cancel($delayId);
 ```
 
 #### Precautions

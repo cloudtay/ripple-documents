@@ -7,7 +7,7 @@ keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '异步', '信�
 ### API
 
 ```php
-namespace P;
+namespace Co;
 
 function registerForkHandler(Closure $closure): int;
 function cancelForkHandler(int $index): void;
@@ -21,13 +21,13 @@ function cancelForkHandler(int $index): void;
 ### 基础用法
 
 ```php
-\P\registerForkHandler(function () {
-    \P\repeat(function () {
+\Co\registerForkHandler(function () {
+    \Co\repeat(function () {
         echo 'repeat task';
     }, 1);
 });
 
-$task = \P\System::Process()->task(function () {
+$task = \Co\System::Process()->task(function () {
     echo 'fork task';
 });
 

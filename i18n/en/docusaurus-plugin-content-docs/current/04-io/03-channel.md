@@ -10,7 +10,7 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 ### Access components
 
 ```php
-use \P\IO;
+use \Co\IO;
 
 IO::Channel();
 ```
@@ -44,9 +44,9 @@ Reading and writing of this Channel are atomic operations, ensuring data consist
 ### example
 
 ```php
-$channel = \P\IO::Channel()->make('common');
+$channel = \Co\IO::Channel()->make('common');
 
-$task = \P\System::Process()->task(function() use ($channel){
+$task = \Co\System::Process()->task(function() use ($channel){
     $channel->setBloking(true);
     
     while($task = $channel->receive()){
@@ -74,7 +74,7 @@ You can also use Channels to work together between multiple applications, such a
 ```php
 $worker = new Worker('websocket://127.0.0.1:2346');
 $worker->onWorkerStart = function() {
-    $channel = \P\IO::Channel()->make('websocket');
+    $channel = \Co\IO::Channel()->make('websocket');
     $channel->setBloking(false);
     
     Timer::add(1, function() use ($channel){
@@ -93,7 +93,7 @@ Worker::runAll();
 ```php
 public function index(Request $request) : JsonResponse
 {
-    $channel = \P\IO::Channel()->open('websocket');
+    $channel = \Co\IO::Channel()->open('websocket');
     $channel->send($request->query('message'));
     
     return new JsonResponse(['status' => 'ok']);

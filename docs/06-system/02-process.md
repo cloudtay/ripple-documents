@@ -19,7 +19,7 @@ keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '进程', '管�
 
 ```php
 async(function(){
-    $task = P\System::Process()->task(function(){
+    $task = Co\System::Process()->task(function(){
         // 子进程
     });
     $task->run();
@@ -31,7 +31,7 @@ async(function(){
 #### 用法
 
 ```php
-$task = P\System::Process()->task(function(){
+$task = Co\System::Process()->task(function(){
     sleep(10);
     
     exit(0);

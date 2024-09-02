@@ -14,23 +14,23 @@ PRipple provides an easy-to-use WebSocketClient component that can be used to cr
 ### Usage examples
 
 ```php
-use GuzzleHttp\Psr7\Request;
-use Psc\Library\Net\Http\Client\HttpClient;
-use Psr\Http\Message\RequestInterface;
+use GuzzleHttCo\Psr7\Request;
+use Psc\Library\Net\HttCo\Client\HttpClient;
+use Psr\HttCo\Message\RequestInterface;
 
-use function P\async;
-use function P\await;
-use function P\tick;
+use function Co\async;
+use function Co\await;
+use function Co\tick;
 
 async(function () {
     $httpClient = new HttpClient([
         'pool' => 1 // Turn on the connection pool, which can improve performance in scenarios with frequent requests.
     ]);
 
-    //Create a Psr\Http\Message\RequestInterface object
+    //Create a Psr\HttCo\Message\RequestInterface object
     $request = new class ('GET', 'https://www.baidu.com') extends Request implements RequestInterface {};
 
-    //Leave it to HttpClient for processing and return a Psr\Http\Message\ResponseInterface object
+    //Leave it to HttpClient for processing and return a Psr\HttCo\Message\ResponseInterface object
     $response = await(
         $httpClient->request($request)
     );

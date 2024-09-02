@@ -1,6 +1,6 @@
 ---
 title: websocket
-description: PRipple supports operating WebSocket through the \P\Net::WebSocket() method, which is used to handle WebSocket services.
+description: PRipple supports operating WebSocket through the \Co\Net::WebSocket() method, which is used to handle WebSocket services.
 keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'WebSocket', 'Net']
 ---
 
@@ -13,10 +13,10 @@ PRipple provides an easy-to-use WebSocketServer component that can be used to qu
 usage method is as follows
 
 ```php
-use P\Net;
+use Co\Net;
 use Psc\Library\Net\WebSocket\Server\Connection;
 
-use function P\run;
+use function Co\run;
 
 include __DIR__ . '/../vendor/autoload.php';
 

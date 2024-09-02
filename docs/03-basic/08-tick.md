@@ -1,12 +1,12 @@
 ---
-title: 触发器 - \P\tick
-description: \P\tick函数用于触发所有事件, PRipple会开始执行所有事件, 直到空闲为止。
+title: 触发器 - \Co\tick
+description: \Co\tick函数用于触发所有事件, PRipple会开始执行所有事件, 直到空闲为止。
 ---
 
 ### API
 
 ```php
-namespace P;
+namespace Co;
 
 function tick(): void;
 ```
@@ -21,17 +21,17 @@ function tick(): void;
 
 ### 概述
 
-> 在声明一系列操作后,可以通过\P\sleep函数来等待协程执行,否则程序将会直接结束, 又或者你可以通过
-> 调用`\P\tick`函数, PRipple会开始执行所有事件, 直到空闲为止。
+> 在声明一系列操作后,可以通过\Co\sleep函数来等待协程执行,否则程序将会直接结束, 又或者你可以通过
+> 调用`\Co\tick`函数, PRipple会开始执行所有事件, 直到空闲为止。
 
 ### 基础用法
 
 ```php
-\P\defer(function () {
+\Co\defer(function () {
     //TODO: do something
 });
 
-\P\tick(); // 等待所有事件执行完成
+\Co\tick(); // 等待所有事件执行完成
 ```
 
 ### 扩展例子
@@ -41,7 +41,7 @@ function tick(): void;
 ```php
 <?php
 
-use Illuminate\Http\Request;
+use Illuminate\HttCo\Request;
 
 define('LARAVEL_START', microtime(true));
 
@@ -53,13 +53,13 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 // Register the Composer autoloader...
 require __DIR__.'/../vendor/autoload.php';
 
-\P\async(function(){
+\Co\async(function(){
     // Bootstrap Laravel and handle the request...
     (require_once __DIR__.'/../bootstrap/app.php')
         ->handleRequest(Request::capture());
 });
 
-\P\tick();
+\Co\tick();
 ```
 
 ### 注意事项

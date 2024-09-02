@@ -1,13 +1,13 @@
 ---
-title: 延迟 - \P\delay
-description: PRipple中支持通过\P\delay方法延迟执行一个闭包函数, 用于处理异步操作。
+title: 延迟 - \Co\delay
+description: PRipple中支持通过\Co\delay方法延迟执行一个闭包函数, 用于处理异步操作。
 keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '延迟', '异步']
 ---
 
 ### API
 
 ```php
-namespace P;
+namespace Co;
 
 function delay(Closure $closure,int|float $second): string;
 ```
@@ -25,7 +25,7 @@ function delay(Closure $closure,int|float $second): string;
 
 #### 返回值
 
-返回事件唯一标识, 允许使用\P\cancel方法取消事件
+返回事件唯一标识, 允许使用\Co\cancel方法取消事件
 
 ### 概述
 
@@ -34,13 +34,13 @@ function delay(Closure $closure,int|float $second): string;
 ### 基础用法
 
 ```php
-\P\delay(function () {
+\Co\delay(function () {
     echo 'delay task';
 }, 1);
 
-\P\sleep(10); // 挂起主程10秒以便其他协程能够完成任务
+\Co\sleep(10); // 挂起主程10秒以便其他协程能够完成任务
 ```
 
 #### 提示
 
-> 在PRipple提供的脚手架中,绝大多数框架的控制器请求都会发生在async空间中, 你可以在控制器中使用`\P\delay`方法
+> 在PRipple提供的脚手架中,绝大多数框架的控制器请求都会发生在async空间中, 你可以在控制器中使用`\Co\delay`方法

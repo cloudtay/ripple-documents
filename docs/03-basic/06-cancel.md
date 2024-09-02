@@ -1,5 +1,5 @@
 ---
-title: 撤销 - \P\cancel
+title: 撤销 - \Co\cancel
 description: Cancel (撤销) , 用于撤销一个事件, 通常用于取消异步任务, 支持撤销所有定义的运行上下文为独立纤程的事件。如`delay`, `repeat`, `onSignal`, `defer`等
 keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '撤销', '取消', '异步任务']
 ---
@@ -7,7 +7,7 @@ keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '撤销', '取�
 ### API
 
 ```php
-namespace P;
+namespace Co;
 
 function cancel(string $eventId): string;
 ```
@@ -30,28 +30,28 @@ function cancel(string $eventId): string;
 ### 基础用法
 
 ```php
-$repeatId = \P\repeat(function () {
+$repeatId = \Co\repeat(function () {
     echo 'delay task' . PHP_EOL;
 }, 1);
 
-$signalId = \P\onSignal(SIGINT, function () {
+$signalId = \Co\onSignal(SIGINT, function () {
     echo 'signal task' . PHP_EOL;
 });
 
 
 // 在10秒后撤销信号任务
-\P\delay(fn() => \P\cancel($signalId), 10);
+\Co\delay(fn() => \Co\cancel($signalId), 10);
 
 // 在5秒后撤销重复任务
-\P\delay(fn() => \P\cancel($repeatId), 5);
+\Co\delay(fn() => \Co\cancel($repeatId), 5);
 
 
-$delayId = \P\delay(function () {
+$delayId = \Co\delay(function () {
     echo 'delay task' . PHP_EOL;
 }, 10);
 
 // 在发生前提前撤销任务
-\P\cancel($delayId);
+\Co\cancel($delayId);
 ```
 
 #### 注意事项

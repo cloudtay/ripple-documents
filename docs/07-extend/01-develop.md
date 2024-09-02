@@ -19,27 +19,27 @@ PRipple中你可以像往常一样使用任何组件, 对于一些未支持异�
 
 ```php
 <?php declare(strict_types=1);
-namespace Psc\Library\Net\Http\Client;
+namespace Psc\Library\Net\HttCo\Client;
 
 use Closure;
-use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttCo\Psr7\MultipartStream;
 use InvalidArgumentException;
-use P\IO;
+use Co\IO;
 use Psc\Core\Coroutine\Promise;
 use Psc\Core\Stream\SocketStream;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use Psr\HttCo\Message\RequestInterface;
+use Psr\HttCo\Message\ResponseInterface;
 use Throwable;
 
 use function fclose;
 use function fopen;
 use function implode;
 use function in_array;
-use function P\async;
-use function P\await;
-use function P\cancel;
-use function P\delay;
-use function P\repeat;
+use function Co\async;
+use function Co\await;
+use function Co\cancel;
+use function Co\delay;
+use function Co\repeat;
 use function str_contains;
 use function strtolower;
 
@@ -70,7 +70,7 @@ class HttpClient
     public function request(RequestInterface $request, array $option = []): Promise
     {
         return async(function () use ($request, $option) {
-            return \P\promise(function (Closure $r, Closure $d, Promise $promise) use ($request, $option) {
+            return \Co\promise(function (Closure $r, Closure $d, Promise $promise) use ($request, $option) {
                 $uri = $request->getUri();
 
                 $method = $request->getMethod();
@@ -203,9 +203,9 @@ class HttpClient
 > 经过封装后,你可以像使用其他PRipple组件一样使用Guzzle
 
 ```php
-\P\async(function () {
-    $response  = \P\await(
-        \P\Plugin::Guzzle()->getAsync('https://www.baidu.com')
+\Co\async(function () {
+    $response  = \Co\await(
+        \Co\Plugin::Guzzle()->getAsync('https://www.baidu.com')
     );
 
     \var_dump($response->getStatusCode());
@@ -217,12 +217,12 @@ class HttpClient
 ```php
 <?php declare(strict_types=1);
 
-namespace Psc\Library\Net\Http\Client;
+namespace Psc\Library\Net\HttCo\Client;
 
-use GuzzleHttp\Psr7\Response;
+use GuzzleHttCo\Psr7\Response;
 use Psc\Core\Stream\SocketStream;
 use Psc\Std\Stream\Exception\RuntimeException;
-use Psr\Http\Message\ResponseInterface;
+use Psr\HttCo\Message\ResponseInterface;
 
 use function count;
 use function explode;
@@ -388,20 +388,20 @@ class Connection
 ```php
 <?php declare(strict_types=1);
 
-namespace Psc\Library\Net\Http\Client;
+namespace Psc\Library\Net\HttCo\Client;
 
-use P\IO;
+use Co\IO;
 use Psc\Core\Coroutine\Promise;
 use Psc\Core\Stream\SocketStream;
 use Psc\Std\Stream\Exception\ConnectionException;
 use Throwable;
 
 use function array_pop;
-use function P\async;
-use function P\await;
-use function P\cancel;
-use function P\cancelForkHandler;
-use function P\registerForkHandler;
+use function Co\async;
+use function Co\await;
+use function Co\cancel;
+use function Co\cancelForkHandler;
+use function Co\registerForkHandler;
 
 class ConnectionPool
 {
@@ -569,16 +569,16 @@ class ConnectionPool
 
 namespace Psc\Plugins\Guzzle;
 
-use GuzzleHttp\Promise\Promise;
-use GuzzleHttp\Promise\PromiseInterface;
-use GuzzleHttp\Psr7\Response;
-use Psc\Library\Net\Http\Client\HttpClient;
-use Psr\Http\Message\RequestInterface;
+use GuzzleHttCo\Promise\Promise;
+use GuzzleHttCo\Promise\PromiseInterface;
+use GuzzleHttCo\Psr7\Response;
+use Psc\Library\Net\HttCo\Client\HttpClient;
+use Psr\HttCo\Message\RequestInterface;
 use Throwable;
 
-use function P\async;
-use function P\await;
-use function P\defer;
+use function Co\async;
+use function Co\await;
+use function Co\defer;
 use function strval;
 
 class PHandler
@@ -629,20 +629,20 @@ class PHandler
 > 上述封装完成了对流订阅/连接池/异步握手/跨进程资源回收等操作, 此后, 你可以像使用其他PRipple组件一样使用Guzzle
 
 ```php
-$handler = new \P\Plugins\Guzzle\PHandler();
-$client = new \GuzzleHttp\Client(['handler' => $handler]);
+$handler = new \Co\Plugins\Guzzle\PHandler();
+$client = new \GuzzleHttCo\Client(['handler' => $handler]);
 
 // 创建100个协程进行请求
 for($i = 0; $i < 100; $i++) {
-    \P\async(function () use ($client) {
-        \P\sleep(1); //模拟协程堵塞1s
+    \Co\async(function () use ($client) {
+        \Co\sleep(1); //模拟协程堵塞1s
         
         $response = $client->get('https://www.baidu.com');
         echo "request {$i} status: " . $response->getStatusCode() . PHP_EOL;
     });
 }
 
-\P\tick();
+\Co\tick();
 ```
 
 > 上述代码的运行结果为在1s后输出100个请求的状态码
@@ -652,7 +652,7 @@ for($i = 0; $i < 100; $i++) {
 > PRipple将其封装为一个插件, 你可以像使用其他PRipple组件一样使用Guzzle
 
 ```php
-\P\Plugin::Guzzle()->getAsync('https://www.baidu.com')->then(function ($response) {
+\Co\Plugin::Guzzle()->getAsync('https://www.baidu.com')->then(function ($response) {
     echo $response->getStatusCode();
 });
 ```
@@ -668,10 +668,10 @@ composer require amphp/mysql
 ```
 
 ```php
-use Amp\Mysql\MysqlConfig;
-use Amp\Mysql\MysqlConnectionPool;
-use function P\async;
-use function P\run;
+use AmCo\Mysql\MysqlConfig;
+use AmCo\Mysql\MysqlConnectionPool;
+use function Co\async;
+use function Co\run;
 
 $config = MysqlConfig::fromString(
     "host=localhost user=root password=aa123456 db=mysql"
@@ -695,7 +695,7 @@ async(function ($r) use ($pool) {
     }
 });
 
-\P\tick();
+\Co\tick();
 ```
 
 ## (3) 更多...

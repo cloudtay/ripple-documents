@@ -1,6 +1,6 @@
 ---
 title: Stream - Stream
-description: PRipple supports operating streams through the \P\IO::Stream() method, which is used to process stream read and write operations.
+description: PRipple supports operating streams through the \Co\IO::Stream() method, which is used to process stream read and write operations.
 keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'stream', 'IO']
 ---
 
@@ -29,7 +29,7 @@ Closure(Stream $stream,Closure $cancel);
 ```php
 public function onReadable(Closure $closure): string;
 
-$stream = \P\IO::File()->open('file.txt');
+$stream = \Co\IO::File()->open('file.txt');
 $stream->onReadable(function (Stream $stream,Closure $cancel) {
     $data = $stream->read(1024);
     echo $data .PHP_EOL;

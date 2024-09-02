@@ -1,6 +1,6 @@
 ---
-title: trigger - \P\tick
-description: The \P\tick function is used to trigger all events. PRipple will start executing all events until it is idle.
+title: trigger - \Co\tick
+description: The \Co\tick function is used to trigger all events. PRipple will start executing all events until it is idle.
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
@@ -9,7 +9,7 @@ description: The \P\tick function is used to trigger all events. PRipple will st
 ### API
 
 ```php
-namespace P;
+namespace Co;
 
 function tick(): void;
 ```
@@ -24,18 +24,18 @@ none
 
 ### Overview
 
-> After declaring a series of operations, you can use the \P\sleep function to wait for the coroutine to execute,
+> After declaring a series of operations, you can use the \Co\sleep function to wait for the coroutine to execute,
 > otherwise the program will end directly, or you can use
-> Call the `\P\tick` function, PRipple will start executing all events until it is idle.
+> Call the `\Co\tick` function, PRipple will start executing all events until it is idle.
 
 ### Basic usage
 
 ```php
-\P\defer(function () {
+\Co\defer(function () {
     //TODO: do something
 });
 
-\P\tick(); // Wait for all events to complete
+\Co\tick(); // Wait for all events to complete
 ```
 
 ### Extended example
@@ -45,7 +45,7 @@ none
 ```php
 <?php
 
-use Illuminate\Http\Request;
+use Illuminate\HttCo\Request;
 
 define('LARAVEL_START', microtime(true));
 
@@ -57,13 +57,13 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 // Register the Composer autoloader...
 require __DIR__.'/../vendor/autoload.php';
 
-\P\async(function(){
+\Co\async(function(){
     // Bootstrap Laravel and handle the request...
     (require_once __DIR__.'/../bootstrap/app.php')
         ->handleRequest(Request::capture());
 });
 
-\P\tick();
+\Co\tick();
 ```
 
 ### Precautions
