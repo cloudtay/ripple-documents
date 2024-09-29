@@ -1,7 +1,7 @@
 ---
 title: 异步 - \Co\async
-description: PRipple中Async (异步) 是PRipple框架中的一个核心概念，用于处理异步操作。Async对象代表一个异步操作的最终完成或失败，以及其结果值。
-keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '异步', 'Async']
+description: Ripple中Async (异步) 是Ripple框架中的一个核心概念，用于处理异步操作。Async对象代表一个异步操作的最终完成或失败，以及其结果值。
+keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', '异步', 'Async']
 tags: ['异步', 'Async']
 ---
 
@@ -28,7 +28,7 @@ function async(Closure $closure): Promise;
 
 ### 概述
 
-> Async (异步操作) 是PRipple框架实现中协程的核心概念之一, 基于Promise机制管理状态, 扩展了协程的异步操作能力。
+> Async (异步操作) 是Ripple框架实现中协程的核心概念之一, 基于Promise机制管理状态, 扩展了协程的异步操作能力。
 
 ### 用法
 
@@ -38,7 +38,7 @@ function async(Closure $closure): Promise;
 $promise = \Co\async(Closure $callback): Promise
 ```
 
-> PRipple同样会为提交的闭包函数提供两个参数，一个是`resolve`回调函数，一个是`reject`回调函数。
+> Ripple同样会为提交的闭包函数提供两个参数，一个是`resolve`回调函数，一个是`reject`回调函数。
 > 通过使用这两个回调函数，来对一份承诺进行解决或者拒绝。 不同于`promise`方法, `async`中支持更多的异步操作。
 > 并且使用`async`方法通常不需要显性地处理`resolve`,`reject`, 它会在运行过程中自动解决期约,
 
@@ -135,5 +135,5 @@ httpGet('http://example.com')->then(function($response){
 
 ### 提示
 
-> 在PRipple提供的脚手架中,绝大多数框架的控制器请求都会发生在async空间中, 你可以在控制器中使用`async`方法来处理异步操作。
+> 在Ripple提供的脚手架中,绝大多数框架的控制器请求都会发生在async空间中, 你可以在控制器中使用`async`方法来处理异步操作。
 

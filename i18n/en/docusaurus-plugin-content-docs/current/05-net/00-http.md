@@ -1,7 +1,7 @@
 ---
 title: http
-description: Http service component in PRipple, used to build an Http service
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'Http', 'Server','asynchronous Http','GuzzleHttp asynchronous','Guzzle asynchronous']
+description: Http service component in Ripple, used to build an Http service
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'Http', 'Server','asynchronous Http','GuzzleHttp asynchronous','Guzzle asynchronous']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
@@ -11,7 +11,7 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 
 ### Overview
 
-PRipple provides an easy-to-use HttpServer component that can be used to quickly build an Http service. The usage method
+Ripple provides an easy-to-use HttpServer component that can be used to quickly build an Http service. The usage method
 is as follows
 
 Among them, Request and Response inherit and implement the `RequestInterface` and `ResponseInterface` interface
@@ -81,7 +81,7 @@ run();
 
 ### Port reuse
 
-> PRipple supports port multiplexing with Parallel modules
+> Ripple supports port multiplexing with Parallel modules
 
 ```php
 # After creating HttpServer as above, you can replace the listening method to implement port multiplexing.

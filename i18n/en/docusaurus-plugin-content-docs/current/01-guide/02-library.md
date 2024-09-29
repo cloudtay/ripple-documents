@@ -1,7 +1,7 @@
 ---
 title: Module - Library
-description: All PRipple support libraries are under the `Co` namespace and are divided according to the modules to which they belong. Currently, the support libraries have the following modules
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency']
+description: All Ripple support libraries are under the `Co` namespace and are divided according to the modules to which they belong. Currently, the support libraries have the following modules
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
@@ -9,7 +9,7 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 
 ## introduce
 
-All PRipple support libraries are under the `Co` namespace and are divided according to the modules to which they belong.
+All Ripple support libraries are under the `Co` namespace and are divided according to the modules to which they belong.
 Currently, the support libraries have the following modules:
 
 - `Co\Net` network operation module

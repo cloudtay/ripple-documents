@@ -1,7 +1,7 @@
 ---
 title: Channel - Channel
-description: Channel in PRipple is a core concept in the PRipple framework and is used for communication between multiple processes. The Channel object represents a data channel for communication between multiple processes.
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'channel', 'Channel']
+description: Channel in Ripple is a core concept in the Ripple framework and is used for communication between multiple processes. The Channel object represents a data channel for communication between multiple processes.
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'channel', 'Channel']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
@@ -27,8 +27,8 @@ public function make(string $name): Channel;
 
 ### Overview
 
-> Channel is a data channel in PRipple, used for communication between multiple processes. It is worth noting that
-> PRipple’s Channel scope is local and global.
+> Channel is a data channel in Ripple, used for communication between multiple processes. It is worth noting that
+> Ripple’s Channel scope is local and global.
 > You can use Channel as follows
 
 

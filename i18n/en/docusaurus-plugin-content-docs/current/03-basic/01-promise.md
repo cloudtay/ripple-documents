@@ -1,7 +1,7 @@
 ---
 title: Promise - \Co\promise
-description: Promise (commitment/expiry mechanism) is a core concept in the PRipple framework and is used to handle asynchronous operations. A Promise object represents the final completion or failure of an asynchronous operation, as well as its result value. Compared with Future, Promise provides a more intuitive API that is easier to understand and use.
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'promise mechanism', 'Promise','commitment mechanism']
+description: Promise (commitment/expiry mechanism) is a core concept in the Ripple framework and is used to handle asynchronous operations. A Promise object represents the final completion or failure of an asynchronous operation, as well as its result value. Compared with Future, Promise provides a more intuitive API that is easier to understand and use.
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'promise mechanism', 'Promise','commitment mechanism']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
@@ -34,7 +34,7 @@ Returns a `Promise` object
 
 ### Overview
 
-Promise (promise/expiration mechanism) is a core concept in the PRipple framework and is used to handle asynchronous
+Promise (promise/expiration mechanism) is a core concept in the Ripple framework and is used to handle asynchronous
 operations. A Promise object represents the final completion or failure of an asynchronous operation, as well as its
 result value.
 Compared with Future, Promise provides a more intuitive API that is easier to understand and use.
@@ -47,7 +47,7 @@ Compared with Future, Promise provides a more intuitive API that is easier to un
 $promise = \Co\promise(Closure $callback): Promise
 ```
 
-> PRipple will provide two parameters for the closure function you submit, one is the `resolve` callback function and
+> Ripple will provide two parameters for the closure function you submit, one is the `resolve` callback function and
 > the other is the `reject` callback function.
 > Use these two callback functions to resolve or reject a futures contract.
 

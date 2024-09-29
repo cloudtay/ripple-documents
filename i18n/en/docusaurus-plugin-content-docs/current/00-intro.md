@@ -1,12 +1,12 @@
 ---
 sidebar_position: 1
 title: 📘 Overview
-description: PRipple is a high-performance native PHP coroutine framework designed to handle high-concurrency, complex network communications and data operations.
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'framework', 'coroutine framework']
+description: Ripple is a high-performance native PHP coroutine framework designed to handle high-concurrency, complex network communications and data operations.
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'framework', 'coroutine framework']
 ---
 
 
-PRipple is a high-performance native PHP coroutine framework designed to handle high-concurrency, complex network
+Ripple is a high-performance native PHP coroutine framework designed to handle high-concurrency, complex network
 communications and data operations.
 
 This project is implemented based on PHP8.1's own fiber features + Revolt tool library, providing simpler and
@@ -45,7 +45,7 @@ easier-to-use APIs and tools, allowing developers to easily build high-performan
 
 ### start using
 
-Through this project document, you will learn how to install, configure and use PRipple, and gradually master the core
+Through this project document, you will learn how to install, configure and use Ripple, and gradually master the core
 concepts and best practices of coroutine programming. We also provide a wealth of sample code and tutorials to help you
 quickly get started and play
 Let’s begin this journey into high-performance PHP programming!

@@ -1,7 +1,7 @@
 ---
 title: websocket-client
-description: PRipple supports operating WebSocket through the \Co\Net::WebSocket() method, which is used to handle WebSocket client connections.
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'WebSocket', 'Net']
+description: Ripple supports operating WebSocket through the \Co\Net::WebSocket() method, which is used to handle WebSocket client connections.
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'WebSocket', 'Net']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
@@ -9,7 +9,7 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 
 ### Overview
 
-PRipple provides an easy-to-use WebSocketClient component that can be used to create WebSocket client connections.
+Ripple provides an easy-to-use WebSocketClient component that can be used to create WebSocket client connections.
 
 ```php
 use Co\Net;

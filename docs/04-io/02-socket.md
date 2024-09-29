@@ -1,7 +1,7 @@
 ---
 title: 套接字 - Socket
-description: PRipple中的套接字库, 用于实现异步网络通信, 包括创建套接字连接, SSL连接等。
-keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '套接字', 'Socket', 'SSL']
+description: Ripple中的套接字库, 用于实现异步网络通信, 包括创建套接字连接, SSL连接等。
+keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', '套接字', 'Socket', 'SSL']
 ---
 
 ### 访问组件
@@ -36,7 +36,7 @@ public function streamSocketAccept(SocketStream $server): Promise;
 
 ### 概述
 
-建立套接字连接是PRipple的一个重要功能, 通过套接字连接可以实现异步的网络通信, 例如: HTTP服务器, WebSocket服务器等。
+建立套接字连接是Ripple的一个重要功能, 通过套接字连接可以实现异步的网络通信, 例如: HTTP服务器, WebSocket服务器等。
 访问Socket库的函数都会返回Promise对象, 你可以通过`await`关键字等待Promise对象的结果。或通过`then`方法处理异步结果。
 Socket库隐藏了连接握手/SSL握手等细节, 你只需要关注业务逻辑即可。
 

@@ -1,7 +1,7 @@
 ---
 title: 高级用法 - Professional
-description: PRipple框架中的高级用法, 包括异步操作, 信号处理, 睡眠, 期约机制等。
-keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '异步', '信号', '睡眠', '期约']
+description: Ripple框架中的高级用法, 包括异步操作, 信号处理, 睡眠, 期约机制等。
+keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', '异步', '信号', '睡眠', '期约']
 ---
 
 ### API
@@ -15,7 +15,7 @@ function cancelForkHandler(int $index): void;
 
 ### 概述
 
-> 在PRipple中, 你可以通过`registerForkHandler`方法注册一个在进程fork之后发生的事件, 并在fork之后的子进程中执行指定的闭包函数。
+> 在Ripple中, 你可以通过`registerForkHandler`方法注册一个在进程fork之后发生的事件, 并在fork之后的子进程中执行指定的闭包函数。
 > 所有的fork事件都会在fork之后的子进程中执行, 且注册的处理器会在执行之后被遗忘。
 
 ### 基础用法

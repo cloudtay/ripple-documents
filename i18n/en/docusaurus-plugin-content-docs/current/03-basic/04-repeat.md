@@ -1,7 +1,7 @@
 ---
 title: redo - \Co\repeat
-description: PRipple supports repeatedly executing a closure function through the \Co\repeat method, which is used to handle scenarios such as scheduled tasks. PRipple will provide a `cancel` callback function for the closure function you submit. By calling the `cancel` function, you can cancel the current repeated task.
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'redo', 'scheduled task']
+description: Ripple supports repeatedly executing a closure function through the \Co\repeat method, which is used to handle scenarios such as scheduled tasks. Ripple will provide a `cancel` callback function for the closure function you submit. By calling the `cancel` function, you can cancel the current repeated task.
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'redo', 'scheduled task']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
@@ -31,7 +31,7 @@ function repeat(Closure $closure,int|float $second): string;
 
 > Repeat (repeated execution), specify the frequency to do something repeatedly, usually used in scenarios such as
 > scheduled tasks.
-> PRipple will provide a `cancel` callback function for the closure function you submitted. The current repeated task
+> Ripple will provide a `cancel` callback function for the closure function you submitted. The current repeated task
 > can be canceled by calling the `cancel` function.
 
 ### Basic usage

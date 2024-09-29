@@ -1,7 +1,7 @@
 ---
 title: File Lock - Lock
-description: Lock (file lock), PRipple provides a basic file lock, which is used in multiple processes to stagger the access time when seizing the same resource.
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'file lock', 'Lock']
+description: Lock (file lock), Ripple provides a basic file lock, which is used in multiple processes to stagger the access time when seizing the same resource.
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'file lock', 'Lock']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
@@ -24,7 +24,7 @@ public function access(string $name = 'default'): Lock;
 
 ### Overview
 
-> Lock (file lock), PRipple provides a basic file lock, which is used in multiple processes to stagger the access time
+> Lock (file lock), Ripple provides a basic file lock, which is used in multiple processes to stagger the access time
 > when seizing the same resource.
 > The permissions of the lock are shared globally in the current process. You can use Lock as follows
 

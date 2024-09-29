@@ -1,7 +1,7 @@
 ---
 title: http-client
-description: PRipple provides an easy-to-use HttpClient component that can be used to create HTTP client connections. It also supports features such as long connection pool and coroutine scheduling.
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'HttpClient', 'Net']
+description: Ripple provides an easy-to-use HttpClient component that can be used to create HTTP client connections. It also supports features such as long connection pool and coroutine scheduling.
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'HttpClient', 'Net']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
@@ -9,7 +9,7 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 
 ### Overview
 
-PRipple provides an easy-to-use WebSocketClient component that can be used to create WebSocket client connections.
+Ripple provides an easy-to-use WebSocketClient component that can be used to create WebSocket client connections.
 
 ### Usage examples
 

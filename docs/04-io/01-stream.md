@@ -1,12 +1,12 @@
 ---
 title: 流 - Stream
-description: PRipple中支持通过\Co\IO::Stream()方法操作流, 用于处理流读写操作。
-keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '流', 'IO']
+description: Ripple中支持通过\Co\IO::Stream()方法操作流, 用于处理流读写操作。
+keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', '流', 'IO']
 ---
 
 ### 概述
 
-PRipple中Stream是一个基于事件的数据流，它可以用于处理大量的数据，例如文件读取、网络请求等。
+Ripple中Stream是一个基于事件的数据流，它可以用于处理大量的数据，例如文件读取、网络请求等。
 所有的Stream都实现了PSR规范下的StreamInterface, 另外封装了多个常用的监听流方法如
 
 订阅的可读可写事件,所有闭包都所处于事件运行时上下文，并且闭包中会收到两个参数

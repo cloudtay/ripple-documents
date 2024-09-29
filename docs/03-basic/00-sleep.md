@@ -1,7 +1,7 @@
 ---
 title: 睡眠 - \Co\sleep
 description: \Co\sleep函数用于挂起当前协程, 让出CPU资源, 其他协程能够继续执行。
-keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '睡眠', '挂起', 'CPU资源']
+keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', '睡眠', '挂起', 'CPU资源']
 ---
 
 ### API

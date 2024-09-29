@@ -1,7 +1,7 @@
 ---
 title: 重做 - \Co\repeat
-description: PRipple中支持通过\Co\repeat方法重复执行一个闭包函数, 用于处理定时任务等场景。PRipple会为你提交的闭包函数提供一个`cancel`回调函数, 通过调用`cancel`函数可以取消当前的重复任务。
-keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '重做', '定时任务']
+description: Ripple中支持通过\Co\repeat方法重复执行一个闭包函数, 用于处理定时任务等场景。Ripple会为你提交的闭包函数提供一个`cancel`回调函数, 通过调用`cancel`函数可以取消当前的重复任务。
+keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', '重做', '定时任务']
 ---
 
 ### API
@@ -27,7 +27,7 @@ function repeat(Closure $closure,int|float $second): string;
 ### 概述
 
 > Repeat (重复执行) , 指定频率重复做某事, 通常用于定时任务等场景。
-> PRipple会为你提交的闭包函数提供一个`cancel`回调函数, 通过调用`cancel`函数可以取消当前的重复任务。
+> Ripple会为你提交的闭包函数提供一个`cancel`回调函数, 通过调用`cancel`函数可以取消当前的重复任务。
 
 ### 基础用法
 

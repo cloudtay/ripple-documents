@@ -1,7 +1,7 @@
 ---
 title: 频道 - Channel
-description: PRipple中的Channel (频道) 是PRipple框架中的一个核心概念，用于多个进程之间之间的通信。Channel对象代表一个数据通道, 用于多个进程之间之间的通信。
-keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '频道', 'Channel']
+description: Ripple中的Channel (频道) 是Ripple框架中的一个核心概念，用于多个进程之间之间的通信。Channel对象代表一个数据通道, 用于多个进程之间之间的通信。
+keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', '频道', 'Channel']
 ---
 
 ### 访问组件
@@ -24,7 +24,7 @@ public function make(string $name): Channel;
 
 ### 概述
 
-> Channel (频道) , 是PRipple中的一个数据通道，用于多个进程之间的通信。值得注意的是, PRipple的Channel作用域为本机全局,
+> Channel (频道) , 是Ripple中的一个数据通道，用于多个进程之间的通信。值得注意的是, Ripple的Channel作用域为本机全局,
 > 你可以像以下方式使用Channel
 
 

@@ -1,7 +1,7 @@
 ---
 title: file - File
-description: PRipple supports operating files through the \Co\IO::File() method, which is used to handle file read and write operations.
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'file', 'IO']
+description: Ripple supports operating files through the \Co\IO::File() method, which is used to handle file read and write operations.
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'file', 'IO']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
@@ -22,7 +22,7 @@ public function open(string $path, string $mode): Stream;
 
 ### Overview
 
-PRipple provides asynchronous operation methods for files, allowing developers to read file contents and operate file
+Ripple provides asynchronous operation methods for files, allowing developers to read file contents and operate file
 streams through streams that do not block the process.
 
 ### Instructions

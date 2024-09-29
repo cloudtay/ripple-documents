@@ -1,7 +1,7 @@
 ---
 title: 信号 - \Co\signal
-description: PRipple中Signal (信号) 是PRipple框架中的一个核心概念，用于处理系统信号。Signal对象代表一个系统信号的触发，以及其处理器。
-keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '信号', 'Signal']
+description: Ripple中Signal (信号) 是Ripple框架中的一个核心概念，用于处理系统信号。Signal对象代表一个系统信号的触发，以及其处理器。
+keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', '信号', 'Signal']
 ---
 
 ### API
@@ -31,7 +31,7 @@ function onSignal(int $signalCode,Closure $closure): string;
 
 ### 概述
 
-> PRipple允许你通过`onSignal`方法监听系统信号, 并在信号触发时执行指定的闭包函数。
+> Ripple允许你通过`onSignal`方法监听系统信号, 并在信号触发时执行指定的闭包函数。
 
 ### 基础用法
 

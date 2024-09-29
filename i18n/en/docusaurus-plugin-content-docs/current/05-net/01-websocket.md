@@ -1,7 +1,7 @@
 ---
 title: websocket
-description: PRipple supports operating WebSocket through the \Co\Net::WebSocket() method, which is used to handle WebSocket services.
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'WebSocket', 'Net']
+description: Ripple supports operating WebSocket through the \Co\Net::WebSocket() method, which is used to handle WebSocket services.
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'WebSocket', 'Net']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
@@ -9,7 +9,7 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 
 ### Overview
 
-PRipple provides an easy-to-use WebSocketServer component that can be used to quickly build a WebSocket service. The
+Ripple provides an easy-to-use WebSocketServer component that can be used to quickly build a WebSocket service. The
 usage method is as follows
 
 ```php

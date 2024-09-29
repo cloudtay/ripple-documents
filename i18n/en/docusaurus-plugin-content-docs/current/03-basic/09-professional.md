@@ -1,7 +1,7 @@
 ---
 title: Advanced Usage - Professional
-description: Advanced usage in the PRipple framework, including asynchronous operations, signal processing, sleep, futures mechanism, etc.
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'asynchronous', 'signal', 'sleep', 'expiry']
+description: Advanced usage in the Ripple framework, including asynchronous operations, signal processing, sleep, futures mechanism, etc.
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'asynchronous', 'signal', 'sleep', 'expiry']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
@@ -18,7 +18,7 @@ function cancelForkHandler(int $index): void;
 
 ### Overview
 
-> In PRipple, you can register an event that occurs after the process forks through the `registerForkHandler` method,
+> In Ripple, you can register an event that occurs after the process forks through the `registerForkHandler` method,
 > and execute the specified closure function in the child process after the fork.
 > All fork events will be executed in the child process after the fork, and the registered processor will be forgotten
 > after execution.

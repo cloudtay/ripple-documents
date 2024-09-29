@@ -1,17 +1,17 @@
 ---
 title: 使用与封装
-description: PRipple中你可以像往常一样使用任何组件, 对于一些未支持异步的组件, 如果你已经阅读了PRipple的基础文档并有一定的了解,你可以根据PRipple的特性对该组件进行封装,使其支持异步操作。
-keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '异步', '封装']
+description: Ripple中你可以像往常一样使用任何组件, 对于一些未支持异步的组件, 如果你已经阅读了Ripple的基础文档并有一定的了解,你可以根据Ripple的特性对该组件进行封装,使其支持异步操作。
+keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', '异步', '封装']
 ---
 
 ## 概述
 
-PRipple中你可以像往常一样使用任何组件, 对于一些未支持异步的组件,
-如果你已经阅读了PRipple的基础文档并有一定的了解,你可以根据PRipple的特性对该组件进行封装,使其支持异步操作。
+Ripple中你可以像往常一样使用任何组件, 对于一些未支持异步的组件,
+如果你已经阅读了Ripple的基础文档并有一定的了解,你可以根据Ripple的特性对该组件进行封装,使其支持异步操作。
 
 ## 组件异步封装
 
-> 以下将通过对Guzzle的封装作为例子,来演示使用PRipple的特性如何对组件进行封装。并需要注意哪些资源的回收。
+> 以下将通过对Guzzle的封装作为例子,来演示使用Ripple的特性如何对组件进行封装。并需要注意哪些资源的回收。
 
 ## (1) 实现Guzzle的异步支持
 
@@ -200,7 +200,7 @@ class HttpClient
 }
 ```
 
-> 经过封装后,你可以像使用其他PRipple组件一样使用Guzzle
+> 经过封装后,你可以像使用其他Ripple组件一样使用Guzzle
 
 ```php
 \Co\async(function () {
@@ -626,7 +626,7 @@ class PHandler
 
 ### 效果展示
 
-> 上述封装完成了对流订阅/连接池/异步握手/跨进程资源回收等操作, 此后, 你可以像使用其他PRipple组件一样使用Guzzle
+> 上述封装完成了对流订阅/连接池/异步握手/跨进程资源回收等操作, 此后, 你可以像使用其他Ripple组件一样使用Guzzle
 
 ```php
 $handler = new \Co\Plugins\Guzzle\PHandler();
@@ -649,7 +649,7 @@ for($i = 0; $i < 100; $i++) {
 
 ```
 
-> PRipple将其封装为一个插件, 你可以像使用其他PRipple组件一样使用Guzzle
+> Ripple将其封装为一个插件, 你可以像使用其他Ripple组件一样使用Guzzle
 
 ```php
 \Co\Plugin::Guzzle()->getAsync('https://www.baidu.com')->then(function ($response) {
@@ -659,7 +659,7 @@ for($i = 0; $i < 100; $i++) {
 
 ## (2) AMP-MySQL
 
-> PRipple与AMPHP使用的都是ReactPHP的EventLoop, 所以你可以在PRipple中使用AMPHP的组件,以MySQL为例
+> Ripple与AMPHP使用的都是ReactPHP的EventLoop, 所以你可以在Ripple中使用AMPHP的组件,以MySQL为例
 
 #### 安装
 

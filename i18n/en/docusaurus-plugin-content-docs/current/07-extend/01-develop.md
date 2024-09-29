@@ -1,7 +1,7 @@
 ---
 title: Usage and encapsulation
-description: You can use any component in PRipple as usual. For some components that do not support asynchronous, if you have read the basic documentation of PRipple and have a certain understanding, you can encapsulate the component according to the characteristics of PRipple to make it Supports asynchronous operations.
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'asynchronous', 'encapsulation']
+description: You can use any component in Ripple as usual. For some components that do not support asynchronous, if you have read the basic documentation of Ripple and have a certain understanding, you can encapsulate the component according to the characteristics of Ripple to make it Supports asynchronous operations.
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'asynchronous', 'encapsulation']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
@@ -9,14 +9,14 @@ keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency'
 
 ## Overview
 
-You can use any component in PRipple as usual. For some components that do not support asynchronous,
-If you have read the basic documentation of PRipple and have a certain understanding, you can encapsulate the component
-according to the characteristics of PRipple to support asynchronous operations.
+You can use any component in Ripple as usual. For some components that do not support asynchronous,
+If you have read the basic documentation of Ripple and have a certain understanding, you can encapsulate the component
+according to the characteristics of Ripple to support asynchronous operations.
 
 ## Component asynchronous encapsulation
 
 > The following will use the encapsulation of Guzzle as an example to demonstrate how to encapsulate components using
-> the features of PRipple. And what resources need to be recycled.
+> the features of Ripple. And what resources need to be recycled.
 
 ## (1) Implement Guzzle’s asynchronous support
 
@@ -205,7 +205,7 @@ classHttpClient
 }
 ```
 
-> After encapsulation, you can use Guzzle like other PRipple components
+> After encapsulation, you can use Guzzle like other Ripple components
 
 ```php
 \Co\async(function () {
@@ -632,7 +632,7 @@ classPHandler
 ### Show results
 
 > The above encapsulation completes operations such as convection subscription/connection pool/asynchronous
-> handshake/cross-process resource recycling. After that, you can use Guzzle like other PRipple components.
+> handshake/cross-process resource recycling. After that, you can use Guzzle like other Ripple components.
 
 ```php
 $handler = new \Co\Plugins\Guzzle\PHandler();
@@ -655,7 +655,7 @@ for($i = 0; $i < 100; $i++) {
 
 ```
 
-> PRipple encapsulates it as a plugin, you can use Guzzle like other PRipple components
+> Ripple encapsulates it as a plugin, you can use Guzzle like other Ripple components
 
 ```php
 \Co\Plugin::Guzzle()->getAsync('https://www.baidu.com')->then(function ($response) {
@@ -665,7 +665,7 @@ for($i = 0; $i < 100; $i++) {
 
 ## (2) AMP-MySQL
 
-> PRipple and AMPHP both use ReactPHP's EventLoop, so you can use AMPHP's components in PRipple, taking MySQL as an
+> Ripple and AMPHP both use ReactPHP's EventLoop, so you can use AMPHP's components in Ripple, taking MySQL as an
 > example.
 
 #### Install

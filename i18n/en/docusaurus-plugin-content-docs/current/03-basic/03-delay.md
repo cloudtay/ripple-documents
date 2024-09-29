@@ -1,7 +1,7 @@
 ---
 title: delay - \Co\delay
-description: PRipple supports delayed execution of a closure function through the \Co\delay method, which is used to handle asynchronous operations.
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'delay', 'asynchronous']
+description: Ripple supports delayed execution of a closure function through the \Co\delay method, which is used to handle asynchronous operations.
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'delay', 'asynchronous']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
@@ -47,5 +47,5 @@ Returns the unique identifier of the event, allowing the event to be canceled us
 
 #### hint
 
-> In the scaffolding provided by PRipple, most framework controller requests will occur in the async space. You can use
+> In the scaffolding provided by Ripple, most framework controller requests will occur in the async space. You can use
 > the `\Co\delay` method in the controller.

@@ -1,6 +1,6 @@
 ---
 title: trigger - \Co\tick
-description: The \Co\tick function is used to trigger all events. PRipple will start executing all events until it is idle.
+description: The \Co\tick function is used to trigger all events. Ripple will start executing all events until it is idle.
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
@@ -26,7 +26,7 @@ none
 
 > After declaring a series of operations, you can use the \Co\sleep function to wait for the coroutine to execute,
 > otherwise the program will end directly, or you can use
-> Call the `\Co\tick` function, PRipple will start executing all events until it is idle.
+> Call the `\Co\tick` function, Ripple will start executing all events until it is idle.
 
 ### Basic usage
 
@@ -40,7 +40,7 @@ none
 
 ### Extended example
 
-> To use PRipple in CGI/FPM mode with Laravel just declare a trigger at the end
+> To use Ripple in CGI/FPM mode with Laravel just declare a trigger at the end
 
 ```php
 <?php
@@ -69,4 +69,4 @@ require __DIR__.'/../vendor/autoload.php';
 ### Precautions
 
 > When there is a signal processor/stream listener in the registered event, if the signal processor/stream listener is
-> not released, PRipple will consider that there are unfinished events and will wait until all events are completed.
+> not released, Ripple will consider that there are unfinished events and will wait until all events are completed.

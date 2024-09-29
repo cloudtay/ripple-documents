@@ -1,12 +1,12 @@
 ---
 title: http-client
-description: PRipple提供了一个易用的HttpClient组件,可以用于创建HTTP客户端连接。并支持长连接池、协程调度等特性。
-keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', 'HttpClient', 'Net']
+description: Ripple提供了一个易用的HttpClient组件,可以用于创建HTTP客户端连接。并支持长连接池、协程调度等特性。
+keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', 'HttpClient', 'Net']
 ---
 
 ### 概述
 
-PRipple提供了一个易用的HttpClient组件,可以用于创建Http客户端连接。
+Ripple提供了一个易用的HttpClient组件,可以用于创建Http客户端连接。
 
 ### 使用例子
 

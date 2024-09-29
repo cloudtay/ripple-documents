@@ -1,7 +1,7 @@
 ---
 title: asynchronous - \Co\async
-description: Async (asynchronous) in PRipple is a core concept in the PRipple framework and is used to handle asynchronous operations. Async objects represent the final completion or failure of an asynchronous operation, as well as its result value.
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'asynchronous', 'Async']
+description: Async (asynchronous) in Ripple is a core concept in the Ripple framework and is used to handle asynchronous operations. Async objects represent the final completion or failure of an asynchronous operation, as well as its result value.
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'asynchronous', 'Async']
 tags: ['Async', 'Async']
 ---
 
@@ -31,7 +31,7 @@ function async(Closure $closure): Promise;
 
 ### Overview
 
-> Async (asynchronous operation) is one of the core concepts of coroutines implemented in the PRipple framework. It
+> Async (asynchronous operation) is one of the core concepts of coroutines implemented in the Ripple framework. It
 > manages state based on the Promise mechanism and expands the asynchronous operation capabilities of coroutines.
 
 ### Usage
@@ -42,7 +42,7 @@ Use this method to create a Promise object
 $promise = \Co\async(Closure $callback): Promise
 ```
 
-> PRipple will also provide two parameters for the submitted closure function, one is the `resolve` callback function
+> Ripple will also provide two parameters for the submitted closure function, one is the `resolve` callback function
 > and the other is the `reject` callback function.
 > Use these two callback functions to resolve or reject a promise. Unlike the `promise` method, `async` supports more
 > asynchronous operations.
@@ -145,5 +145,5 @@ httpGet('http://example.com')->then(function($response){
 
 ### hint
 
-> In the scaffolding provided by PRipple, most framework controller requests will occur in the async space. You can use
+> In the scaffolding provided by Ripple, most framework controller requests will occur in the async space. You can use
 > the `async` method in the controller to handle asynchronous operations.

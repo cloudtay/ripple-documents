@@ -1,7 +1,7 @@
 ---
 title: signal - \Co\signal
-description: Signal in PRipple is a core concept in the PRipple framework and is used to process system signals. The Signal object represents the trigger of a system signal and its handler.
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'signal', 'Signal']
+description: Signal in Ripple is a core concept in the Ripple framework and is used to process system signals. The Signal object represents the trigger of a system signal and its handler.
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'signal', 'Signal']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
@@ -34,7 +34,7 @@ Returns the unique identifier of the event, allowing the event to be canceled us
 
 ### Overview
 
-> PRipple allows you to listen to system signals through the `onSignal` method and execute the specified closure
+> Ripple allows you to listen to system signals through the `onSignal` method and execute the specified closure
 > function when the signal is triggered.
 
 ### Basic usage

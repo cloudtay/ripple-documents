@@ -1,7 +1,7 @@
 ---
 title: sleep - \Co\sleep
 description: The \Co\sleep function is used to suspend the current coroutine, giving up CPU resources, and other coroutines can continue to execute.
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'sleep', 'suspend', 'CPU resources']
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'sleep', 'suspend', 'CPU resources']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are

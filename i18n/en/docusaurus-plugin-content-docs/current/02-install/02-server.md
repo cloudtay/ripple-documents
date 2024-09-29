@@ -1,12 +1,12 @@
 ---
 title: Service Mode - Server
-description: PRipple provides a memory-resident service mode operation, which can run your program as a service. Compared with the traditional CGI mode workflow, service mode operation can effectively improve the performance of the program and reduce unnecessary consumption of loading files. , In widespread practice, the performance of the service mode is much higher than that of the traditional CGI mode.
-keywords: ['PRipple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'service mode', 'server', 'service running']
+description: Ripple provides a memory-resident service mode operation, which can run your program as a service. Compared with the traditional CGI mode workflow, service mode operation can effectively improve the performance of the program and reduce unnecessary consumption of loading files. , In widespread practice, the performance of the service mode is much higher than that of the traditional CGI mode.
+keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'service mode', 'server', 'service running']
 ---
 
 ### Overview
 
-PRipple provides a memory-resident service mode operation, which can run your program as a service. Compared with the
+Ripple provides a memory-resident service mode operation, which can run your program as a service. Compared with the
 traditional CGI mode workflow,
 The workflow of the service mode can effectively improve the performance of the program and reduce the unnecessary
 consumption of loading files. In extensive practice, the performance of the service mode is much higher than the

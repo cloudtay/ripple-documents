@@ -1,12 +1,12 @@
 ---
 title: websocket-client
-description: PRipple中支持通过\Co\Net::WebSocket()方法操作WebSocket, 用于处理WebSocket客户端连接。
-keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', 'WebSocket', 'Net']
+description: Ripple中支持通过\Co\Net::WebSocket()方法操作WebSocket, 用于处理WebSocket客户端连接。
+keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', 'WebSocket', 'Net']
 ---
 
 ### 概述
 
-PRipple提供了一个易用的WebSocketClient组件,可以用于创建WebSocket客户端连接。
+Ripple提供了一个易用的WebSocketClient组件,可以用于创建WebSocket客户端连接。
 
 ```php
 use Co\Net;

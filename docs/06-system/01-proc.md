@@ -1,12 +1,12 @@
 ---
 title: 启动器 - Proc
-description: PRipple中的Proc库提供了一个基础的进程管理器, 用于在PRipple中启动一个新的进程, 并且可以通过管道进行通信。
-keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '进程', '管道', 'Proc']
+description: Ripple中的Proc库提供了一个基础的进程管理器, 用于在Ripple中启动一个新的进程, 并且可以通过管道进行通信。
+keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', '进程', '管道', 'Proc']
 ---
 
-### PRipple中的Proc
+### Ripple中的Proc
 
-PRipple中的提供了Proc库来简化这个操作,让你可以更加方便的使用管道
+Ripple中的提供了Proc库来简化这个操作,让你可以更加方便的使用管道
 
 ```php
 //打开一个新会话,参数1为会话的默认二进制文件路径,默认为/usr/bin/php

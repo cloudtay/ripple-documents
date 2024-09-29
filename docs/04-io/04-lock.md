@@ -1,7 +1,7 @@
 ---
 title: 文件锁 - Lock
-description: Lock (文件锁) , PRipple提供了一个基础的文件锁, 用于多个进程中, 对同一资源抢占时可以错开访问时间的手段。
-keywords: ['PRipple', 'PHP', '协程', '高性能', '高并发', '文件锁', 'Lock']
+description: Lock (文件锁) , Ripple提供了一个基础的文件锁, 用于多个进程中, 对同一资源抢占时可以错开访问时间的手段。
+keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', '文件锁', 'Lock']
 ---
 
 ### 访问组件
@@ -21,7 +21,7 @@ public function access(string $name = 'default'): Lock;
 
 ### 概述
 
-> Lock (文件锁) , PRipple提供了一个基础的文件锁, 用于多个进程中, 对同一资源抢占时可以错开访问时间的手段。
+> Lock (文件锁) , Ripple提供了一个基础的文件锁, 用于多个进程中, 对同一资源抢占时可以错开访问时间的手段。
 > 锁的权限在当前进程中全局共享, 你可以像以下方式使用Lock
 
 ### 例子
