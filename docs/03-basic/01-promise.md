@@ -1,7 +1,7 @@
 ---
-title: 期约 - \Co\promise
-description: Promise (承诺/期约机制) 是Ripple框架中的一个核心概念，用于处理异步操作。Promise对象代表一个异步操作的最终完成或失败，以及其结果值。相对于Future, Promise提供了更直观的API, 更容易理解和使用。
-keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', '期约机制', 'Promise','承诺机制']
+title: \Co\promise
+description: Promise (承诺/期约机制) 是ripple框架中的一个核心概念，用于处理异步操作。Promise对象代表一个异步操作的最终完成或失败，以及其结果值。相对于Future, Promise提供了更直观的API, 更容易理解和使用。
+keywords: ['ripple', 'PHP', '协程', '高性能', '高并发', '期约机制', 'Promise','承诺机制']
 ---
 
 ### API
@@ -31,7 +31,7 @@ function promise(Closure $closure): Promise;
 
 ### 概述
 
-Promise (承诺/期约机制) 是Ripple框架中的一个核心概念，用于处理异步操作。Promise对象代表一个异步操作的最终完成或失败，以及其结果值。
+Promise (承诺/期约机制) 是ripple框架中的一个核心概念，用于处理异步操作。Promise对象代表一个异步操作的最终完成或失败，以及其结果值。
 相对于Future, Promise提供了更直观的API, 更容易理解和使用。
 
 ### 用法
@@ -42,7 +42,7 @@ Promise (承诺/期约机制) 是Ripple框架中的一个核心概念，用于�
 $promise = \Co\promise(Closure $callback): Promise
 ```
 
-> Ripple会为你提交的闭包函数提供两个参数，一个是`resolve`回调函数，一个是`reject`回调函数。
+> ripple会为你提交的闭包函数提供两个参数，一个是`resolve`回调函数，一个是`reject`回调函数。
 > 通过使用这两个回调函数，来对一份期约进行解决或者拒绝。
 
 ```php

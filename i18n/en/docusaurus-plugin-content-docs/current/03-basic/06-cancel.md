@@ -1,11 +1,11 @@
 ---
-title: Cancel - \Co\cancel
+title: \Co\cancel
 description: Cancel (cancel), used to cancel an event, usually used to cancel asynchronous tasks, supports the cancellation of all events whose running context is defined as an independent fiber. Such as `delay`, `repeat`, `onSignal`, `defer`, etc.
-keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'undo', 'cancel', 'asynchronous task']
+keywords: ['ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'undo', 'cancel', 'asynchronous task']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/p-ripple-documents)
+> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
 ### API
 

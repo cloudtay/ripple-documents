@@ -1,14 +1,14 @@
 ---
 title: http
-description: Ripple中的Http服务组件, 用于构建一个Http服务
-keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', 'Http', 'Server','异步Http','GuzzleHttp异步','Guzzle异步']
+description: ripple中的Http服务组件, 用于构建一个Http服务
+keywords: [ 'ripple', 'PHP', '协程', '高性能', '高并发', 'Http', 'Server','异步Http','GuzzleHttp异步','Guzzle异步' ]
 ---
 
 ### Http服务 模块
 
 ### 概述
 
-Ripple提供了一个易用的HttpServer组件,可以用于快速构建一个Http服务,使用方法如下
+ripple提供了一个易用的HttpServer组件,可以用于快速构建一个Http服务,使用方法如下
 
 其中Request和Response继承并实现了`Symfony`的`RequestInterface`和`ResponseInterface`接口规范
 可以像使用Symfony / Laravel中的 HttpFoundation 组件一样使用他们
@@ -76,7 +76,7 @@ run();
 
 ### 端口复用
 
-> Ripple支持配合Parallel的模块实现端口多路复用
+> ripple支持配合Parallel的模块实现端口多路复用
 
 ```php
 # 如上创建好HttpServer后,可以替代监听方式实现端口多路复用

@@ -1,15 +1,15 @@
 ---
 title: http-client
-description: Ripple provides an easy-to-use HttpClient component that can be used to create HTTP client connections. It also supports features such as long connection pool and coroutine scheduling.
-keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'HttpClient', 'Net']
+description: ripple provides an easy-to-use HttpClient component that can be used to create HTTP client connections. It also supports features such as long connection pool and coroutine scheduling.
+keywords: [ 'ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'HttpClient', 'Net' ]
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/p-ripple-documents)
+> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
 ### Overview
 
-Ripple provides an easy-to-use WebSocketClient component that can be used to create WebSocket client connections.
+ripple provides an easy-to-use WebSocketClient component that can be used to create WebSocket client connections.
 
 ### Usage examples
 
@@ -20,7 +20,7 @@ use Psr\HttCo\Message\RequestInterface;
 
 use function Co\async;
 use function Co\await;
-use function Co\tick;
+use function Co\wait;
 
 async(function () {
     $httpClient = new HttpClient([

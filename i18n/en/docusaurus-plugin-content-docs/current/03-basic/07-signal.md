@@ -1,11 +1,11 @@
 ---
-title: signal - \Co\signal
-description: Signal in Ripple is a core concept in the Ripple framework and is used to process system signals. The Signal object represents the trigger of a system signal and its handler.
-keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'signal', 'Signal']
+title: \Co\signal
+description: Signal in ripple is a core concept in the ripple framework and is used to process system signals. The Signal object represents the trigger of a system signal and its handler.
+keywords: ['ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'signal', 'Signal']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/p-ripple-documents)
+> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
 ### API
 
@@ -34,7 +34,7 @@ Returns the unique identifier of the event, allowing the event to be canceled us
 
 ### Overview
 
-> Ripple allows you to listen to system signals through the `onSignal` method and execute the specified closure
+> ripple allows you to listen to system signals through the `onSignal` method and execute the specified closure
 > function when the signal is triggered.
 
 ### Basic usage
@@ -48,5 +48,5 @@ Returns the unique identifier of the event, allowing the event to be canceled us
 
 ### Precautions
 
-> After registering any signal handler, if the signal handler is not canceled correctly, \Co\tick will consider that
+> After registering any signal handler, if the signal handler is not canceled correctly, \Co\wait will consider that
 > there are unfinished events and will wait until all events are completed.

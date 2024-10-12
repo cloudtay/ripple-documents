@@ -1,20 +1,20 @@
 ---
-title: Runtime - Runtime
-description: In Ripple, all defined asynchronous closures are driven by EventLoop. Ripple will specifically declare and strictly control the occurrence of any closure during runtime. All developers of plug-ins/components should also be concerned about this to prevent Closure occurs when process/fiber escapes and runs a black hole
-keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency']
+title: Runtime
+description: In ripple, all defined asynchronous closures are driven by EventLoop. ripple will specifically declare and strictly control the occurrence of any closure during runtime. All developers of plug-ins/components should also be concerned about this to prevent Closure occurs when process/fiber escapes and runs a black hole
+keywords: ['ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/p-ripple-documents)
+> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
 ### introduce
 
-In Ripple, all defined asynchronous closures are driven by EventLoop. EventLoop will run the specified event at the
+In ripple, all defined asynchronous closures are driven by EventLoop. EventLoop will run the specified event at the
 appropriate time. Developers do not need to care too much about the processing mechanism of EventLoop.
 As long as you control the process, different closures may be executed in different context spaces. You should pay
 attention to the constraints of these context spaces during the development process.
 
-Ripple will specifically declare and strictly control the occurrence of any closure at runtime. All developers of
+ripple will specifically declare and strictly control the occurrence of any closure at runtime. All developers of
 plug-ins/components should also be concerned about this to prevent process/fiber escape of closures.
 Running a black hole
 
@@ -23,8 +23,8 @@ Running a black hole
 > Users of the framework hardly need to care about the runtime, because the developer's code usually runs in the context
 > of `event runtime` and `coroutine runtime`
 
-The entry point of the process. The process of building Ripple is the main process runtime. It occurs before the
-Ripple driver. Take Laravel's entry file as an example.
+The entry point of the process. The process of building ripple is the main process runtime. It occurs before the
+ripple driver. Take Laravel's entry file as an example.
 
 ```php
 <?php
@@ -42,8 +42,8 @@ require __DIR__.'/../vendor/autoload.php';
         ->handleRequest(Request::capture());
 });
 
-# Start Ripple
-\Co\tick();
+# Start ripple
+\Co\wait();
 ```
 
 ---

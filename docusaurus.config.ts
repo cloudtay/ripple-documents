@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-    title: 'Ripple',
+    title: 'ripple',
     tagline: 'PHP协程引擎',
     favicon: 'img/favicon.ico',
 
@@ -50,14 +50,14 @@ const config: Config = {
                     // Please change this to your repo.
                     // Remove this to remove the "edit this page" links.
                     editUrl:
-                        'https://github.com/cloudtay/p-ripple-documents/tree/main/',
+                        'https://github.com/cloudtay/ripple-documents/tree/main/',
                 },
                 blog: {
                     showReadingTime: true,
                     // Please change this to your repo.
                     // Remove this to remove the "edit this page" links.
                     editUrl:
-                        'https://github.com/cloudtay/p-ripple-documents/tree/main/',
+                        'https://github.com/cloudtay/ripple-documents/tree/main/',
                 },
                 theme: {
                     customCss: './src/css/custom.css',
@@ -72,7 +72,7 @@ const config: Config = {
         navbar: {
             title: '',
             logo: {
-                alt: 'Ripple',
+                alt: 'ripple',
                 src: 'img/logo.svg',
             },
             items: [
@@ -82,7 +82,7 @@ const config: Config = {
                     position: 'right',
                 },
                 {
-                    href: 'https://github.com/cloudtay/p-ripple-core',
+                    href: 'https://github.com/cloudtay/ripple',
                     label: 'Source Code',
                     position: 'right',
                 },
@@ -96,12 +96,12 @@ const config: Config = {
                     items: [
                         {
                             label: '源代码',
-                            to: 'https://github.com/cloudtay/p-ripple-core',
+                            to: 'https://github.com/cloudtay/ripple',
                         },
                     ],
                 },
             ],
-            copyright: `Copyright © ${new Date().getFullYear()} Ripple, Inc. Built with Docusaurus.`,
+            copyright: `Copyright © ${new Date().getFullYear()} ripple, Inc. Built with Docusaurus.`,
         },
         prism: {
             theme: prismThemes.github,
@@ -111,7 +111,7 @@ const config: Config = {
         metadata: [
             {
                 name: 'keywords',
-                content: 'Ripple,PHP,协程,PHP协程,PHP异步,PHP高并发,PHP高性能,PHP协程引擎,PHP协程框架, coroutine, PHP coroutine, PHP asynchronous, PHP high concurrency, PHP high performance, PHP coroutine engine, PHP coroutine framework',
+                content: 'ripple,PHP,协程,PHP协程,PHP异步,PHP高并发,PHP高性能,PHP协程引擎,PHP协程框架, coroutine, PHP coroutine, PHP asynchronous, PHP high concurrency, PHP high performance, PHP coroutine engine, PHP coroutine framework',
             },
             {
                 name: 'keywords:en',
@@ -119,11 +119,11 @@ const config: Config = {
             },
             {
                 name: 'description',
-                content: 'Ripple是一个现代化的、高性能的原生PHP协程框架，旨在解决PHP在高并发、复杂网络通信和数据操作方面的挑战。 该框架采用创新的架构和高效的编程模型，为现代 Web 和 Web 应用程序提供强大而灵活的后端支持。 通过使用 Ripple，你将体验到从系统全局视图管理任务并高效处理网络流量和数据的优势。',
+                content: 'ripple是一个现代化的、高性能的原生PHP协程框架，旨在解决PHP在高并发、复杂网络通信和数据操作方面的挑战。 该框架采用创新的架构和高效的编程模型，为现代 Web 和 Web 应用程序提供强大而灵活的后端支持。 通过使用 ripple，你将体验到从系统全局视图管理任务并高效处理网络流量和数据的优势。',
             },
             {
                 name: 'description:en',
-                content: 'Ripple is a modern, high-performance native PHP coroutine framework designed to solve PHPs challenges in high concurrency, complex network communication and data operations. The framework uses an innovative architecture and efficient programming model to provide powerful and flexible backend support for modern web and web applications. By using Ripple, you will experience the advantages of managing tasks from a global view of the system and efficiently handling network traffic and data.',
+                content: 'ripple is a modern, high-performance native PHP coroutine framework designed to solve PHPs challenges in high concurrency, complex network communication and data operations. The framework uses an innovative architecture and efficient programming model to provide powerful and flexible backend support for modern web and web applications. By using ripple, you will experience the advantages of managing tasks from a global view of the system and efficiently handling network traffic and data.',
             }
         ]
     } satisfies Preset.ThemeConfig,

@@ -1,11 +1,11 @@
 ---
-title: redo - \Co\repeat
-description: Ripple supports repeatedly executing a closure function through the \Co\repeat method, which is used to handle scenarios such as scheduled tasks. Ripple will provide a `cancel` callback function for the closure function you submit. By calling the `cancel` function, you can cancel the current repeated task.
-keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'redo', 'scheduled task']
+title: \Co\repeat
+description: ripple supports repeatedly executing a closure function through the \Co\repeat method, which is used to handle scenarios such as scheduled tasks. ripple will provide a `cancel` callback function for the closure function you submit. By calling the `cancel` function, you can cancel the current repeated task.
+keywords: ['ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'redo', 'scheduled task']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/p-ripple-documents)
+> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
 ### API
 
@@ -31,7 +31,7 @@ function repeat(Closure $closure,int|float $second): string;
 
 > Repeat (repeated execution), specify the frequency to do something repeatedly, usually used in scenarios such as
 > scheduled tasks.
-> Ripple will provide a `cancel` callback function for the closure function you submitted. The current repeated task
+> ripple will provide a `cancel` callback function for the closure function you submitted. The current repeated task
 > can be canceled by calling the `cancel` function.
 
 ### Basic usage
@@ -46,7 +46,7 @@ function repeat(Closure $closure,int|float $second): string;
     }
 }, 1);
 
-\Co\tick(); // Wait for all events to complete
+\Co\wait(); // Wait for all events to complete
 ```
 
 Note: The `repeat` method will repeatedly execute the closure function within the specified time interval until
@@ -61,7 +61,7 @@ the `cancel` function is called.
     $cancel();
 }, 1);
 
-\Co\tick();
+\Co\wait();
 ```
 
 > In the above example, the code in repeat will be executed after 1 second, and when encountering `\Co\sleep`, the

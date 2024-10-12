@@ -4,55 +4,55 @@
     "description": "The label for version current"
   },
   "sidebar.tutorialSidebar.category.guide": {
-    "message": "🧭 指南 | Guide",
+    "message": "🧭 入门指南",
     "description": "The label for category 🧭 指南 | Guide in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.guide.link.generated-index.description": {
-    "message": "-",
+    "message": "The generated-index page description for category 🧭 指南 | Guide in sidebar tutorialSidebar",
     "description": "The generated-index page description for category 🧭 指南 | Guide in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.install": {
-    "message": "🔧 安装 | Installation",
+    "message": "🔧 安装与集成",
     "description": "The label for category 🔧 安装 | Installation in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.install.link.generated-index.description": {
-    "message": "-",
+    "message": "The generated-index page description for category 🔧 安装 | Installation in sidebar tutorialSidebar",
     "description": "The generated-index page description for category 🔧 安装 | Installation in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.basic": {
-    "message": "📖 基础函数 | Core Functions",
-    "description": "The label for category 📖 基础函数 | Core Functions in sidebar tutorialSidebar"
+    "message": "📖 基础函数",
+    "description": "The label for category 📖 基础函数 | Basic Functions in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.io": {
-    "message": "🔄 IO | Stream Control",
+    "message": "🔄 流与套接字",
     "description": "The label for category 🔄 IO | Stream Control in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.io.link.generated-index.description": {
-    "message": "-",
+    "message": "The generated-index page description for category 🔄 IO | Stream Control in sidebar tutorialSidebar",
     "description": "The generated-index page description for category 🔄 IO | Stream Control in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.net": {
-    "message": "🌐 网络 | Networking",
+    "message": "🌐 网络应用",
     "description": "The label for category 🌐 网络 | Networking in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.net.link.generated-index.description": {
-    "message": "-",
+    "message": "The generated-index page description for category 🌐 网络 | Networking in sidebar tutorialSidebar",
     "description": "The generated-index page description for category 🌐 网络 | Networking in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.system": {
-    "message": "🖥️ 系统 | System",
+    "message": "🖥️ 系统相关",
     "description": "The label for category 🖥️ 系统 | System in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.system.link.generated-index.description": {
-    "message": "-",
+    "message": "The generated-index page description for category 🖥️ 系统 | System in sidebar tutorialSidebar",
     "description": "The generated-index page description for category 🖥️ 系统 | System in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.extend": {
-    "message": "🧩 扩展 | Extensions",
+    "message": "🧩 扩展与组件",
     "description": "The label for category 🧩 扩展 | Extensions in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.extend.link.generated-index.description": {
-    "message": "-",
+    "message": "The generated-index page description for category 🧩 扩展 | Extensions in sidebar tutorialSidebar",
     "description": "The generated-index page description for category 🧩 扩展 | Extensions in sidebar tutorialSidebar"
   }
 }

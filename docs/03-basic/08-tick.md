@@ -1,6 +1,6 @@
 ---
-title: 触发器 - \Co\tick
-description: \Co\tick函数用于触发所有事件, Ripple会开始执行所有事件, 直到空闲为止。
+title: \Co\wait
+description: \Co\wait函数用于触发所有事件, ripple会开始执行所有事件, 直到空闲为止。
 ---
 
 ### API
@@ -22,7 +22,7 @@ function tick(): void;
 ### 概述
 
 > 在声明一系列操作后,可以通过\Co\sleep函数来等待协程执行,否则程序将会直接结束, 又或者你可以通过
-> 调用`\Co\tick`函数, Ripple会开始执行所有事件, 直到空闲为止。
+> 调用`\Co\wait`函数, ripple会开始执行所有事件, 直到空闲为止。
 
 ### 基础用法
 
@@ -31,12 +31,12 @@ function tick(): void;
     //TODO: do something
 });
 
-\Co\tick(); // 等待所有事件执行完成
+\Co\wait(); // 等待所有事件执行完成
 ```
 
 ### 扩展例子
 
-> 在Laravel在CGI/FPM模式中中使用Ripple只需要在结束时声明一个触发器即可
+> 在Laravel在CGI/FPM模式中中使用ripple只需要在结束时声明一个触发器即可
 
 ```php
 <?php
@@ -59,9 +59,9 @@ require __DIR__.'/../vendor/autoload.php';
         ->handleRequest(Request::capture());
 });
 
-\Co\tick();
+\Co\wait();
 ```
 
 ### 注意事项
 
-> 当注册的事件中存在信号处理器/流监听器时,如果没有解除信号处理器/流监听器, Ripple会认为有未完成的事件,并将会一直等待,直到所有事件完成。
+> 当注册的事件中存在信号处理器/流监听器时,如果没有解除信号处理器/流监听器, ripple会认为有未完成的事件,并将会一直等待,直到所有事件完成。

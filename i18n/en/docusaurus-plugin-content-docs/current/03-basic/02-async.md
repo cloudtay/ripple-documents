@@ -1,12 +1,12 @@
 ---
-title: asynchronous - \Co\async
-description: Async (asynchronous) in Ripple is a core concept in the Ripple framework and is used to handle asynchronous operations. Async objects represent the final completion or failure of an asynchronous operation, as well as its result value.
-keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'asynchronous', 'Async']
+title: \Co\async
+description: Async (asynchronous) in ripple is a core concept in the ripple framework and is used to handle asynchronous operations. Async objects represent the final completion or failure of an asynchronous operation, as well as its result value.
+keywords: ['ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'asynchronous', 'Async']
 tags: ['Async', 'Async']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/p-ripple-documents)
+> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
 ### API
 
@@ -31,7 +31,7 @@ function async(Closure $closure): Promise;
 
 ### Overview
 
-> Async (asynchronous operation) is one of the core concepts of coroutines implemented in the Ripple framework. It
+> Async (asynchronous operation) is one of the core concepts of coroutines implemented in the ripple framework. It
 > manages state based on the Promise mechanism and expands the asynchronous operation capabilities of coroutines.
 
 ### Usage
@@ -42,7 +42,7 @@ Use this method to create a Promise object
 $promise = \Co\async(Closure $callback): Promise
 ```
 
-> Ripple will also provide two parameters for the submitted closure function, one is the `resolve` callback function
+> ripple will also provide two parameters for the submitted closure function, one is the `resolve` callback function
 > and the other is the `reject` callback function.
 > Use these two callback functions to resolve or reject a promise. Unlike the `promise` method, `async` supports more
 > asynchronous operations.
@@ -145,5 +145,5 @@ httpGet('http://example.com')->then(function($response){
 
 ### hint
 
-> In the scaffolding provided by Ripple, most framework controller requests will occur in the async space. You can use
+> In the scaffolding provided by ripple, most framework controller requests will occur in the async space. You can use
 > the `async` method in the controller to handle asynchronous operations.

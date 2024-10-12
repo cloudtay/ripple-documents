@@ -1,15 +1,15 @@
 ---
-title: Module - Library
-description: All Ripple support libraries are under the `Co` namespace and are divided according to the modules to which they belong. Currently, the support libraries have the following modules
-keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency']
+title: Module
+description: All ripple support libraries are under the `Co` namespace and are divided according to the modules to which they belong. Currently, the support libraries have the following modules
+keywords: ['ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/p-ripple-documents)
+> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
 ## introduce
 
-All Ripple support libraries are under the `Co` namespace and are divided according to the modules to which they belong.
+All ripple support libraries are under the `Co` namespace and are divided according to the modules to which they belong.
 Currently, the support libraries have the following modules:
 
 - `Co\Net` network operation module

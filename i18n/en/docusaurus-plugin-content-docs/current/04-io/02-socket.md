@@ -1,11 +1,11 @@
 ---
-title: Socket - Socket
-description: The socket library in Ripple is used to implement asynchronous network communication, including creating socket connections, SSL connections, etc.
-keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'socket', 'Socket', 'SSL']
+title: Socket
+description: The socket library in ripple is used to implement asynchronous network communication, including creating socket connections, SSL connections, etc.
+keywords: ['ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'socket', 'Socket', 'SSL']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/p-ripple-documents)
+> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
 ### Access components
 
@@ -39,7 +39,7 @@ public function streamSocketAccept(SocketStream $server): Promise;
 
 ### Overview
 
-Establishing a socket connection is an important function of Ripple. Asynchronous network communication can be achieved
+Establishing a socket connection is an important function of ripple. Asynchronous network communication can be achieved
 through socket connections, such as: HTTP server, WebSocket server, etc.
 All functions that access the Socket library will return a Promise object. You can wait for the result of the Promise
 object through the `await` keyword. Or handle asynchronous results through the `then` method.
@@ -81,5 +81,5 @@ async(function(){
     }
 });
 
-\Co\tick();
+\Co\wait();
 ```

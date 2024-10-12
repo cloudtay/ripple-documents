@@ -1,11 +1,11 @@
 ---
-title: Channel - Channel
-description: Channel in Ripple is a core concept in the Ripple framework and is used for communication between multiple processes. The Channel object represents a data channel for communication between multiple processes.
-keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'channel', 'Channel']
+title: Channel
+description: Channel in ripple is a core concept in the ripple framework and is used for communication between multiple processes. The Channel object represents a data channel for communication between multiple processes.
+keywords: [ 'ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'channel', 'Channel' ]
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/p-ripple-documents)
+> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
 ### Access components
 
@@ -27,8 +27,8 @@ public function make(string $name): Channel;
 
 ### Overview
 
-> Channel is a data channel in Ripple, used for communication between multiple processes. It is worth noting that
-> Ripple’s Channel scope is local and global.
+> Channel is a data channel in ripple, used for communication between multiple processes. It is worth noting that
+> ripple’s Channel scope is local and global.
 > You can use Channel as follows
 
 

@@ -1,12 +1,12 @@
 ---
 title: websocket
-description: Ripple中支持通过\Co\Net::WebSocket()方法操作WebSocket, 用于处理WebSocket服务。
-keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', 'WebSocket', 'Net']
+description: ripple中支持通过\Co\Net::WebSocket()方法操作WebSocket, 用于处理WebSocket服务。
+keywords: [ 'ripple', 'PHP', '协程', '高性能', '高并发', 'WebSocket', 'Net' ]
 ---
 
 ### 概述
 
-Ripple提供了一个易用的WebSocketServer组件,可以用于快速构建一个WebSocket服务,使用方法如下
+ripple提供了一个易用的WebSocketServer组件,可以用于快速构建一个WebSocket服务,使用方法如下
 
 ```php
 use Co\Net;

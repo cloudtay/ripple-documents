@@ -1,11 +1,11 @@
 ---
-title: defer - \Co\defer
-description: Ripple supports delayed execution of a closure function through the \Co\defer method, which is used to handle asynchronous operations.
-keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'deferred', 'asynchronous']
+title: \Co\defer
+description: ripple supports delayed execution of a closure function through the \Co\defer method, which is used to handle asynchronous operations.
+keywords: ['ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'deferred', 'asynchronous']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/p-ripple-documents)
+> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
 ### API
 
@@ -72,5 +72,5 @@ public function index(Request $request) : JsonResponse
 
 #### hint
 
-> In the scaffolding provided by Ripple, most framework controller requests will occur in the async space. You can use
+> In the scaffolding provided by ripple, most framework controller requests will occur in the async space. You can use
 > the `\Co\defer` method in the controller.

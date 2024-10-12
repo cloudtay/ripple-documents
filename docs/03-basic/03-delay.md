@@ -1,7 +1,7 @@
 ---
-title: 延迟 - \Co\delay
-description: Ripple中支持通过\Co\delay方法延迟执行一个闭包函数, 用于处理异步操作。
-keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', '延迟', '异步']
+title: \Co\delay
+description: ripple中支持通过\Co\delay方法延迟执行一个闭包函数, 用于处理异步操作。
+keywords: [ 'ripple', 'PHP', '协程', '高性能', '高并发', '延迟', '异步' ]
 ---
 
 ### API
@@ -43,4 +43,4 @@ function delay(Closure $closure,int|float $second): string;
 
 #### 提示
 
-> 在Ripple提供的脚手架中,绝大多数框架的控制器请求都会发生在async空间中, 你可以在控制器中使用`\Co\delay`方法
+> 在ripple提供的脚手架中,绝大多数框架的控制器请求都会发生在async空间中, 你可以在控制器中使用`\Co\delay`方法

@@ -1,17 +1,17 @@
 ---
-title: Process - Process
-description: The Process library in Ripple provides a basic process manager for starting a new process in Ripple and can communicate through pipes.
-keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'process', 'pipeline', 'Process']
+title: Process
+description: The Process library in ripple provides a basic process manager for starting a new process in ripple and can communicate through pipes.
+keywords: ['ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'process', 'pipeline', 'Process']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/p-ripple-documents)
+> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
 ### Parallel module
 
 #### illustrate
 
-> Ripple provides runtime support for parallel running, relying on multiple processes and abstracting the details of
+> ripple provides runtime support for parallel running, relying on multiple processes and abstracting the details of
 > multiple processes. Users only need to care about how to use parallel running.
 > You can use almost any PHP statement in a closure, but there are still things you need to pay attention to
 

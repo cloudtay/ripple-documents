@@ -1,7 +1,7 @@
 ---
-title: 信号 - \Co\signal
-description: Ripple中Signal (信号) 是Ripple框架中的一个核心概念，用于处理系统信号。Signal对象代表一个系统信号的触发，以及其处理器。
-keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', '信号', 'Signal']
+title: \Co\signal
+description: ripple中Signal (信号) 是ripple框架中的一个核心概念，用于处理系统信号。Signal对象代表一个系统信号的触发，以及其处理器。
+keywords: ['ripple', 'PHP', '协程', '高性能', '高并发', '信号', 'Signal']
 ---
 
 ### API
@@ -31,7 +31,7 @@ function onSignal(int $signalCode,Closure $closure): string;
 
 ### 概述
 
-> Ripple允许你通过`onSignal`方法监听系统信号, 并在信号触发时执行指定的闭包函数。
+> ripple允许你通过`onSignal`方法监听系统信号, 并在信号触发时执行指定的闭包函数。
 
 ### 基础用法
 
@@ -44,4 +44,4 @@ function onSignal(int $signalCode,Closure $closure): string;
 
 ### 注意事项
 
-> 注册任何信号处理器之后,如未正确取消信号处理器的情况下, \Co\tick会认为有未完成的事件,并将会一直等待,直到所有事件完成。
+> 注册任何信号处理器之后,如未正确取消信号处理器的情况下, \Co\wait会认为有未完成的事件,并将会一直等待,直到所有事件完成。

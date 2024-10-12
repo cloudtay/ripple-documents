@@ -1,15 +1,15 @@
 ---
-title: Launcher - Proc
-description: The Proc library in Ripple provides a basic process manager for starting a new process in Ripple and can communicate through pipes.
-keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'process', 'pipeline', 'Proc']
+title: Proc
+description: The Proc library in ripple provides a basic process manager for starting a new process in ripple and can communicate through pipes.
+keywords: ['ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'process', 'pipeline', 'Proc']
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/p-ripple-documents)
+> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
-### Proc in Ripple
+### Proc in ripple
 
-Ripple provides a Proc library to simplify this operation, allowing you to use pipelines more conveniently.
+ripple provides a Proc library to simplify this operation, allowing you to use pipelines more conveniently.
 
 ```php
 //Open a new session, parameter 1 is the default binary file path of the session, the default is /usr/bin/php

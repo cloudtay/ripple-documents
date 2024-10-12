@@ -1,12 +1,12 @@
 ---
-title: Service Process - Worker
-description: Ripple provides a memory-resident service mode operation, which can run your program as a service. Compared with the traditional CGI mode workflow, service mode operation can effectively improve the performance of the program and reduce unnecessary consumption of loading files. , In widespread practice, the performance of the service mode is much higher than that of the traditional CGI mode.
-keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'service mode', 'server', 'service running']
+title: Worker
+description: ripple provides a memory-resident service mode operation, which can run your program as a service. Compared with the traditional CGI mode workflow, service mode operation can effectively improve the performance of the program and reduce unnecessary consumption of loading files. , In widespread practice, the performance of the service mode is much higher than that of the traditional CGI mode.
+keywords: [ 'ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'service mode', 'server', 'service running' ]
 ---
 
 ### Overview
 
-Using Ripple, you can create a process manager + Worker to start a custom service
+Using ripple, you can create a process manager + Worker to start a custom service
 
 ### Process Manager
 

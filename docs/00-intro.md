@@ -1,13 +1,31 @@
 ---
 sidebar_position: 1
-title: 📘 项目简介 | Overview
-description: Ripple是一个高性能的原生PHP协程引擎，旨在处理高并发、复杂的网络通信和数据操作。
-keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', '引擎', '协程引擎']
+title: 📘 开始
+description: ripple是一个高性能的原生PHP协程引擎，旨在处理高并发、复杂的网络通信和数据操作。
+keywords: [ 'ripple', 'PHP', '协程', '高性能', '高并发', '引擎', '协程引擎' ]
 ---
 
-Ripple是基于PHP8.1+的纤程特性 + Revolt工具库实现的一个高性能的原生PHP协程引擎，它的设计初衷即
+ripple是基于PHP8.1+的纤程特性 + Revolt工具库实现的一个高性能的原生PHP协程引擎，它的设计初衷即
 
 **以PHP的特性扩展PHP的特性**
+
+```php
+<?php
+
+include 'vendor/autoload.php';
+
+$task = static function ($i) {
+    \Co\sleep(1);
+    echo 'Coroutine ', $i, \PHP_EOL;
+};
+
+for ($i = 0; $i < 100; $i++) {
+    \Co\async(static fn ()=> $task($i));
+}
+
+// Wait for all coroutines to complete execution
+\Co\sleep(2);
+```
 
 它不会取代任何东西也不会附加新的约束而只是提供了一种解决方案:
 
@@ -22,5 +40,5 @@ Ripple是基于PHP8.1+的纤程特性 + Revolt工具库实现的一个高性能�
 
 ### 开始使用
 
-通过本项目文档，你将了解如何安装、配置和使用Ripple，并逐步掌握协程编程的核心概念和最佳实践。
+通过本项目文档，你将了解如何安装、配置和使用ripple，并逐步掌握协程编程的核心概念和最佳实践。
 我们还提供了丰富的示例代码和教程，帮助您快速上手并发挥,让我们开始这段高性能PHP编程之旅吧！

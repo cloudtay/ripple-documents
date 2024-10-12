@@ -8,7 +8,7 @@
     "description": "The label for category guide in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.guide.link.generated-index.description": {
-    "message": "-",
+    "message": "The generated-index page description for category guide in sidebar tutorialSidebar",
     "description": "The generated-index page description for category guide in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.install": {
@@ -16,7 +16,7 @@
     "description": "The label for category install in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.install.link.generated-index.description": {
-    "message": "-",
+    "message": "the generated-index page description for category install in sidebar tutorialSidebar",
     "description": "The generated-index page description for category install in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.basic": {
@@ -28,7 +28,7 @@
     "description": "The label for category io in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.io.link.generated-index.description": {
-    "message": "-",
+    "message": "the generated-index page description for category io in sidebar tutorialSidebar",
     "description": "The generated-index page description for category io in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.net": {
@@ -36,7 +36,7 @@
     "description": "The label for category net in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.net.link.generated-index.description": {
-    "message": "-",
+    "message": "",
     "description": "The generated-index page description for category net in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.system": {
@@ -44,7 +44,7 @@
     "description": "The label for category system in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.system.link.generated-index.description": {
-    "message": "-",
+    "message": "",
     "description": "The generated-index page description for category system in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.extend": {
@@ -52,7 +52,7 @@
     "description": "The label for category extend in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.extend.link.generated-index.description": {
-    "message": "-",
+    "message": "",
     "description": "The generated-index page description for category extend in sidebar tutorialSidebar"
   }
 }

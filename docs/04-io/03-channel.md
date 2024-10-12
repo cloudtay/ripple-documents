@@ -1,7 +1,7 @@
 ---
-title: 频道 - Channel
-description: Ripple中的Channel (频道) 是Ripple框架中的一个核心概念，用于多个进程之间之间的通信。Channel对象代表一个数据通道, 用于多个进程之间之间的通信。
-keywords: ['Ripple', 'PHP', '协程', '高性能', '高并发', '频道', 'Channel']
+title: 信道 (Channel)
+description: ripple中的Channel (信道) 是ripple框架中的一个核心概念，用于多个进程之间之间的通信。Channel对象代表一个数据通道, 用于多个进程之间之间的通信。
+keywords: ['ripple', 'PHP', '协程', '高性能', '高并发', '信道', 'Channel']
 ---
 
 ### 访问组件
@@ -15,16 +15,16 @@ IO::Channel();
 ### API
 
 ```php
-// 访问一个频道
+// 访问一个信道
 public function open(string $name): Channel;
 
-// 创建一个频道
+// 创建一个信道
 public function make(string $name): Channel;
 ```
 
 ### 概述
 
-> Channel (频道) , 是Ripple中的一个数据通道，用于多个进程之间的通信。值得注意的是, Ripple的Channel作用域为本机全局,
+> Channel (信道) , 是ripple中的一个数据通道，用于多个进程之间的通信。值得注意的是, ripple的Channel作用域为本机全局,
 > 你可以像以下方式使用Channel
 
 

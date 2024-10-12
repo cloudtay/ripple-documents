@@ -1,11 +1,11 @@
 ---
-title: Advanced Usage - Professional
-description: Advanced usage in the Ripple framework, including asynchronous operations, signal processing, sleep, futures mechanism, etc.
-keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'asynchronous', 'signal', 'sleep', 'expiry']
+title: 🎓 Advanced Usage
+description: Advanced usage in the ripple framework, including asynchronous operations, signal processing, sleep, futures mechanism, etc.
+keywords: [ 'ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'asynchronous', 'signal', 'sleep', 'expiry' ]
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/p-ripple-documents)
+> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
 ### API
 
@@ -18,7 +18,7 @@ function cancelForkHandler(int $index): void;
 
 ### Overview
 
-> In Ripple, you can register an event that occurs after the process forks through the `registerForkHandler` method,
+> In ripple, you can register an event that occurs after the process forks through the `registerForkHandler` method,
 > and execute the specified closure function in the child process after the fork.
 > All fork events will be executed in the child process after the fork, and the registered processor will be forgotten
 > after execution.

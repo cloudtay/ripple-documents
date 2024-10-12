@@ -1,15 +1,15 @@
 ---
-title: Stream - Stream
-description: Ripple supports operating streams through the \Co\IO::Stream() method, which is used to process stream read and write operations.
-keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'stream', 'IO']
+title: Stream
+description: ripple supports operating streams through the \Co\IO::Stream() method, which is used to process stream read and write operations.
+keywords: [ 'ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'stream', 'IO' ]
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/p-ripple-documents)
+> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
 ### Overview
 
-Stream in Ripple is an event-based data stream, which can be used to process large amounts of data, such as file
+Stream in ripple is an event-based data stream, which can be used to process large amounts of data, such as file
 reading, network requests, etc.
 All Streams implement StreamInterface under the PSR specification, and also encapsulate multiple commonly used
 monitoring stream methods such as

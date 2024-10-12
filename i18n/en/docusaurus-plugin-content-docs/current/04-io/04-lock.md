@@ -1,11 +1,11 @@
 ---
-title: File Lock - Lock
-description: Lock (file lock), Ripple provides a basic file lock, which is used in multiple processes to stagger the access time when seizing the same resource.
-keywords: ['Ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'file lock', 'Lock']
+title: Lock
+description: Lock (file lock), ripple provides a basic file lock, which is used in multiple processes to stagger the access time when seizing the same resource.
+keywords: [ 'ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'file lock', 'Lock' ]
 ---
 
 > ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/p-ripple-documents)
+> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
 ### Access components
 
@@ -24,7 +24,7 @@ public function access(string $name = 'default'): Lock;
 
 ### Overview
 
-> Lock (file lock), Ripple provides a basic file lock, which is used in multiple processes to stagger the access time
+> Lock (file lock), ripple provides a basic file lock, which is used in multiple processes to stagger the access time
 > when seizing the same resource.
 > The permissions of the lock are shared globally in the current process. You can use Lock as follows
 
