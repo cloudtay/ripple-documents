@@ -4,11 +4,11 @@
     "description": "The alt text of navbar logo"
   },
   "item.label.Docs": {
-    "message": "Docs",
-    "description": "文档"
+    "message": "文档",
+    "description": "Navbar item with label Docs"
   },
   "item.label.Source Code": {
-    "message": "Source Code",
-    "description": "源代码"
+    "message": "源代码",
+    "description": "Navbar item with label Source Code"
   }
 }
