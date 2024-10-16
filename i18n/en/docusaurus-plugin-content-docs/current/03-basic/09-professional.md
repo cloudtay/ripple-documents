@@ -1,7 +1,7 @@
 ---
 title: 🎓advanced
 description: Advanced usage in the ripple framework, including asynchronous operations, signal processing, sleep, futures mechanism, etc.
-keywords: [ 'ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'asynchronous', 'signal', 'sleep', 'expiry' ]
+keywords: [ 'ripple', 'PHP', 'periodic', 'high performance', 'high concurrency', 'asynchronous', 'signal', 'sleep', 'periodic' ]
 ---
 
 ## Process events
@@ -39,7 +39,7 @@ $runtime->await();
 
 > Using task to create a sub-process can put time-consuming tasks into the sub-process for execution to avoid blocking
 > the main process. The child process will inherit all resources of the parent process.
-> But all event handlers, including those registered by `forked` will be forgotten. Therefore, the event handler needs
+> But all event handlers, including those registered with `forked` will be forgotten. Therefore, the event handler needs
 > to be re-registered in the child process.
 
 ## Futures contract management
@@ -49,8 +49,8 @@ $runtime->await();
 
 ### WaitGroup
 
-> `WaitGroup` is used to wait for a group of coroutines to complete execution. It is usually used to wait for multiple
-> coroutines to complete execution before performing the next step.
+> `WaitGroup` is used to wait for a group of contracts to be executed. It is usually used to wait for multiple contracts
+> to be executed before performing the next step.
 > Usually you need to initialize a `WaitGroup` object with a counter, or call the `add` method on the `WaitGroup` object
 > to increase the counter.
 
@@ -74,12 +74,12 @@ $waitGroup->wait();
 
 ### Promise::all
 
-> `Promise::all` is used to wait for a group of coroutines to complete execution and return the execution results of all
-> coroutines. It is usually used to wait for multiple coroutines to finish executing before performing the next step.
-> It is worth noting that `Promise::all` will wait for all coroutines to complete execution. Even if one of the
-> coroutines fails to execute, a failed promise will be obtained. and
-> `Promise::all` will wait for all coroutines to complete execution,
-> Even if one of the coroutines fails to execute, you will get a failed promise.
+> `Promise::all` is used to wait for a group of futures contracts to be executed and return the execution results of all
+> futures contracts. It is usually used to wait for multiple contracts to be executed before performing the next step.
+> It is worth noting that `Promise::all` will wait for all futures to be executed. Even if one of the futures fails to
+> execute, you will get a failed future. and
+> `Promise::all` will wait for all futures to be executed,
+> Even if one of the futures fails to execute, you will get a failed future.
 
 ```php
 use Psc\Core\Coroutine\Promise;
@@ -98,9 +98,9 @@ $result = Promise::all($tasks);
 
 ### Promise::allSettled
 
-> `Promise::allSettled` is used to wait for a group of coroutines to complete execution and return the set of promise
-> objects of all coroutines, regardless of whether the coroutine execution is successful or failed.
-> Usually used to wait for multiple coroutines to complete before performing the next step.
+> `Promise::allSettled` is used to wait for a set of futures to be executed and return the set of futures objects for
+> all futures, regardless of whether the futures execution is successful or failed.
+> Usually used to wait for multiple contracts to be executed before performing the next step.
 
 ```php
 use Psc\Core\Coroutine\Promise;
@@ -119,22 +119,74 @@ $promise = Promise::allSettled($tasks);
 
 ### Promise::futures
 
-> `Promise::futures` does not wait for the coroutine to complete execution, but immediately returns an iterator, which
-> can be used to traverse the execution results of all coroutine's future objects.
-> The coroutine executed first will return the result first, but will not wait for all coroutines to complete execution.
+> `Promise::futures` does not wait for the execution of the future to complete, but immediately returns an iterator,
+> which can be used to traverse the execution results of all futures' future objects.
+> Tasks that are executed first will pop up first in the iterator
 
 ```php
 use Psc\Core\Coroutine\Promise;
+use function Co\async;
 
 $tasks = [];
+
 for ($i = 0; $i < 10; $i++) {
-    $tasks[] = \Co\async(static function () use ($i) {
-        \Co\sleep(1);
+    $tasks[] = async(static function () use ($i) {
+        \Co\sleep(\mt_rand(1, 10));
         return $i;
     });
 }
 
 foreach (Promise::futures($tasks) as $future) {
-    var_dump($future->await());
+    echo 'Coroutine is done ', $future, \PHP_EOL;
 }
+
+\Co\wait();
+```
+
+### Promise::any
+
+> `Promise::any` is used to wait for any one of the futures in a set of futures to be executed, and return the execution
+> result of the first completed future.
+
+```php
+use Psc\Core\Coroutine\Promise;
+
+use function Co\async;
+
+$tasks = [];
+
+for ($i = 0; $i < 10; $i++) {
+    $tasks[] = async(static function () use ($i) {
+        \Co\sleep(\mt_rand(1, 10));
+        return $i;
+    });
+}
+
+$promise = Promise::any($tasks)->then(function ($value) {
+    echo 'Coroutine is done ', $value, \PHP_EOL;
+});
+
+```
+
+### Promise::race
+
+> `Promise::race` is used to wait for any one of the futures in a set of futures to be executed, and return the
+> execution result of the first completed future.
+
+```php
+use Psc\Core\Coroutine\Promise;
+
+$tasks = [];
+
+for ($i = 0; $i < 10; $i++) {
+    $tasks[] = \Co\async(static function () use ($i) {
+        \Co\sleep(\mt_rand(1, 10));
+        return $i;
+    });
+}
+
+
+Promise::race($tasks)->then(function ($value) {
+    echo 'Coroutine is done ', $value, \PHP_EOL;
+});
 ```

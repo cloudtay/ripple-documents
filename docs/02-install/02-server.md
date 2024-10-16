@@ -78,28 +78,22 @@ php think p:server  {action} {--daemon}
 ### Nginx参考
 
 ```nginx
-upstream backend{
- server 127.0.0.1:8008;
- keepalive 10240;
+location / {
+    try_files $uri $uri/ @backend;
 }
 
-server{
-    listen 80;
-    server_name tp.xxx.cn;
-    root /xp/www/tp/public;
-    access_log off;
-    
-    location / {
-       proxy_pass http://backend;
-       proxy_set_header Upgrade $http_upgrade;  
-       proxy_set_header Connection "Upgrade";
-       proxy_set_header REMOTE-HOST $remote_addr;
-       proxy_set_header Host $host;
-       proxy_set_header X-Real-IP $remote_addr;
-       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-       proxy_set_header X-Forwarded-Proto $scheme;
-       proxy_set_header X-Forwarded-Host $host;
-       proxy_set_header X-Forwarded-Port $server_port;
+location @backend {
+    proxy_pass http://127.0.0.1:8008;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Original-Method $request_method;
+    proxy_set_header X-Original-URI $request_uri;
+    proxy_set_header X-Original-Query $query_string;
+    proxy_set_header X-Forwarded-Port $server_port;
+    proxy_set_header User-Agent $http_user_agent;
+    proxy_set_header Referer $http_referer;
 }
 ```
 

@@ -15,23 +15,21 @@ IO::Socket();
 ### API
 
 ```php
-// 创建一个SSL套接字连接
-public function streamSocketClientSSL(string $address, int $timeout = 0, mixed $context = null): Promise;
-
 // 创建一个套接字连接
-public function streamSocketClient(string $address, int $timeout = 0, mixed $context = null): Promise;
-
-// 将套接字连接转换为SSL连接
-public function streamEnableCrypto(SocketStream $stream): Promise;
-
-// 监听一个SSL套接字服务器
-public function streamSocketServerSSL(string $address, mixed $context = null): Promise;
+public function connect(string $address, int $timeout = 0, mixed $context = null): Promise;
 
 // 监听一个套接字服务器
-public function streamSocketServer(string $address, mixed $context = null): Promise;
+public function server(string $address, mixed $context = null): Promise;
 
-// 接受一个套接字连接
-public function streamSocketAccept(SocketStream $server): Promise;
+// 将套接字连接转换为SSL连接
+public function enableSSL(SocketStream $stream): Promise;
+
+// 监听一个SSL套接字服务器
+public function serverWithSSL(string $address, mixed $context = null): Promise;
+
+// 创建一个SSL套接字连接
+public function connectWithSSL(string $address, int $timeout = 0, mixed $context = null): Promise;
+
 ```
 
 ### 概述
@@ -51,7 +49,7 @@ use function Co\await;
 
 async(function(){
     $server = await(
-        IO::Socket()->streamSocketServer('tcp://127.0.0.1:8008')
+        IO::Socket()->server('tcp://127.0.0.1:8008')
     );
     
     while(1){
