@@ -55,7 +55,7 @@ $runtime->await();
 > to increase the counter.
 
 ```php
-use Psc\Core\Coroutine\WaitGroup;
+use Ripple\Coroutine\WaitGroup;
 
 $waitGroup = new WaitGroup(2);
 
@@ -82,7 +82,7 @@ $waitGroup->wait();
 > Even if one of the futures fails to execute, you will get a failed future.
 
 ```php
-use Psc\Core\Coroutine\Promise;
+use Ripple\Coroutine\Promise;
 
 $tasks = [];
 
@@ -103,7 +103,7 @@ $result = Promise::all($tasks);
 > Usually used to wait for multiple contracts to be executed before performing the next step.
 
 ```php
-use Psc\Core\Coroutine\Promise;
+use Ripple\Coroutine\Promise;
 
 $tasks = [];
 
@@ -124,7 +124,7 @@ $promise = Promise::allSettled($tasks);
 > Tasks that are executed first will pop up first in the iterator
 
 ```php
-use Psc\Core\Coroutine\Promise;
+use Ripple\Coroutine\Promise;
 use function Co\async;
 
 $tasks = [];
@@ -149,7 +149,7 @@ foreach (Promise::futures($tasks) as $future) {
 > result of the first completed future.
 
 ```php
-use Psc\Core\Coroutine\Promise;
+use Ripple\Coroutine\Promise;
 
 use function Co\async;
 
@@ -174,7 +174,7 @@ $promise = Promise::any($tasks)->then(function ($value) {
 > execution result of the first completed future.
 
 ```php
-use Psc\Core\Coroutine\Promise;
+use Ripple\Coroutine\Promise;
 
 $tasks = [];
 

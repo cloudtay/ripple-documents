@@ -27,7 +27,7 @@ composer require cloudtay/ripple-driver
 ### Workerman
 
 ```php
-Worker::$eventLoopClass = \Psc\Drive\Workerman\PDrive::class;
+Worker::$eventLoopClass = \Ripple\Drive\Workerman\Driver::class;
 Worker::runAll();
 ```
 
@@ -40,7 +40,7 @@ Worker::runAll();
 ```php
 return [
     //...
-    'event_loop' => \Psc\Drive\Workerman\PDrive::class,
+    'event_loop' => \Ripple\Drive\Workerman\Driver::class,
 ];
 ```
 
@@ -50,27 +50,41 @@ return [
 
 #### Environment configuration support (ENV)
 
-| Configuration items | Description | Default value |
-|-------------------|----------------------------- ---------------------------------------|---------- ---------------|
-| `PRP_HTTP_LISTEN` | HTTP service, listening address format such as `http://127.0.0.1:8008` | `http://127.0.0.1:8008` |
-| `PRP_HTTP_COUNT` | HTTP service, number of worker processes | `4` |
-| `PRP_ISOLATION` | Controller isolation mode, after turning on, the Controller will be re-instantiated for each
-request, suitable for stateful Controller isolation $this->request | `0` |
+| Configuration items                                                | Description                                                                                  | Default value           |
+|--------------------------------------------------------------------|----------------------------------------------------------------------------------------------|-------------------------|
+| `PRP_HTTP_LISTEN`                                                  | HTTP service, listening address format such as `http://127.0.0.1:8008`                       | `http://127.0.0.1:8008` |
+| `PRP_HTTP_WORKERS`                                                 | HTTP service, number of worker processes                                                     | `4`                     |
+| `PRP_ISOLATION`                                                    | Controller isolation mode, after turning on, the Controller will be re-instantiated for each |                         |
+| request, suitable for stateful Controller isolation $this->request | `0`                                                                                          |                         |
 
 ```bash
-php artisan p:server {action} {--daemon}
+php artisan ripple:server {action} {--daemon}
 
 # action: start|stop|reload|status, default is start
 # -d | --daemon Whether to run as a daemon process, the default is false
 ```
 
+#### publish profile
+
+```bash
+php artisan vendor:publish --tag=ripple-config
+```
+
+#### run
+
+```bash
+php artisan ripple:server {action} {--daemon}
+
+# action: start|stop|reload|status, Default is start
+# -d | --daemon     # Whether to run as a daemon process, the default is false
+```
+
 > open `http://127.0.0.1:8008/`
----
 
 ### ThinkPHP
 
 ```bash
-php think p:server {action} {--daemon}
+php think ripple:server {action} {--daemon}
 
 # action: start|stop|reload|status, default is start
 # -d | --daemon Whether to run as a daemon process, the default is false
@@ -121,11 +135,11 @@ You can implement custom services by inheriting the Worker class and use HttpWor
 namespace ApCo\Server;
 
 use Co\Net;
-use Psc\Core\WebSocket\Server\Connection;
-use Psc\Core\WebSocket\Server\Server;
-use Psc\Worker\Command;
-use Psc\Worker\Manager;
-use Psc\Worker\Worker;
+use Ripple\WebSocket\Server\Connection;
+use Ripple\WebSocket\Server\Server;
+use Ripple\Worker\Command;
+use Ripple\Worker\Manager;
+use Ripple\Worker\Worker;
 
 class WsWorker extends Worker
 {
@@ -190,7 +204,7 @@ namespace ApCo\Providers;
 
 use ApCo\Server\WsWorker;
 use Illuminate\Support\ServiceProvider;
-use Psc\Worker\Manager;
+use Ripple\Worker\Manager;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -206,7 +220,7 @@ class AppServiceProvider extends ServiceProvider
 ```php
 class IndexController extends Controller
 {
-    public function notice(Request $request,\Psc\Drive\Laravel\Worker $httpWorker) : JsonResponse
+    public function notice(Request $request,\Ripple\Drive\Laravel\Worker $httpWorker) : JsonResponse
     {
         $command = Command::make('sendMessageToAll', [
             'message' => 'post message ' . $request->post('message')

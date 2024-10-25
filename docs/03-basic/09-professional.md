@@ -48,7 +48,7 @@ $runtime->await();
 > 通常需要初始化一个带有计数器的`WaitGroup`对象, 或在`WaitGroup`对象上调用`add`方法增加计数器。
 
 ```php
-use Psc\Core\Coroutine\WaitGroup;
+use Ripple\Coroutine\WaitGroup;
 
 $waitGroup = new WaitGroup(2);
 
@@ -73,7 +73,7 @@ $waitGroup->wait();
 > 即使其中一个期约执行失败, 将会得到一个失败的期约。
 
 ```php
-use Psc\Core\Coroutine\Promise;
+use Ripple\Coroutine\Promise;
 
 $tasks = [];
 
@@ -93,7 +93,7 @@ $result = Promise::all($tasks);
 > 通常用于等待多个期约执行完毕后再执行下一步操作
 
 ```php
-use Psc\Core\Coroutine\Promise;
+use Ripple\Coroutine\Promise;
 
 $tasks = [];
 
@@ -113,7 +113,7 @@ $promise = Promise::allSettled($tasks);
 > 先执行完成的任务会在迭代器中优先弹出
 
 ```php
-use Psc\Core\Coroutine\Promise;
+use Ripple\Coroutine\Promise;
 use function Co\async;
 
 $tasks = [];
@@ -137,7 +137,7 @@ foreach (Promise::futures($tasks) as $future) {
 > `Promise::any`用于等待一组期约中的任意一个期约执行完毕, 并返回第一个执行完毕的期约的执行结果。
 
 ```php
-use Psc\Core\Coroutine\Promise;
+use Ripple\Coroutine\Promise;
 
 use function Co\async;
 
@@ -161,7 +161,7 @@ $promise = Promise::any($tasks)->then(function ($value) {
 > `Promise::race`用于等待一组期约中的任意一个期约执行完毕, 并返回第一个执行完毕的期约的执行结果。
 
 ```php
-use Psc\Core\Coroutine\Promise;
+use Ripple\Coroutine\Promise;
 
 $tasks = [];
 

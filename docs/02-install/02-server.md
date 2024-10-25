@@ -24,7 +24,7 @@ composer require cloudtay/ripple-driver
 ### Workerman
 
 ```php
-Worker::$eventLoopClass = \Psc\Drive\Workerman\PDrive::class;
+Worker::$eventLoopClass = \Ripple\Drive\Workerman\Driver4::class;
 Worker::runAll();
 ```
 
@@ -37,7 +37,7 @@ Worker::runAll();
 ```php
 return [
     //...
-    'event_loop' => \Psc\Drive\Workerman\PDrive::class,
+    'event_loop' => \Ripple\Drive\Workerman\Driver4::class,
 ];
 ```
 
@@ -47,14 +47,21 @@ return [
 
 #### 环境配置支持(ENV)
 
-| 配置项               | 说明                                                                 | 默认值                     |
-|-------------------|--------------------------------------------------------------------|-------------------------|
-| `PRP_HTTP_LISTEN` | HTTP服务,监听地址格式如`http://127.0.0.1:8008`                              | `http://127.0.0.1:8008` |
-| `PRP_HTTP_COUNT`  | HTTP服务,工作进程数                                                       | `4`                     |
-| `PRP_ISOLATION`   | 控制器隔离模式,开启后每次请求都会重新实例化Controller,适用于有状态的Controller隔离$this->request | `0`                     |
+| 配置项                | 说明                                                                 | 默认值                     |
+|--------------------|--------------------------------------------------------------------|-------------------------|
+| `PRP_HTTP_LISTEN`  | HTTP服务,监听地址格式如`http://127.0.0.1:8008`                              | `http://127.0.0.1:8008` |
+| `PRP_HTTP_WORKERS` | HTTP服务,工作进程数                                                       | `4`                     |
+| `PRP_ISOLATION`    | 控制器隔离模式,开启后每次请求都会重新实例化Controller,适用于有状态的Controller隔离$this->request | `0`                     |
+
+#### 发布配置文件
+```bash
+php artisan vendor:publish --tag=ripple-config
+```
+
+#### 运行服务
 
 ```bash
-php artisan p:server {action} {--daemon}
+php artisan ripple:server {action} {--daemon}
 
 # action: start|stop|reload|status, 默认为start
 # -d | --daemon     是否以守护进程运行,默认为false
@@ -66,7 +73,7 @@ php artisan p:server {action} {--daemon}
 ### ThinkPHP
 
 ```bash
-php think p:server  {action} {--daemon}
+php think ripple:server  {action} {--daemon}
 
 # action: start|stop|reload|status, 默认为start
 # -d | --daemon     是否以守护进程运行,默认为false
@@ -115,11 +122,11 @@ Laravel/ThinkPHP的Http服务也是基于Worker实现的,内置于Drive中并注
 namespace App\Server;
 
 use Co\Net;
-use Psc\Core\WebSocket\Server\Connection;
-use Psc\Core\WebSocket\Server\Server;
-use Psc\Worker\Command;
-use Psc\Worker\Manager;
-use Psc\Worker\Worker;
+use Ripple\WebSocket\Server\Connection;
+use Ripple\WebSocket\Server\Server;
+use Ripple\Worker\Command;
+use Ripple\Worker\Manager;
+use Ripple\Worker\Worker;
 
 class WsWorker extends Worker
 {
@@ -184,7 +191,7 @@ namespace ApCo\Providers;
 
 use ApCo\Server\WsWorker;
 use Illuminate\Support\ServiceProvider;
-use Psc\Worker\Manager;
+use Ripple\Worker\Manager;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -200,7 +207,7 @@ class AppServiceProvider extends ServiceProvider
 ```php
 class IndexController extends Controller
 {
-    public function notice(Request $request,\Psc\Drive\Laravel\Worker $httpWorker) : JsonResponse
+    public function notice(Request $request,\Ripple\Drive\Laravel\Worker $httpWorker) : JsonResponse
     {
         $command = Command::make('sendMessageToAll', [
             'message' => 'post message ' . $request->post('message')
@@ -210,4 +217,3 @@ class IndexController extends Controller
     }
 }
 ```
-

@@ -14,7 +14,7 @@ usage method is as follows
 
 ```php
 use Co\Net;
-use Psc\Library\Net\WebSocket\Server\Connection;
+use Ripple\Library\Net\WebSocket\Server\Connection;
 
 use function Co\run;
 

@@ -84,7 +84,7 @@ $worker->onWorkerStart = function() {
     });
 }
 
-Worker::$eventLoopClass = PDrive::class;
+Worker::$eventLoopClass = Driver::class;
 Worker::runAll();
 ```
 

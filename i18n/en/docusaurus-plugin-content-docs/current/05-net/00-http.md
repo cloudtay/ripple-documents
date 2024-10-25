@@ -22,8 +22,8 @@ You can use them just like the HttpFoundation component in Symfony/Laravel
 
 ```php
 use Co\IO;
-use Psc\Store\Net\HttCo\Server\Request;
-use Psc\Store\Net\HttCo\Server\Response;
+use Ripple\Store\Net\HttCo\Server\Request;
+use Ripple\Store\Net\HttCo\Server\Response;
 use function Co\await;
 use function Co\run;
 

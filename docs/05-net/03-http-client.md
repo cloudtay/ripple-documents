@@ -12,7 +12,7 @@ ripple提供了一个易用的HttpClient组件,可以用于创建Http客户端�
 
 ```php
 use GuzzleHttCo\Psr7\Request;
-use Psc\Library\Net\HttCo\Client\HttpClient;
+use Ripple\Library\Net\HttCo\Client\HttpClient;
 use Psr\HttCo\Message\RequestInterface;
 
 use function Co\async;

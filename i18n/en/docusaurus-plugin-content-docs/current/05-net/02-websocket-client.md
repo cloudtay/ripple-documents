@@ -13,7 +13,7 @@ ripple provides an easy-to-use WebSocketClient component that can be used to cre
 
 ```php
 use Co\Net;
-use Psc\Library\Net\WebSocket\Client\Connection;
+use Ripple\Library\Net\WebSocket\Client\Connection;
 use function Co\run;
 
 $connection = Net::WebSocket()->connect('wss://echo.websocket.org');

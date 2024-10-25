@@ -17,8 +17,8 @@ ripple提供了一个易用的HttpServer组件,可以用于快速构建一个Htt
 
 ```php
 use Co\IO;
-use Psc\Store\Net\HttCo\Server\Request;
-use Psc\Store\Net\HttCo\Server\Response;
+use Ripple\Store\Net\HttCo\Server\Request;
+use Ripple\Store\Net\HttCo\Server\Response;
 use function Co\await;
 use function Co\run;
 

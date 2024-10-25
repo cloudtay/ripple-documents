@@ -10,7 +10,7 @@ ripple提供了一个易用的WebSocketServer组件,可以用于快速构建一�
 
 ```php
 use Co\Net;
-use Psc\Library\Net\WebSocket\Server\Connection;
+use Ripple\Library\Net\WebSocket\Server\Connection;
 
 use function Co\run;
 

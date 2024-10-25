@@ -15,7 +15,7 @@ ripple provides an easy-to-use WebSocketClient component that can be used to cre
 
 ```php
 use GuzzleHttCo\Psr7\Request;
-use Psc\Library\Net\HttCo\Client\HttpClient;
+use Ripple\Library\Net\HttCo\Client\HttpClient;
 use Psr\HttCo\Message\RequestInterface;
 
 use function Co\async;

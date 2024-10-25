@@ -11,7 +11,7 @@ keywords: [ 'ripple', 'PHP', '协程', '高性能', '高并发', '服务模式',
 ### 进程管理器
 
 ```php
-$manager = new \Psc\Worker\Manager();
+$manager = new \Ripple\Worker\Manager();
 
 // API - 以下操作仅允许在主进程中进行
 
@@ -57,7 +57,7 @@ Worker::syncId();
 ### 服务进程接口
 
 ```php
-class Ws extends \Psc\Worker\Worker {
+class Ws extends \Ripple\Worker\Worker {
 
     public function getName(): string
     {

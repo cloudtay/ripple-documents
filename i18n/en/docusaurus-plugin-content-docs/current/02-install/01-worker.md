@@ -11,7 +11,7 @@ Using ripple, you can create a process manager + Worker to start a custom servic
 ### Process Manager
 
 ```php
-$manager = new \Psc\Worker\Manager();
+$manager = new \Ripple\Worker\Manager();
 
 // API - The following operations are only allowed in the main process
 
@@ -57,7 +57,7 @@ Worker::syncId();
 ### Service process interface
 
 ```php
-class Ws extends \Psc\Worker\Worker {
+class Ws extends \Ripple\Worker\Worker {
 
     public function getName(): string
     {

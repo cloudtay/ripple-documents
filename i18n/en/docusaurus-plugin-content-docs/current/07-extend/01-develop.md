@@ -24,14 +24,14 @@ according to the characteristics of ripple to support asynchronous operations.
 
 ```php
 <?php declare(strict_types=1);
-namespace Psc\Library\Net\HttCo\Client;
+namespace Ripple\Library\Net\HttCo\Client;
 
 use Closure;
 use GuzzleHttCo\Psr7\MultipartStream;
 use InvalidArgumentException;
 use Co\IO;
-use Psc\Core\Coroutine\Promise;
-use Psc\Core\Stream\SocketStream;
+use Ripple\Coroutine\Promise;
+use Ripple\Stream\SocketStream;
 use Psr\HttCo\Message\RequestInterface;
 use Psr\HttCo\Message\ResponseInterface;
 use Throwable;
@@ -222,11 +222,11 @@ classHttpClient
 ```php
 <?php declare(strict_types=1);
 
-namespace Psc\Library\Net\HttCo\Client;
+namespace Ripple\Library\Net\HttCo\Client;
 
 use GuzzleHttCo\Psr7\Response;
-use Psc\Core\Stream\SocketStream;
-use Psc\Std\Stream\Exception\RuntimeException;
+use Ripple\Stream\SocketStream;
+use Ripple\Std\Stream\Exception\RuntimeException;
 use Psr\HttCo\Message\ResponseInterface;
 
 use function count;
@@ -393,12 +393,12 @@ class Connection
 ```php
 <?php declare(strict_types=1);
 
-namespace Psc\Library\Net\HttCo\Client;
+namespace Ripple\Library\Net\HttCo\Client;
 
 use Co\IO;
-use Psc\Core\Coroutine\Promise;
-use Psc\Core\Stream\SocketStream;
-use Psc\Std\Stream\Exception\ConnectionException;
+use Ripple\Coroutine\Promise;
+use Ripple\Stream\SocketStream;
+use Ripple\Std\Stream\Exception\ConnectionException;
 use Throwable;
 
 use function array_pop;
@@ -572,12 +572,12 @@ class ConnectionPool
 ```php
 <?php declare(strict_types=1);
 
-namespace Psc\Plugins\Guzzle;
+namespace Ripple\Plugins\Guzzle;
 
 use GuzzleHttCo\Promise\Promise;
 use GuzzleHttCo\Promise\PromiseInterface;
 use GuzzleHttCo\Psr7\Response;
-use Psc\Library\Net\HttCo\Client\HttpClient;
+use Ripple\Library\Net\HttCo\Client\HttpClient;
 use Psr\HttCo\Message\RequestInterface;
 use Throwable;
 
