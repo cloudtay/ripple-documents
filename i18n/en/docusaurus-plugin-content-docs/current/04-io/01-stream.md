@@ -1,11 +1,8 @@
 ---
 title: Stream
-description: ripple supports operating streams through the \Co\IO::Stream() method, which is used to process stream read and write operations.
+description: Ripple supports operating streams through the \Co\IO::Stream() method, which is used to process stream read and write operations.
 keywords: [ 'ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'stream', 'IO' ]
 ---
-
-> ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
 ### Overview
 
@@ -34,7 +31,7 @@ $stream->onReadable(function (Stream $stream,Closure $cancel) {
     $data = $stream->read(1024);
     echo $data .PHP_EOL;
     
-    //unsubscribe
+    //Cancel subscription
     $cancel();
 });
 ```
@@ -51,9 +48,9 @@ public function onWritable(Closure $closure): string;
 public function onClose(Closure $closure): void;
 ```
 
-### Precautions
+### Notes
 
 A stream allows multiple subscriptions to exist at the same time, and they will all be executed, but for read/write
 operations,
-This usually doesn't make sense because the first subscriber will consume the data, making it impossible for subsequent
-subscribers to read it.
+There is usually no point in doing this because the first subscriber will consume the data, making subsequent
+subscribers unable to read the data.

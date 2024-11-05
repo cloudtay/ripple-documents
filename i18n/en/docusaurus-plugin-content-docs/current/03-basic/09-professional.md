@@ -11,7 +11,7 @@ keywords: [ 'ripple', 'PHP', 'periodic', 'high performance', 'high concurrency',
 > All fork events will be executed in the child process after the fork, and the registered processor will be forgotten
 > after execution.
 
-### API
+###API
 
 ```php
 namespace Co;
@@ -39,7 +39,7 @@ $runtime->await();
 
 > Using task to create a sub-process can put time-consuming tasks into the sub-process for execution to avoid blocking
 > the main process. The child process will inherit all resources of the parent process.
-> But all event handlers, including those registered with `forked` will be forgotten. Therefore, the event handler needs
+> But all event handlers, including those registered by `forked` will be forgotten. Therefore, the event handler needs
 > to be re-registered in the child process.
 
 ## Futures contract management

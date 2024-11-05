@@ -1,13 +1,10 @@
 ---
 title: \Co\defer
 description: ripple supports delayed execution of a closure function through the \Co\defer method, which is used to handle asynchronous operations.
-keywords: ['ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'deferred', 'asynchronous']
+keywords: [ 'ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'deferred', 'asynchronous' ]
 ---
 
-> ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
-
-### API
+###API
 
 ```php
 namespace Co;
@@ -15,7 +12,7 @@ namespace Co;
 function defer(Closure $closure): string;
 ```
 
-#### Parameter Description
+#### Parameter description
 
 | Parameters | Type    | Description                                                             |
 |------------|---------|-------------------------------------------------------------------------|
@@ -25,7 +22,7 @@ function defer(Closure $closure): string;
 
 none
 
-### return value
+### Return value
 
 Returns the unique identifier of the current event, allowing the event to be canceled using the `\Co\cancel` method
 

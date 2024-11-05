@@ -15,20 +15,22 @@ IO::Socket();
 ### API
 
 ```php
+use Ripple\Socket\SocketStream;
+
 // 创建一个套接字连接
-public function connect(string $address, int $timeout = 0, mixed $context = null): Promise;
+public function connect(string $address, int $timeout = 0, mixed $context = null): StreamSocket;
 
 // 监听一个套接字服务器
-public function server(string $address, mixed $context = null): Promise;
+public function server(string $address, mixed $context = null): StreamSocket;
 
 // 将套接字连接转换为SSL连接
-public function enableSSL(SocketStream $stream): Promise;
+public function enableSSL(SocketStream $stream): StreamSocket;
 
 // 监听一个SSL套接字服务器
-public function serverWithSSL(string $address, mixed $context = null): Promise;
+public function serverWithSSL(string $address, mixed $context = null): StreamSocket;
 
 // 创建一个SSL套接字连接
-public function connectWithSSL(string $address, int $timeout = 0, mixed $context = null): Promise;
+public function connectWithSSL(string $address, int $timeout = 0, mixed $context = null): StreamSocket;
 
 ```
 
@@ -48,17 +50,11 @@ use function Co\async;
 use function Co\await;
 
 async(function(){
-    $server = await(
-        IO::Socket()->server('tcp://127.0.0.1:8008')
-    );
+    $server =  IO::Socket()->server('tcp://127.0.0.1:8008');
     
     while(1){
-        /**
-         * @var SocketStream $client
-         */
-        $client = await(
-            IO::Socket()->streamSocketAccept($server)
-        );
+        $server->waitForReadable();
+        $client = $server->accept();
         
         $client->write(
             "HTTP/1.1 200 OK\r\n".
@@ -67,7 +63,6 @@ async(function(){
             "\r\n".
             "Hello World"
         );
-        
         $client->close();
     }
 });

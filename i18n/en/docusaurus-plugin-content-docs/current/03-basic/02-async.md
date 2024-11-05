@@ -1,14 +1,11 @@
 ---
 title: \Co\async
-description: Async (asynchronous) in ripple is a core concept in the ripple framework and is used to handle asynchronous operations. Async objects represent the final completion or failure of an asynchronous operation, as well as its result value.
-keywords: ['ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'asynchronous', 'Async']
-tags: ['Async', 'Async']
+description: Async in ripple is a core concept in the ripple framework and is used to handle asynchronous operations. Async objects represent the final completion or failure of an asynchronous operation, as well as its result value.
+keywords: [ 'ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'asynchronous', 'Async' ]
+tags: [ 'Async', 'Async' ]
 ---
 
-> ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
-
-### API
+###API
 
 ```php
 namespace Co;
@@ -16,7 +13,7 @@ namespace Co;
 function async(Closure $closure): Promise;
 ```
 
-#### Parameter Description
+#### Parameter description
 
 | Parameters | Type    | Description                                                       |
 |------------|---------|-------------------------------------------------------------------|
@@ -42,8 +39,8 @@ Use this method to create a Promise object
 $promise = \Co\async(Closure $callback): Promise
 ```
 
-> ripple will also provide two parameters for the submitted closure function, one is the `resolve` callback function
-> and the other is the `reject` callback function.
+> Ripple will also provide two parameters for the submitted closure function, one is the `resolve` callback function and
+> the other is the `reject` callback function.
 > Use these two callback functions to resolve or reject a promise. Unlike the `promise` method, `async` supports more
 > asynchronous operations.
 > And using the `async` method usually does not require explicit processing of `resolve` and `reject`, it will
@@ -128,7 +125,7 @@ function httpGet(string $url) : Promise {
 });
 ```
 
-### Precautions
+### Notes
 
 `await` can only be used in `async`, and can only wait for `Promise` objects. Outside the closure you can do this:
 

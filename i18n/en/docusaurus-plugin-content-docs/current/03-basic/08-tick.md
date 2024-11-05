@@ -1,24 +1,21 @@
 ---
 title: \Co\wait
-description: The \Co\wait function is used to trigger all events. ripple will start executing all events until it is idle.
+description: The \Co\wait function is used to trigger all events, and ripple will start executing all events until it is idle.
 ---
 
-> ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
-
-### API
+###API
 
 ```php
 namespace Co;
 
-function tick(): void;
+function wait(): void;
 ```
 
-#### Parameter Description
+#### Parameter description
 
 none
 
-#### return value
+#### Return value
 
 none
 
@@ -66,7 +63,7 @@ require __DIR__.'/../vendor/autoload.php';
 \Co\wait();
 ```
 
-### Precautions
+### Notes
 
 > When there is a signal processor/stream listener in the registered event, if the signal processor/stream listener is
-> not released, ripple will consider that there are unfinished events and will wait until all events are completed.
+> not released, ripple will think that there are unfinished events and will wait until all events are completed.

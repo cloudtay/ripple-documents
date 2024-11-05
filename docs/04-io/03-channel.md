@@ -15,9 +15,6 @@ IO::Channel();
 ### API
 
 ```php
-// 访问一个信道
-public function open(string $name): Channel;
-
 // 创建一个信道
 public function make(string $name): Channel;
 ```
@@ -87,9 +84,8 @@ Worker::runAll();
 ```php
 public function index(Request $request) : JsonResponse
 {
-    $channel = \Co\IO::Channel()->open('websocket');
+    $channel = \Co\IO::Channel()->make('websocket');
     $channel->send($request->query('message'));
-    
     return new JsonResponse(['status' => 'ok']);
 }
 ```

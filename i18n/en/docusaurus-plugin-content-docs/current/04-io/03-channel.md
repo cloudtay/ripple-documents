@@ -4,9 +4,6 @@ description: Channel in ripple is a core concept in the ripple framework and is 
 keywords: [ 'ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'channel', 'Channel' ]
 ---
 
-> ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
-
 ### Access components
 
 ```php
@@ -18,9 +15,6 @@ IO::Channel();
 ###API
 
 ```php
-//Access a channel
-public function open(string $name): Channel;
-
 //Create a channel
 public function make(string $name): Channel;
 ```
@@ -93,14 +87,13 @@ Worker::runAll();
 ```php
 public function index(Request $request) : JsonResponse
 {
-    $channel = \Co\IO::Channel()->open('websocket');
+    $channel = \Co\IO::Channel()->make('websocket');
     $channel->send($request->query('message'));
-    
     return new JsonResponse(['status' => 'ok']);
 }
 ```
 
-### Precautions
+### Notes
 
 Channel's communication data is serialized based on PHP serialization and supports the transmission of data types such
 as objects/arrays/strings, but does not support the transmission of non-serializable data types such as resources.

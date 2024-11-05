@@ -11,14 +11,6 @@
     "message": "The generated-index page description for category guide in sidebar tutorialSidebar",
     "description": "The generated-index page description for category guide in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.install": {
-    "message": "🔧 Install",
-    "description": "The label for category install in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.install.link.generated-index.description": {
-    "message": "the generated-index page description for category install in sidebar tutorialSidebar",
-    "description": "The generated-index page description for category install in sidebar tutorialSidebar"
-  },
   "sidebar.tutorialSidebar.category.basic": {
     "message": "📖 Basic",
     "description": "The label for category basic in sidebar tutorialSidebar"
@@ -46,10 +38,6 @@
   "sidebar.tutorialSidebar.category.system.link.generated-index.description": {
     "message": "",
     "description": "The generated-index page description for category system in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.extend": {
-    "message": "🧩 Extend",
-    "description": "The label for category extend in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.extend.link.generated-index.description": {
     "message": "",

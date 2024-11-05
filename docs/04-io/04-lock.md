@@ -16,7 +16,7 @@ IO::Lock();
 
 ```php
 // 访问一个文件锁,不存在则创建
-public function access(string $name = 'default'): Lock;
+public function make(string $name = 'default'): Lock;
 ```
 
 ### 概述
@@ -27,7 +27,7 @@ public function access(string $name = 'default'): Lock;
 ### 例子
 
 ```php
-$common = \Co\IO::Lock()->access('common');
+$common = \Co\IO::Lock()->make('common');
 $common->lock();
 
 $task = \Co\System::Process()->task(function() use ($common){

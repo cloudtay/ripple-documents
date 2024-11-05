@@ -1,5 +1,5 @@
 ---
-title: websocket
+title: WebSocket服务
 description: ripple中支持通过\Co\Net::WebSocket()方法操作WebSocket, 用于处理WebSocket服务。
 keywords: [ 'ripple', 'PHP', '协程', '高性能', '高并发', 'WebSocket', 'Net' ]
 ---
@@ -9,12 +9,9 @@ keywords: [ 'ripple', 'PHP', '协程', '高性能', '高并发', 'WebSocket', 'N
 ripple提供了一个易用的WebSocketServer组件,可以用于快速构建一个WebSocket服务,使用方法如下
 
 ```php
-use Co\Net;
-use Ripple\Library\Net\WebSocket\Server\Connection;
+use Ripple\WebSocket\Server;
 
-use function Co\run;
-
-include __DIR__ . '/../vendor/autoload.php';
+use function Co\wait;
 
 $context = \stream_context_create([
     'socket' => [
@@ -38,7 +35,7 @@ $server->onClose(function (Connection $connection) {
     echo 'Connection closed' . \PHP_EOL;
 });
 
-run();
+wait();
 ```
 
 

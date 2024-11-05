@@ -1,13 +1,10 @@
 ---
 title: \Co\delay
 description: ripple supports delayed execution of a closure function through the \Co\delay method, which is used to handle asynchronous operations.
-keywords: ['ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'delay', 'asynchronous']
+keywords: [ 'ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'delay', 'asynchronous' ]
 ---
 
-> ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
-
-### API
+###API
 
 ```php
 namespace Co;
@@ -15,7 +12,7 @@ namespace Co;
 function delay(Closure $closure,int|float $second): string;
 ```
 
-#### Parameter Description
+#### Parameter description
 
 | Parameters | Type | Description |
 |----------|------------------|------------------- ---|
@@ -26,7 +23,7 @@ function delay(Closure $closure,int|float $second): string;
 
 none
 
-#### return value
+#### Return value
 
 Returns the unique identifier of the event, allowing the event to be canceled using the \Co\cancel method
 

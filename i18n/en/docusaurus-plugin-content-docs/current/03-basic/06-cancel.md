@@ -1,13 +1,10 @@
 ---
 title: \Co\cancel
 description: Cancel (cancel), used to cancel an event, usually used to cancel asynchronous tasks, supports the cancellation of all events whose running context is defined as an independent fiber. Such as `delay`, `repeat`, `onSignal`, `defer`, etc.
-keywords: ['ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'undo', 'cancel', 'asynchronous task']
+keywords: [ 'ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'undo', 'cancel', 'asynchronous task' ]
 ---
 
-> ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
-
-### API
+###API
 
 ```php
 namespace Co;
@@ -15,13 +12,13 @@ namespace Co;
 function cancel(string $eventId): string;
 ```
 
-#### Parameter Description
+#### Parameter description
 
 | Parameters | Type   | Description      |
 |------------|--------|------------------|
 | $eventId   | string | event identifier |
 
-#### return value
+#### Return value
 
 none
 
@@ -58,7 +55,7 @@ $delayId = \Co\delay(function () {
 \Co\cancel($delayId);
 ```
 
-#### Precautions
+#### Notes
 
 > You cannot cancel an executed event, you can only cancel an unexecuted event, except repeat/signal,
 > Other events are one-time events and will be automatically destroyed once executed. If there are no special

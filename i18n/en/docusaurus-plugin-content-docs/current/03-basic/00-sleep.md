@@ -4,9 +4,6 @@ description: The \Co\sleep function is used to suspend the current coroutine, gi
 keywords: [ 'ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'sleep', 'suspend', 'CPU resources' ]
 ---
 
-> ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
-
 ###API
 
 ```php
@@ -15,13 +12,13 @@ namespace Co;
 function sleep(int $second): void;
 ```
 
-#### Parameter Description
+#### Parameter description
 
 | Parameters | Type | Description                                                        |
 |------------|------|--------------------------------------------------------------------|
 | $second    | int  | Sleep time, unit second, supports decimal precision of 0.1 seconds |
 
-#### return value
+#### Return value
 
 No return value
 
@@ -29,8 +26,7 @@ No return value
 
 > Sleep (sleep), the user suspends the execution of the current coroutine and lets the CPU handle other to-do tasks.
 
-- Using the `\Co\sleep` function in `fiber space`: will suspend the current coroutine, giving up CPU resources, and
-  other
+- Using the `\Co\sleep` function in `fiber space`: will suspend the current coroutine, give up CPU resources, and other
   coroutines can continue to execute.
 - Using the `\Co\sleep` function outside the `fiber space`: will suspend the current main process, giving up CPU
   resources, and other coroutines can continue to execute.
@@ -49,6 +45,6 @@ No return value
 \Co\sleep(10); // Suspend the main process for 10 seconds so that other coroutines can complete the task
 ```
 
-### Precautions
+### Notes
 
 > None

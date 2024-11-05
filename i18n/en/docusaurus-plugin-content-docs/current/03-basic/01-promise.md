@@ -1,11 +1,8 @@
 ---
 title: \Co\promise
-description: Promise (commitment/expiry mechanism) is a core concept in the ripple framework and is used to handle asynchronous operations. A Promise object represents the final completion or failure of an asynchronous operation, as well as its result value. Compared with Future, Promise provides a more intuitive API that is easier to understand and use.
-keywords: ['ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'promise mechanism', 'Promise','commitment mechanism']
+description: Promise (promise/expiry mechanism) is a core concept in the ripple framework and is used to handle asynchronous operations. A Promise object represents the final completion or failure of an asynchronous operation, as well as its result value. Compared with Future, Promise provides a more intuitive API that is easier to understand and use.
+keywords: [ 'ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'promise mechanism', 'Promise','commitment mechanism' ]
 ---
-
-> ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
 ###API
 
@@ -15,7 +12,7 @@ namespace Co;
 function promise(Closure $closure): Promise;
 ```
 
-#### Parameter Description
+#### Parameter description
 
 | Parameters | Type    | Description                                                    |
 |------------|---------|----------------------------------------------------------------|
@@ -28,7 +25,7 @@ function promise(Closure $closure): Promise;
 | $resolve   | Closure | Resolve contract       |
 | $reject    | Closure | Reject future contract |
 
-#### return value
+#### Return value
 
 Returns a `Promise` object
 
@@ -47,8 +44,8 @@ Compared with Future, Promise provides a more intuitive API that is easier to un
 $promise = \Co\promise(Closure $callback): Promise
 ```
 
-> ripple will provide two parameters for the closure function you submit, one is the `resolve` callback function and
-> the other is the `reject` callback function.
+> ripple will provide two parameters for the closure function you submit, one is the `resolve` callback function and the
+> other is the `reject` callback function.
 > Use these two callback functions to resolve or reject a futures contract.
 
 ```php
@@ -92,6 +89,6 @@ $promise->catch(function (Exception $e) {
 $promise->await(); // Wait for the promise to be resolved
 ```
 
-### Precautions
+### Notes
 
 `resolve` and `reject` will only change the state and result of Promise and will not prevent subsequent code execution.

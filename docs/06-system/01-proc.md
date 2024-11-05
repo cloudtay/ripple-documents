@@ -30,7 +30,7 @@ $session->onMessage = function ($message) {
     //TODO: 消息会从该回调函数中输出
 };
 
-\Co\run();
+\Co\wait();
 ```
 
 其中`$session`是一个`Co\Proc\ProcSession`对象

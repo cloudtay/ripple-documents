@@ -1,13 +1,10 @@
 ---
 title: \Co\repeat
-description: ripple supports repeatedly executing a closure function through the \Co\repeat method, which is used to handle scenarios such as scheduled tasks. ripple will provide a `cancel` callback function for the closure function you submit. By calling the `cancel` function, you can cancel the current repeated task.
-keywords: ['ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'redo', 'scheduled task']
+description: Ripple supports repeatedly executing a closure function through the \Co\repeat method, which is used to handle scenarios such as scheduled tasks. Ripple will provide a `cancel` callback function for the closure function you submit. By calling the `cancel` function, you can cancel the current repeated task.
+keywords: [ 'ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'redo', 'scheduled task' ]
 ---
 
-> ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
-
-### API
+###API
 
 ```php
 namespace Co;
@@ -15,7 +12,7 @@ namespace Co;
 function repeat(Closure $closure,int|float $second): string;
 ```
 
-#### Parameter Description
+#### Parameter description
 
 | Parameters | Type    | Description                                                                |
 |------------|---------|----------------------------------------------------------------------------|
@@ -31,8 +28,8 @@ function repeat(Closure $closure,int|float $second): string;
 
 > Repeat (repeated execution), specify the frequency to do something repeatedly, usually used in scenarios such as
 > scheduled tasks.
-> ripple will provide a `cancel` callback function for the closure function you submitted. The current repeated task
-> can be canceled by calling the `cancel` function.
+> Ripple will provide a `cancel` callback function for the closure function you submit. The current repeated task can be
+> canceled by calling the `cancel` function.
 
 ### Basic usage
 
@@ -49,8 +46,8 @@ function repeat(Closure $closure,int|float $second): string;
 \Co\wait(); // Wait for all events to complete
 ```
 
-Note: The `repeat` method will repeatedly execute the closure function within the specified time interval until
-the `cancel` function is called.
+Note: The `repeat` method will repeatedly execute the closure function within the specified time interval until the
+`cancel` function is called.
 
 ```php
 \Co\repeat(function (Closure $cancel) {

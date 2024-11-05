@@ -1,11 +1,8 @@
 ---
 title: File
-description: ripple supports operating files through the \Co\IO::File() method, which is used to handle file read and write operations.
+description: Ripple supports operating files through the \Co\IO::File() method, which is used to handle file read and write operations.
 keywords: ['ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'file', 'IO']
 ---
-
-> ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
 
 ### Access components
 
@@ -22,10 +19,10 @@ public function open(string $path, string $mode): Stream;
 
 ### Overview
 
-ripple provides asynchronous operation methods for files, allowing developers to read file contents and operate file
+Ripple provides asynchronous operation methods for files, allowing developers to read file contents and operate file
 streams through streams that do not block the process.
 
-### Instructions
+### How to use
 
 You can read the file in the following way
 

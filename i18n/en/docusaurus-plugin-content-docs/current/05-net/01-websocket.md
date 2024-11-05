@@ -1,24 +1,18 @@
 ---
-title: websocket
-description: ripple supports operating WebSocket through the \Co\Net::WebSocket() method, which is used to handle WebSocket services.
+title: WebSocket Service
+description: Ripple supports operating WebSocket through the \Co\Net::WebSocket() method, which is used to process WebSocket services.
 keywords: [ 'ripple', 'PHP', 'coroutine', 'high performance', 'high concurrency', 'WebSocket', 'Net' ]
 ---
 
-> ⚠️ This page was initialized by AI translation and may contain outdated or inaccurate information. If there are
-> inaccuracies, please submit changes to correct these errors [Correct](https://github.com/cloudtay/ripple-documents)
-
 ### Overview
 
-ripple provides an easy-to-use WebSocketServer component that can be used to quickly build a WebSocket service. The
+Ripple provides an easy-to-use WebSocketServer component that can be used to quickly build a WebSocket service. The
 usage method is as follows
 
 ```php
-use Co\Net;
-use Ripple\Library\Net\WebSocket\Server\Connection;
+use Ripple\WebSocket\Server;
 
-use function Co\run;
-
-include __DIR__ . '/../vendor/autoload.php';
+use function Co\wait;
 
 $context = \stream_context_create([
     'socket' => [
@@ -39,8 +33,8 @@ $server->onMessage(function (string $data, Connection $connection) {
 });
 
 $server->onClose(function (Connection $connection) {
-    echo 'Connection closed' . \PHP_EOL;
+    echo 'Connection closed' .\PHP_EOL;
 });
 
-run();
+wait();
 ```
