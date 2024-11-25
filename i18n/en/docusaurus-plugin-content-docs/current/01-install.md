@@ -86,7 +86,7 @@ composer require cloudtay/workerman-ripple # Install driver
 > Configure before starting the service
 
 ```php
-Worker::$eventLoopClass = \Ripple\Drive\Workerman\Driver4::class;
+Worker::$eventLoopClass = \Workerman\Ripple\Driver::class;
 Worker::runAll();
 ```
 
