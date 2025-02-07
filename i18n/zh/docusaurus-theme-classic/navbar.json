@@ -10,5 +10,9 @@
   "item.label.Source Code": {
     "message": "源代码",
     "description": "Navbar item with label Source Code"
+  },
+  "item.label.FAQ": {
+    "message": "交流&问答",
+    "description": "Navbar item with label FAQ"
   }
 }

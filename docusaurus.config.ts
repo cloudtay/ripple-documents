@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-    title: 'ripple',
+    title: 'Ripple',
     tagline: 'PHP协程引擎',
     favicon: 'img/favicon.ico',
 
@@ -11,7 +11,8 @@ const config: Config = {
     url: 'https://ripple.cloudtay.com',
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
-    baseUrl: '/',
+    baseUrl: '/documents/',
+    trailingSlash: false,
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
@@ -26,17 +27,12 @@ const config: Config = {
     // may want to replace "en" with "zh-Hans".
     i18n: {
         defaultLocale: 'zh',
-        locales: ['zh', 'en'],
+        locales: ['zh'],
         localeConfigs: {
             zh: {
                 label: '中文',
                 htmlLang: 'zh-CN',
                 path: 'zh',
-            },
-            en: {
-                label: 'English',
-                htmlLang: 'en-us',
-                path: 'en',
             },
         }
     },
@@ -76,7 +72,12 @@ const config: Config = {
                 src: 'img/logo.svg',
             },
             items: [
-                {to: '/docs/intro', label: 'Docs', position: 'left'},
+                {
+                    to: 'https://ripple.cloudtay.com',
+                    label: 'FAQ',
+                    position: 'left',
+                    target: '_self'
+                },
                 {
                     type: 'localeDropdown',
                     position: 'right',
@@ -133,7 +134,7 @@ const config: Config = {
             require.resolve('@easyops-cn/docusaurus-search-local'),
             {
                 hashed: true,
-                language: ['en', 'zh']
+                language: ['zh']
             }
         ]
     ]
