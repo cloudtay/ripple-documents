@@ -69,7 +69,7 @@ const config: Config = {
             title: '',
             logo: {
                 alt: 'ripple',
-                src: 'img/logo.svg',
+                src: 'img/logo.png',
             },
             items: [
                 {
